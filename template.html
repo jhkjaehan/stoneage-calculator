@@ -146,12 +146,31 @@ h1,h2,h3,.display{
 .result-summary .rs-item .rl{ font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:.07em; }
 
 .grade-list{ display:flex; flex-direction:column; gap:6px; }
-.grade-row{ display:grid; grid-template-columns:44px 1fr 64px; align-items:center; gap:10px; }
+.grade-block{ border-radius:8px; }
+.grade-row{
+  display:grid; grid-template-columns:16px 44px 1fr 92px; align-items:center; gap:10px;
+  width:100%; border:none; background:transparent; padding:4px 4px; border-radius:8px;
+  cursor:pointer; font-family:inherit; color:inherit;
+}
+.grade-row:hover{ background:var(--surface-2); }
+.grade-row:focus-visible{ outline:2px solid var(--accent); outline-offset:1px; }
+.grade-row .gchev{ font-size:10px; color:var(--text-muted); text-align:center; }
 .grade-row .glabel{ font-family:"JetBrains Mono",monospace; font-size:13px; font-weight:700; text-align:right; }
 .grade-row .glabel.best{ color:var(--accent); }
 .gtrack{ position:relative; height:16px; background:var(--surface-2); border-radius:6px; overflow:hidden; border:1px solid var(--border);}
 .gfill{ position:absolute; inset:0 auto 0 0; border-radius:6px; transition:width .5s cubic-bezier(.2,.8,.2,1); }
 .grade-row .gpct{ font-family:"JetBrains Mono",monospace; font-size:12.5px; color:var(--text-muted); text-align:right; }
+
+.grade-detail{ margin:2px 4px 8px 26px; padding:10px 12px; background:var(--surface-2); border:1px solid var(--border); border-radius:10px; }
+.detail-scroll{ max-height:260px; overflow-y:auto; overflow-x:auto; }
+.detail-table{ width:100%; border-collapse:collapse; font-size:12px; }
+.detail-table th{
+  position:sticky; top:0; background:var(--surface-2); text-align:left; font-weight:700;
+  color:var(--text-muted); padding:4px 8px; border-bottom:1px solid var(--border); white-space:nowrap;
+}
+.detail-table td{ padding:4px 8px; border-bottom:1px solid var(--border); white-space:nowrap; }
+.detail-table tr:last-child td{ border-bottom:none; }
+.detail-count{ margin:8px 0 0; font-size:11px; color:var(--text-muted); }
 
 .empty-state{ color:var(--text-muted); font-size:13.5px; text-align:center; padding:30px 10px; }
 
@@ -208,6 +227,7 @@ footer.foot b{ color:var(--text); }
 
   function computeGradeDist(origin, k, target){
     const counts = {};
+    const matches = {}; // grade -> [{offset:[..], bonus:[..], raw:[..]}]
     let total = 0;
     for(const d0 of OFFSETS){
       const G0 = origin[0]+d0;
@@ -222,22 +242,29 @@ footer.foot b{ color:var(--text); }
               const D = Ds[i];
               const v0=G0+D[0], v1=G1+D[1], v2=G2+D[2], v3=G3+D[3];
               const a0=k*v0/100, a1=k*v1/100, a2=k*v2/100, a3=k*v3/100;
-              const p0 = Math.floor(4*a0+a1+a2+a3);
+              const raw0 = 4*a0+a1+a2+a3;
+              const p0 = Math.floor(raw0);
               if(p0!==target[0]) continue;
-              const p3 = Math.floor(a3);
+              const raw3 = a3;
+              const p3 = Math.floor(raw3);
               if(p3!==target[3]) continue;
-              const p1 = Math.floor(0.1*a0+a1+0.1*a2+0.05*a3);
+              const raw1 = 0.1*a0+a1+0.1*a2+0.05*a3;
+              const p1 = Math.floor(raw1);
               if(p1!==target[1]) continue;
-              const p2 = Math.floor(0.1*a0+0.1*a1+a2+0.05*a3);
+              const raw2 = 0.1*a0+0.1*a1+a2+0.05*a3;
+              const p2 = Math.floor(raw2);
               if(p2!==target[2]) continue;
               counts[grade] = (counts[grade]||0)+1;
               total++;
+              (matches[grade] = matches[grade]||[]).push({
+                offset:[d0,d1,d2,d3], bonus:D, raw:[raw0,raw1,raw2,raw3]
+              });
             }
           }
         }
       }
     }
-    return {counts, total};
+    return {counts, matches, total};
   }
 
   // ---- chosung search ----
@@ -378,10 +405,15 @@ footer.foot b{ color:var(--text); }
     return `color-mix(in srgb, var(--accent2) ${Math.round((1-t)*100)}%, var(--accent) ${Math.round(t*100)}%)`;
   }
 
+  let lastMatches = {};
+  let openGrades = new Set();
+
   function runCalc(){
     const p = findPet(selectedId);
     if(!p || !p.ok) return;
-    const {counts, total} = computeGradeDist(p.origin, p.k, statVals);
+    const {counts, matches, total} = computeGradeDist(p.origin, p.k, statVals);
+    lastMatches = matches;
+    openGrades = new Set();
     renderResults(p, counts, total);
   }
 
@@ -401,10 +433,15 @@ footer.foot b{ color:var(--text); }
     const rows = GRADES.filter(g=>counts[g]).map(g=>{
       const c = counts[g];
       const pct = c/total*100;
-      return `<div class="grade-row">
-        <span class="glabel ${g===bestGrade?'best':''}">${g>0?'+':''}${g}</span>
-        <div class="gtrack"><div class="gfill" style="width:${pct.toFixed(2)}%; background:${gradeColor(g)}"></div></div>
-        <span class="gpct">${pct.toFixed(1)}%</span>
+      const open = openGrades.has(g);
+      return `<div class="grade-block">
+        <button type="button" class="grade-row" data-grade="${g}" aria-expanded="${open}">
+          <span class="gchev">${open?'▾':'▸'}</span>
+          <span class="glabel ${g===bestGrade?'best':''}">${g>0?'+':''}${g}</span>
+          <div class="gtrack"><div class="gfill" style="width:${pct.toFixed(2)}%; background:${gradeColor(g)}"></div></div>
+          <span class="gpct">${c}건 · ${pct.toFixed(1)}%</span>
+        </button>
+        <div class="grade-detail" id="detail-${g}" ${open?'':'hidden'}>${open?renderDetailTable(g):''}</div>
       </div>`;
     }).join('');
 
@@ -416,7 +453,44 @@ footer.foot b{ color:var(--text); }
         <div class="rs-item"><div class="rv mono" style="color:var(--accent)">${bestGrade>0?'+':''}${bestGrade}등급</div><div class="rl">최빈 등급</div></div>
         <div class="rs-item"><div class="rv mono">${eightPct.toFixed(2)}%</div><div class="rl">+8등급(환각) 확률</div></div>
       </div>
+      <p class="calc-note">등급을 클릭하면 그 등급을 만드는 실제 조합(오프셋·보너스분배)을 화면 이동 없이 펼쳐볼 수 있습니다.</p>
       <div class="grade-list">${rows}</div>
+    `;
+
+    els.results.querySelectorAll('.grade-row').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const g = +btn.dataset.grade;
+        const panel = document.getElementById('detail-'+g);
+        const nowOpen = panel.hidden;
+        panel.hidden = !nowOpen;
+        btn.setAttribute('aria-expanded', String(nowOpen));
+        btn.querySelector('.gchev').textContent = nowOpen ? '▾' : '▸';
+        if(nowOpen){
+          openGrades.add(g);
+          if(!panel.dataset.built){ panel.innerHTML = renderDetailTable(g); panel.dataset.built='1'; }
+        } else {
+          openGrades.delete(g);
+        }
+      });
+    });
+  }
+
+  function renderDetailTable(grade){
+    const list = lastMatches[grade] || [];
+    const rows = list.map(m=>`
+      <tr>
+        <td class="mono">${m.offset.map(v=>(v>0?'+':'')+v).join(' / ')}</td>
+        <td class="mono">${m.bonus.join(' / ')}</td>
+        <td class="mono">${m.raw.map(v=>v.toFixed(3)).join(' / ')}</td>
+      </tr>`).join('');
+    return `
+      <div class="detail-scroll">
+        <table class="detail-table">
+          <thead><tr><th>등급 오프셋(체/공/방/순)</th><th>보너스분배(체/공/방/순)</th><th>계산값·내림전(내구/공격/방어/순발)</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+      <p class="detail-count">${list.length}개 조합 전부 표시 (등급오프셋 -2~+2 × 보너스분배 10P → 이 등급을 만드는 모든 경우의 수)</p>
     `;
   }
 
