@@ -5,8 +5,9 @@
 2. data/overrides.json 의 수동 보정값을 덮어씌운다
 3. data/pets.json 에 없는 id(신펫)만 골라 원본계수를 역산한다 (common.calibrate_pet)
 4. 신펫 이미지를 96x96 WebP로 압축해 base64로 내장한다
-5. data/pets.json 을 갱신하고, index.html 을 재빌드한다
-6. 결과 요약을 summary.json 으로 남긴다 (GitHub Actions가 이슈/커밋 여부 판단에 사용)
+5. 속성 게이지(attrs)는 계산 결과와 무관하므로 기존 펫이라도 항상 최신값으로 갱신한다
+6. data/pets.json 을 갱신하고, index.html 을 재빌드한다
+7. 결과 요약을 summary.json 으로 남긴다 (GitHub Actions가 이슈/커밋 여부 판단에 사용)
 
 "애매한 경우만 알림" 정책: 신펫은 계산 가능(ok=true)이면 정밀/근사 상관없이 즉시
 반영하되, approx=true(근사치)이거나 완전히 계산 실패한 신펫만 summary의
@@ -74,6 +75,14 @@ def main():
         if old and (old.get("growthS") != p["growth_S"] or old.get("initS") != p["init_S"]):
             changed.append({"id": p["id"], "name": p["name"]})
 
+    # 속성 게이지(attrs)는 계산 결과와 무관한 메타데이터라 감지 없이 항상 최신화
+    attrs_refreshed = False
+    for p in live_pets:
+        old = existing_by_id.get(p["id"])
+        if old is not None and old.get("attrs") != p["attrs"]:
+            old["attrs"] = p["attrs"]
+            attrs_refreshed = True
+
     needs_review = []
     added = []
 
@@ -86,7 +95,8 @@ def main():
             print(f"이미지 다운로드 실패: {p['name']} ({e})", file=sys.stderr)
 
         entry = {
-            "id": p["id"], "name": p["name"], "attr": p["attr"], "obtain": p["obtain"],
+            "id": p["id"], "name": p["name"], "attr": p["attr"], "attrs": p["attrs"],
+            "obtain": p["obtain"],
             "origin": calib.get("origin"), "k": calib.get("k"),
             "ok": calib["ok"], "approx": calib["approx"],
             "initS": p["init_S"], "growthS": p["growth_S"], "img": img_b64,
@@ -100,7 +110,7 @@ def main():
                 "growth_S": p["growth_S"], "init_S": p["init_S"],
             })
 
-    if new_pets:
+    if new_pets or attrs_refreshed:
         merged = list(existing_by_id.values())
         with open(PETS_PATH, "w", encoding="utf-8") as f:
             json.dump(merged, f, ensure_ascii=False)
@@ -124,7 +134,7 @@ def main():
     gh_out = os.environ.get("GITHUB_OUTPUT")
     if gh_out:
         with open(gh_out, "a", encoding="utf-8") as f:
-            f.write(f"has_new={'true' if new_pets else 'false'}\n")
+            f.write(f"has_new={'true' if (new_pets or attrs_refreshed) else 'false'}\n")
             f.write(f"needs_review={'true' if needs_review else 'false'}\n")
             f.write(f"added_count={len(added)}\n")
 

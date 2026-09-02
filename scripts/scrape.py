@@ -21,6 +21,8 @@ CARD_RE = re.compile(
 INIT_RE = re.compile(
     r'<td class="val_red">[^<]+</td><td>\d+</td><td>[^<]*</td><td>([\d\s]+)</td>'
 )
+# 속성 게이지(예: "화 (8)") - 1~2개, 두 값의 합은 항상 10
+ATTR_RE = re.compile(r'<div class="attr_label_tag ([가-힣])">[가-힣]\s*\((\d+)\)</div>')
 
 
 def login(session):
@@ -65,11 +67,13 @@ def fetch_pets():
         if len(nums) != 4:
             continue
         init_gbst = [int(x) for x in nums]  # 공 방 순 체 순서
+        attrs = [[name_, int(val)] for name_, val in ATTR_RE.findall(b)]
         pets.append({
             "id": wrid,
             "name": name,
             "img": img,
             "attr": attr,
+            "attrs": attrs,
             "obtain": obtain,
             "growth_S": [float(hp), float(atk), float(defe), float(agi)],  # 체공방순
             "init_S": [init_gbst[3], init_gbst[0], init_gbst[1], init_gbst[2]],  # 체공방순

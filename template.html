@@ -146,6 +146,13 @@ h1,h2,h3,.display{
   background:var(--danger-bg); color:var(--danger); border:1px solid var(--danger);
 }
 
+.attr-gauge-wrap{ display:flex; flex-direction:column; gap:6px; margin-top:14px; }
+.attr-row{ display:grid; grid-template-columns:22px 1fr 44px; align-items:center; gap:10px; }
+.attr-label{ font-family:"JetBrains Mono",monospace; font-size:13px; font-weight:700; text-align:center; }
+.attr-track{ height:10px; background:var(--surface-2); border:1px solid var(--border); border-radius:5px; overflow:hidden; }
+.attr-fill{ height:100%; border-radius:5px; transition:width .4s cubic-bezier(.2,.8,.2,1); }
+.attr-val{ font-size:11.5px; color:var(--text-muted); text-align:right; }
+
 .section-label{ font-size:11px; text-transform:uppercase; letter-spacing:.09em; color:var(--text-muted); margin:0 0 12px; font-family:"JetBrains Mono",monospace; }
 
 .stat-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
@@ -398,11 +405,7 @@ h1,h2,h3,.display{
   });
 
   function matchesFilter(p, q){
-    if(activeAttrs.size>0){
-      let ok=false;
-      for(const a of activeAttrs){ if(p.attr.includes(a)){ ok=true; break; } }
-      if(!ok) return false;
-    }
+    for(const a of activeAttrs){ if(!p.attr.includes(a)) return false; } // 교집합: 선택한 속성 전부 있어야 함
     if(!q) return true;
     return p.name.includes(q) || p._cho.includes(expandClusters(q));
   }
@@ -509,6 +512,21 @@ h1,h2,h3,.display{
     `;
   }
 
+  const ATTR_COLOR = {'지':'#A97C50','수':'#4F8FC0','화':'#C24E3A','풍':'#4E9E7D'};
+  function renderAttrGauge(p){
+    const attrs = p.attrs || [];
+    if(!attrs.length) return '';
+    const rows = attrs.map(([name,val])=>{
+      const color = ATTR_COLOR[name] || 'var(--accent)';
+      return `<div class="attr-row">
+        <span class="attr-label" style="color:${color}">${name}</span>
+        <div class="attr-track"><div class="attr-fill" style="width:${val*10}%; background:${color}"></div></div>
+        <span class="attr-val mono">${val}/10</span>
+      </div>`;
+    }).join('');
+    return `<div class="attr-gauge-wrap">${rows}</div>`;
+  }
+
   function renderDetail(p){
     const rankNote = p.ok ? `<span class="tag mono">추정 원본계수 ${p.origin.join('/')} · k=${p.k}</span>` : '';
     els.detail.innerHTML = `
@@ -517,13 +535,13 @@ h1,h2,h3,.display{
         <div>
           <h2 class="pd-name">${p.name}</h2>
           <div class="pd-meta">
-            <span class="tag attr">${p.attr}</span>
             <span class="tag">${p.obtain}</span>
             ${p.approx ? '<span class="tag warn">근사치 추정 개체</span>' : (p.ok ? '' : '<span class="tag warn">계산 미지원 개체</span>')}
             ${rankNote}
           </div>
         </div>
       </div>
+      ${renderAttrGauge(p)}
       ${p.approx ? `<p class="approx-note">⚠ 이 펫은 성장률 역산 결과가 다른 펫만큼 깔끔한 정수로 떨어지지 않았습니다. 원본계수(${p.origin.join('/')})는 초기치를 가장 근접하게 재현하는 값으로 추정한 것이라, 등급 확률은 참고용으로만 봐주세요.</p>` : ''}
       <div style="height:18px"></div>
       <p class="section-label">지금 이 펫의 실제 초기치 (레벨 1 표기 스탯)</p>
