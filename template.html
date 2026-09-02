@@ -512,6 +512,13 @@ h1,h2,h3,.display{
     `;
   }
 
+  function calcSGradeInitDecimal(p){
+    // 원본계수+등급오프셋(+2)+보너스 2.5 고정으로 계산한 S급 초기치(내림 전 소수값)
+    const G0=p.origin[0]+2, G1=p.origin[1]+2, G2=p.origin[2]+2, G3=p.origin[3]+2;
+    const a0=p.k*(G0+2.5)/100, a1=p.k*(G1+2.5)/100, a2=p.k*(G2+2.5)/100, a3=p.k*(G3+2.5)/100;
+    return [4*a0+a1+a2+a3, 0.1*a0+a1+0.1*a2+0.05*a3, 0.1*a0+0.1*a1+a2+0.05*a3, a3];
+  }
+
   const ATTR_COLOR = {'지':'#5E9E52','수':'#4F8FC0','화':'#C24E3A','풍':'#C9A227'};
   function renderAttrGauge(p){
     const attrs = p.attrs || [];
@@ -548,7 +555,7 @@ h1,h2,h3,.display{
       <div class="stat-grid" id="statGrid"></div>
       <div class="calc-row">
         <button class="calc-btn" id="calcBtn" ${p.ok?'':'disabled'}>✨ 등급 감정하기</button>
-        <span class="calc-note">S급 참고 초기치: <span class="mono">${p.initS[0]}/${p.initS[1]}/${p.initS[2]}/${p.initS[3]}</span> (내구/공격/방어/순발)</span>
+        <span class="calc-note">S급 참고 초기치: <span class="mono">${p.initS[0]}/${p.initS[1]}/${p.initS[2]}/${p.initS[3]}</span> (내구/공격/방어/순발)${p.ok ? ` · 계산값 <span class="mono">${calcSGradeInitDecimal(p).map(v=>v.toFixed(2)).join('/')}</span>` : ''}</span>
       </div>
     `;
     const grid = document.getElementById('statGrid');
