@@ -1,0 +1,66 @@
+name: 신펫 자동 동기화
+
+on:
+  schedule:
+    # 매주 월요일 00:00 UTC (한국시간 월요일 09:00)
+    - cron: "0 0 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: 펫 목록 확인 및 계산
+        id: sync
+        env:
+          OHRSA_ID: ${{ secrets.OHRSA_ID }}
+          OHRSA_PW: ${{ secrets.OHRSA_PW }}
+        run: python scripts/sync.py
+
+      - name: 변경사항 커밋 & 푸시
+        if: steps.sync.outputs.has_new == 'true'
+        run: |
+          git config user.name "stoneage-calc-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/pets.json index.html summary.json
+          git commit -m "chore: 신펫 ${{ steps.sync.outputs.added_count }}마리 자동 반영"
+          git push
+
+      - name: 검수 필요 이슈 등록
+        if: steps.sync.outputs.needs_review == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BODY_FILE=$(mktemp)
+          python3 - <<'PYEOF' > "$BODY_FILE"
+          import json
+          s = json.load(open("summary.json", encoding="utf-8"))
+          lines = ["새로 발견된 펫 중 원본계수 역산이 깔끔하지 않은 개체가 있습니다. 확인해주세요.", ""]
+          for p in s["needs_review"]:
+              lines.append(f"- **{p['name']}** (id {p['id']}) — {p['status']} · 성장률 {p['growth_S']} · 초기치 {p['init_S']}")
+          if s["changed_existing"]:
+              lines.append("")
+              lines.append("기존 펫인데 사이트 표기값이 바뀐 것으로 보이는 개체 (자동 반영 안 함, 수동 확인 필요):")
+              for p in s["changed_existing"]:
+                  lines.append(f"- {p['name']} (id {p['id']})")
+          print("\n".join(lines))
+          PYEOF
+          gh issue create \
+            --title "신펫 검수 필요 ($(date +%Y-%m-%d))" \
+            --body-file "$BODY_FILE"

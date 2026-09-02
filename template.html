@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>스톤에이지 환각 계산기</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap">
+<style>
+:root{
+  --bg:#EFEEE7; --surface:#FFFFFF; --surface-2:#E6E3D6; --surface-3:#DCD8C9;
+  --text:#262320; --text-muted:#6B6558; --border:#D9D5C6;
+  --accent:#B8722A; --accent-ink:#FFFFFF;
+  --accent2:#4C6B5E;
+  --danger:#A24B3E; --danger-bg:#F3E3DE;
+  --shadow: 0 1px 2px rgba(38,35,32,.06), 0 8px 24px -12px rgba(38,35,32,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1B1916; --surface:#242119; --surface-2:#2E2A21; --surface-3:#38332A;
+    --text:#ECE7DA; --text-muted:#A69C8A; --border:#3B362B;
+    --accent:#DA9C52; --accent-ink:#241A0C;
+    --accent2:#7CA294;
+    --danger:#D08C7C; --danger-bg:#3A2621;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 30px -14px rgba(0,0,0,.55);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1B1916; --surface:#242119; --surface-2:#2E2A21; --surface-3:#38332A;
+  --text:#ECE7DA; --text-muted:#A69C8A; --border:#3B362B;
+  --accent:#DA9C52; --accent-ink:#241A0C;
+  --accent2:#7CA294;
+  --danger:#D08C7C; --danger-bg:#3A2621;
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 30px -14px rgba(0,0,0,.55);
+}
+
+*{box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:"Manrope",system-ui,-apple-system,"Malgun Gothic",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{
+  font-family:"Fraunces",Georgia,"Malgun Gothic",serif;
+  text-wrap:balance;
+  font-weight:600;
+  letter-spacing:-.01em;
+}
+.mono{ font-family:"JetBrains Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums; }
+
+.app{ max-width:1180px; margin:0 auto; padding:28px 20px 60px; }
+
+.masthead{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:22px; flex-wrap:wrap;}
+.masthead .title-block h1{ font-size:28px; margin:0 0 4px; }
+.masthead .title-block p{ margin:0; color:var(--text-muted); font-size:13.5px; max-width:56ch; }
+.masthead .method-badge{
+  font-family:"JetBrains Mono",monospace; font-size:11px; color:var(--text-muted);
+  border:1px solid var(--border); border-radius:100px; padding:6px 12px;
+  white-space:nowrap; background:var(--surface);
+}
+
+.layout{ display:grid; grid-template-columns:340px 1fr; gap:20px; align-items:start; }
+@media (max-width:860px){ .layout{ grid-template-columns:1fr; } }
+
+/* sidebar */
+.sidebar{ background:var(--surface); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; }
+.search-wrap{ padding:14px 14px 10px; border-bottom:1px solid var(--border); display:flex; flex-direction:column; gap:10px; }
+.search-input{
+  width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--border);
+  background:var(--surface-2); color:var(--text); font-size:14px; font-family:inherit;
+}
+.search-input:focus{ outline:2px solid var(--accent); outline-offset:1px; }
+.chips{ display:flex; gap:6px; flex-wrap:wrap; }
+.chip{
+  font-size:12px; padding:5px 10px; border-radius:100px; border:1px solid var(--border);
+  background:var(--surface-2); color:var(--text-muted); cursor:pointer; user-select:none;
+  font-family:"JetBrains Mono",monospace;
+}
+.chip[aria-pressed="true"]{ background:var(--accent); border-color:var(--accent); color:var(--accent-ink); }
+.chip:focus-visible{ outline:2px solid var(--accent); outline-offset:1px; }
+
+.pet-count{ padding:8px 14px; font-size:11.5px; color:var(--text-muted); border-bottom:1px solid var(--border); font-family:"JetBrains Mono",monospace;}
+
+.pet-grid{ max-height:620px; overflow-y:auto; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); }
+.pet-card{
+  background:var(--surface); border:none; cursor:pointer; padding:10px 6px 8px;
+  display:flex; flex-direction:column; align-items:center; gap:4px; text-align:center;
+  color:var(--text); font-family:inherit;
+}
+.pet-card:hover{ background:var(--surface-2); }
+.pet-card[aria-pressed="true"]{ background:var(--accent); color:var(--accent-ink); }
+.pet-card img{ width:44px; height:44px; image-rendering:auto; border-radius:8px; background:var(--surface-2); }
+.pet-card[aria-pressed="true"] img{ background:rgba(255,255,255,.25); }
+.pet-card .pname{ font-size:11px; line-height:1.2; }
+.pet-card .pflag{ font-size:9px; color:var(--danger); font-family:"JetBrains Mono",monospace; }
+.pet-card[aria-pressed="true"] .pflag{ color:var(--accent-ink); opacity:.85; }
+
+/* main */
+.main{ display:flex; flex-direction:column; gap:18px; }
+.card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); padding:22px 24px; }
+
+.pet-detail{ display:flex; gap:18px; align-items:center; }
+.pet-detail img{ width:76px; height:76px; border-radius:14px; background:var(--surface-2); flex-shrink:0; }
+.pet-detail .pd-name{ font-size:22px; margin:0 0 4px; }
+.pet-detail .pd-meta{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.tag{ font-size:11px; padding:3px 9px; border-radius:100px; background:var(--surface-2); color:var(--text-muted); font-family:"JetBrains Mono",monospace; }
+.tag.attr{ background:var(--surface-3); color:var(--text); }
+.tag.warn{ background:var(--danger-bg); color:var(--danger); }
+.approx-note{
+  margin:14px 0 0; padding:10px 12px; border-radius:10px; font-size:12.5px; line-height:1.6;
+  background:var(--danger-bg); color:var(--danger); border:1px solid var(--danger);
+}
+
+.section-label{ font-size:11px; text-transform:uppercase; letter-spacing:.09em; color:var(--text-muted); margin:0 0 12px; font-family:"JetBrains Mono",monospace; }
+
+.stat-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+@media (max-width:560px){ .stat-grid{ grid-template-columns:repeat(2,1fr);} }
+.stat-box{ background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:12px 10px; display:flex; flex-direction:column; align-items:center; gap:8px; }
+.stat-box .slabel{ font-size:12px; color:var(--text-muted); font-weight:700; }
+.stat-stepper{ display:flex; align-items:center; gap:6px; }
+.stat-stepper button{
+  width:26px; height:26px; border-radius:8px; border:1px solid var(--border); background:var(--surface);
+  color:var(--text); font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  font-family:"JetBrains Mono",monospace;
+}
+.stat-stepper button:hover{ background:var(--surface-3); }
+.stat-stepper button:focus-visible{ outline:2px solid var(--accent); outline-offset:1px;}
+.stat-stepper input{
+  width:52px; text-align:center; border:1px solid var(--border); border-radius:8px; padding:5px 2px;
+  background:var(--surface); color:var(--text); font-family:"JetBrains Mono",monospace; font-size:15px; font-weight:700;
+}
+.stat-box .sref{ font-size:10px; color:var(--text-muted); font-family:"JetBrains Mono",monospace; }
+
+.calc-row{ display:flex; align-items:center; gap:14px; margin-top:16px; flex-wrap:wrap; }
+.calc-btn{
+  background:var(--accent); color:var(--accent-ink); border:none; border-radius:10px;
+  padding:12px 22px; font-size:14.5px; font-weight:700; cursor:pointer; font-family:"Manrope",sans-serif;
+}
+.calc-btn:hover{ filter:brightness(1.05); }
+.calc-btn:disabled{ opacity:.45; cursor:not-allowed; }
+.calc-note{ font-size:12px; color:var(--text-muted); }
+
+.results{ display:flex; flex-direction:column; gap:14px; }
+.result-summary{ display:flex; gap:22px; flex-wrap:wrap; align-items:baseline; }
+.result-summary .rs-item .rv{ font-size:26px; font-family:"JetBrains Mono",monospace; font-weight:700; }
+.result-summary .rs-item .rl{ font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:.07em; }
+
+.grade-list{ display:flex; flex-direction:column; gap:6px; }
+.grade-row{ display:grid; grid-template-columns:44px 1fr 64px; align-items:center; gap:10px; }
+.grade-row .glabel{ font-family:"JetBrains Mono",monospace; font-size:13px; font-weight:700; text-align:right; }
+.grade-row .glabel.best{ color:var(--accent); }
+.gtrack{ position:relative; height:16px; background:var(--surface-2); border-radius:6px; overflow:hidden; border:1px solid var(--border);}
+.gfill{ position:absolute; inset:0 auto 0 0; border-radius:6px; transition:width .5s cubic-bezier(.2,.8,.2,1); }
+.grade-row .gpct{ font-family:"JetBrains Mono",monospace; font-size:12.5px; color:var(--text-muted); text-align:right; }
+
+.empty-state{ color:var(--text-muted); font-size:13.5px; text-align:center; padding:30px 10px; }
+
+footer.foot{ margin-top:24px; font-size:11.5px; color:var(--text-muted); line-height:1.7; }
+footer.foot b{ color:var(--text); }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="masthead">
+    <div class="title-block">
+      <h1>스톤에이지 환각 계산기</h1>
+      <p>겉으로 보이는 초기치만으로는 알 수 없는 펫의 진짜 등급을, 178,750가지 경우의 수를 모두 대조해 확률로 감정합니다.</p>
+    </div>
+    <div class="method-badge">RANK 역산 · 등급 -8 ~ +8</div>
+  </div>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="search-wrap">
+        <input id="search" class="search-input" type="text" placeholder="펫 이름 검색 (초성 가능, 예: ㅍㅇㄹ)" autocomplete="off">
+        <div class="chips" id="attrChips"></div>
+      </div>
+      <div class="pet-count" id="petCount"></div>
+      <div class="pet-grid" id="petGrid"></div>
+    </aside>
+
+    <main class="main">
+      <section class="card" id="detailCard"></section>
+      <section class="card results" id="resultsCard"></section>
+    </main>
+  </div>
+
+  <footer class="foot">
+    <b>계산 방식</b> — 각 펫의 성장률(S급 참고값)을 RANK 1~6 전 구간에 대입해 원본계수(체·공·방·순)가 정수로 떨어지는 지점을 찾아 역산하고, 초기치계수 역시 정수라는 조건으로 재확인합니다. 이렇게 확정한 원본계수로, 등급 오프셋(±2, 625가지) × 10포인트 분배(286가지) = 178,750가지 조합을 모두 대입해 반올림 결과가 입력한 초기치와 일치하는 조합만 남기고, 그 안에서 등급별 비율을 계산합니다.<br>
+    10포인트 분배가 286가지 조합에서 <b>균등확률</b>이라는 가정 아래의 추정치이며, 진화·환생 개체 등 일부 특수 케이스는 계산에서 제외됩니다.
+  </footer>
+</div>
+
+<script type="application/json" id="pet-data">__PET_DATA__</script>
+<script>
+(function(){
+  "use strict";
+  const PETS = JSON.parse(document.getElementById('pet-data').textContent);
+
+  // ---- combinatorics setup ----
+  const OFFSETS = [-2,-1,0,1,2];
+  const Ds = [];
+  for(let a=0;a<=10;a++) for(let b=0;b<=10-a;b++) for(let c=0;c<=10-a-b;c++){
+    const d = 10-a-b-c;
+    Ds.push([a,b,c,d]);
+  }
+
+  function computeGradeDist(origin, k, target){
+    const counts = {};
+    let total = 0;
+    for(const d0 of OFFSETS){
+      const G0 = origin[0]+d0;
+      for(const d1 of OFFSETS){
+        const G1 = origin[1]+d1;
+        for(const d2 of OFFSETS){
+          const G2 = origin[2]+d2;
+          for(const d3 of OFFSETS){
+            const G3 = origin[3]+d3;
+            const grade = d0+d1+d2+d3;
+            for(let i=0;i<Ds.length;i++){
+              const D = Ds[i];
+              const v0=G0+D[0], v1=G1+D[1], v2=G2+D[2], v3=G3+D[3];
+              const a0=k*v0/100, a1=k*v1/100, a2=k*v2/100, a3=k*v3/100;
+              const p0 = Math.round(4*a0+a1+a2+a3);
+              if(p0!==target[0]) continue;
+              const p3 = Math.round(a3);
+              if(p3!==target[3]) continue;
+              const p1 = Math.round(0.1*a0+a1+0.1*a2+0.05*a3);
+              if(p1!==target[1]) continue;
+              const p2 = Math.round(0.1*a0+0.1*a1+a2+0.05*a3);
+              if(p2!==target[2]) continue;
+              counts[grade] = (counts[grade]||0)+1;
+              total++;
+            }
+          }
+        }
+      }
+    }
+    return {counts, total};
+  }
+
+  // ---- chosung search ----
+  const CHO = ['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+  function chosung(str){
+    let out='';
+    for(const ch of str){
+      const code = ch.charCodeAt(0)-0xAC00;
+      out += (code>=0 && code<=11171) ? CHO[Math.floor(code/588)] : ch;
+    }
+    return out;
+  }
+  for(const p of PETS){ p._cho = chosung(p.name); }
+
+  // ---- state ----
+  let selectedId = null;
+  let activeAttrs = new Set();
+  let statVals = [0,0,0,0]; // 체 공 방 순 (내구 공격 방어 순발)
+  const STAT_LABELS = ['내구력','공격력','방어력','순발력'];
+
+  const els = {
+    search: document.getElementById('search'),
+    chips: document.getElementById('attrChips'),
+    grid: document.getElementById('petGrid'),
+    count: document.getElementById('petCount'),
+    detail: document.getElementById('detailCard'),
+    results: document.getElementById('resultsCard'),
+  };
+
+  // attribute chips
+  const ATTRS = ['지','수','화','풍'];
+  els.chips.innerHTML = ATTRS.map(a=>`<button class="chip" type="button" data-attr="${a}" aria-pressed="false">${a}</button>`).join('');
+  els.chips.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.chip');
+    if(!btn) return;
+    const a = btn.dataset.attr;
+    if(activeAttrs.has(a)){ activeAttrs.delete(a); btn.setAttribute('aria-pressed','false'); }
+    else { activeAttrs.add(a); btn.setAttribute('aria-pressed','true'); }
+    renderGrid();
+  });
+
+  function matchesFilter(p, q){
+    if(activeAttrs.size>0){
+      let ok=false;
+      for(const a of activeAttrs){ if(p.attr.includes(a)){ ok=true; break; } }
+      if(!ok) return false;
+    }
+    if(!q) return true;
+    return p.name.includes(q) || p._cho.includes(q);
+  }
+
+  function renderGrid(){
+    const q = els.search.value.trim();
+    const list = PETS.filter(p=>matchesFilter(p,q));
+    els.count.textContent = `${list.length} / ${PETS.length}마리`;
+    els.grid.innerHTML = list.map(p=>`
+      <button class="pet-card" type="button" data-id="${p.id}" aria-pressed="${p.id===selectedId}">
+        <img src="data:image/webp;base64,${p.img}" alt="" loading="lazy">
+        <span class="pname">${p.name}</span>
+        ${p.approx ? '<span class="pflag">근사</span>' : (p.ok ? '' : '<span class="pflag">미지원</span>')}
+      </button>`).join('');
+  }
+
+  els.grid.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.pet-card');
+    if(!btn) return;
+    selectPet(btn.dataset.id);
+  });
+  els.search.addEventListener('input', renderGrid);
+
+  function findPet(id){ return PETS.find(p=>p.id===id); }
+
+  function selectPet(id){
+    selectedId = id;
+    const p = findPet(id);
+    statVals = p.ok ? p.initS.slice() : [0,0,0,0];
+    renderGrid();
+    renderDetail(p);
+    if(p.ok){ runCalc(); } else { renderUnsupportedResult(p); }
+  }
+
+  function renderDetail(p){
+    const rankNote = p.ok ? `<span class="tag mono">추정 원본계수 ${p.origin.join('/')} · k=${p.k}</span>` : '';
+    els.detail.innerHTML = `
+      <div class="pet-detail">
+        <img src="data:image/webp;base64,${p.img}" alt="">
+        <div>
+          <h2 class="pd-name">${p.name}</h2>
+          <div class="pd-meta">
+            <span class="tag attr">${p.attr}</span>
+            <span class="tag">${p.obtain}</span>
+            ${p.approx ? '<span class="tag warn">근사치 추정 개체</span>' : (p.ok ? '' : '<span class="tag warn">계산 미지원 개체</span>')}
+            ${rankNote}
+          </div>
+        </div>
+      </div>
+      ${p.approx ? `<p class="approx-note">⚠ 이 펫은 성장률 역산 결과가 다른 펫만큼 깔끔한 정수로 떨어지지 않았습니다. 원본계수(${p.origin.join('/')})는 초기치를 가장 근접하게 재현하는 값으로 추정한 것이라, 등급 확률은 참고용으로만 봐주세요.</p>` : ''}
+      <div style="height:18px"></div>
+      <p class="section-label">지금 이 펫의 실제 초기치 (레벨 1 표기 스탯)</p>
+      <div class="stat-grid" id="statGrid"></div>
+      <div class="calc-row">
+        <button class="calc-btn" id="calcBtn" ${p.ok?'':'disabled'}>✨ 등급 감정하기</button>
+        <span class="calc-note">S급 참고 초기치: <span class="mono">${p.initS[0]}/${p.initS[1]}/${p.initS[2]}/${p.initS[3]}</span> (내구/공격/방어/순발)</span>
+      </div>
+    `;
+    const grid = document.getElementById('statGrid');
+    grid.innerHTML = STAT_LABELS.map((lbl,i)=>`
+      <div class="stat-box">
+        <span class="slabel">${lbl}</span>
+        <div class="stat-stepper">
+          <button type="button" data-i="${i}" data-d="-1" aria-label="${lbl} 감소">−</button>
+          <input type="number" inputmode="numeric" id="stat-${i}" value="${statVals[i]}" ${p.ok?'':'disabled'}>
+          <button type="button" data-i="${i}" data-d="1" aria-label="${lbl} 증가">+</button>
+        </div>
+        <span class="sref">S급 ${p.initS[i]}</span>
+      </div>`).join('');
+
+    grid.addEventListener('click', (e)=>{
+      const btn = e.target.closest('button[data-i]');
+      if(!btn) return;
+      const i = +btn.dataset.i, d = +btn.dataset.d;
+      statVals[i] = Math.max(0, statVals[i]+d);
+      document.getElementById('stat-'+i).value = statVals[i];
+    });
+    grid.querySelectorAll('input[type="number"]').forEach((inp,i)=>{
+      inp.addEventListener('change', ()=>{
+        const v = Math.max(0, Math.round(+inp.value||0));
+        statVals[i]=v; inp.value=v;
+      });
+    });
+
+    document.getElementById('calcBtn').addEventListener('click', runCalc);
+  }
+
+  const GRADES = [8,7,6,5,4,3,2,1,0,-1,-2,-3,-4,-5,-6,-7,-8];
+  function gradeColor(g){
+    const t = (g+8)/16; // 0..1
+    return `color-mix(in srgb, var(--accent2) ${Math.round((1-t)*100)}%, var(--accent) ${Math.round(t*100)}%)`;
+  }
+
+  function runCalc(){
+    const p = findPet(selectedId);
+    if(!p || !p.ok) return;
+    const {counts, total} = computeGradeDist(p.origin, p.k, statVals);
+    renderResults(p, counts, total);
+  }
+
+  function renderUnsupportedResult(p){
+    els.results.innerHTML = `<div class="empty-state">‘${p.name}’은(는) 진화·환생 계열로 추정되어 원본계수 역산이 맞지 않았습니다. 등급 계산을 지원하지 않습니다.</div>`;
+  }
+
+  function renderResults(p, counts, total){
+    if(total===0){
+      els.results.innerHTML = `<div class="empty-state">입력하신 초기치(${statVals.join('/')})와 일치하는 조합이 없습니다. 스탯을 다시 확인해주세요.</div>`;
+      return;
+    }
+    let bestGrade = GRADES[0], bestCnt=-1;
+    for(const g of GRADES){ const c=counts[g]||0; if(c>bestCnt){bestCnt=c; bestGrade=g;} }
+    const eightPct = ((counts[8]||0)/total*100);
+
+    const rows = GRADES.filter(g=>counts[g]).map(g=>{
+      const c = counts[g];
+      const pct = c/total*100;
+      return `<div class="grade-row">
+        <span class="glabel ${g===bestGrade?'best':''}">${g>0?'+':''}${g}</span>
+        <div class="gtrack"><div class="gfill" style="width:${pct.toFixed(2)}%; background:${gradeColor(g)}"></div></div>
+        <span class="gpct">${pct.toFixed(1)}%</span>
+      </div>`;
+    }).join('');
+
+    els.results.innerHTML = `
+      <p class="section-label">등급 감정 결과</p>
+      ${p.approx ? `<p class="approx-note">⚠ 근사치 추정 개체 — 아래 확률은 참고용입니다.</p>` : ''}
+      <div class="result-summary">
+        <div class="rs-item"><div class="rv mono">${total.toLocaleString()}<span style="font-size:14px;color:var(--text-muted)"> / 178,750</span></div><div class="rl">일치 조합</div></div>
+        <div class="rs-item"><div class="rv mono" style="color:var(--accent)">${bestGrade>0?'+':''}${bestGrade}등급</div><div class="rl">최빈 등급</div></div>
+        <div class="rs-item"><div class="rv mono">${eightPct.toFixed(2)}%</div><div class="rl">+8등급(환각) 확률</div></div>
+      </div>
+      <div class="grade-list">${rows}</div>
+    `;
+  }
+
+  function renderEmptyState(){
+    const preciseCount = PETS.filter(p=>p.ok && !p.approx).length;
+    const approxCount = PETS.filter(p=>p.approx).length;
+    els.detail.innerHTML = `
+      <div class="empty-state" style="padding:36px 10px;">
+        왼쪽 목록에서 펫을 검색하거나 골라주세요.<br>
+        <span style="font-size:12px;">전체 ${PETS.length}마리 · 원본계수 정밀 확정 ${preciseCount}마리 · 근사 추정 ${approxCount}마리</span>
+      </div>`;
+    els.results.innerHTML = `<div class="empty-state">펫을 선택하면 178,750가지 조합을 대조한 등급 확률이 여기 표시됩니다.</div>`;
+  }
+
+  // ---- init ----
+  renderGrid();
+  renderEmptyState();
+})();
+</script>
+</body>
+</html>
