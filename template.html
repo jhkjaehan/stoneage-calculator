@@ -59,6 +59,16 @@ h1,h2,h3,.display{
   white-space:nowrap; background:var(--surface);
 }
 
+.tabbar{ display:flex; gap:6px; margin-bottom:16px; border-bottom:1px solid var(--border); }
+.tab-btn{
+  font-family:"Manrope",sans-serif; font-size:13.5px; font-weight:700; color:var(--text-muted);
+  background:none; border:none; border-bottom:2px solid transparent; padding:10px 4px; margin-bottom:-1px;
+  cursor:pointer;
+}
+.tab-btn:hover{ color:var(--text); }
+.tab-btn[aria-selected="true"]{ color:var(--accent); border-bottom-color:var(--accent); }
+.tab-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
 .layout{ display:grid; grid-template-columns:340px 1fr; gap:20px; align-items:start; }
 @media (max-width:860px){ .layout{ grid-template-columns:1fr; } }
 
@@ -172,6 +182,25 @@ h1,h2,h3,.display{
 .detail-table tr:last-child td{ border-bottom:none; }
 .detail-count{ margin:8px 0 0; font-size:11px; color:var(--text-muted); }
 
+/* 성장률·초기치 비교 뷰 */
+.compare-scroll{ overflow-x:auto; }
+.compare-table{ width:100%; border-collapse:collapse; font-size:12.5px; min-width:760px; }
+.compare-table th{
+  text-align:left; font-weight:700; color:var(--text-muted); padding:7px 10px;
+  border-bottom:1px solid var(--border); white-space:nowrap; background:var(--surface-2);
+  position:sticky; top:0;
+}
+.compare-table td{ padding:7px 10px; border-bottom:1px solid var(--border); vertical-align:top; }
+.compare-table tr.is-prod{ background:color-mix(in srgb, var(--accent) 10%, transparent); }
+.compare-table .rank-cell{ font-weight:800; }
+.compare-table .stack{ display:flex; flex-direction:column; gap:2px; }
+.compare-table .stack .disp{ color:var(--text-muted); font-size:11px; }
+.compare-table .stack .calc{ font-family:"JetBrains Mono",monospace; }
+.compare-table .diff-ok{ color:var(--accent2); }
+.compare-table .diff-bad{ color:var(--danger); }
+.compare-legend{ display:flex; gap:16px; flex-wrap:wrap; margin:0 0 14px; font-size:11.5px; color:var(--text-muted); }
+.compare-legend b{ color:var(--text); }
+
 .empty-state{ color:var(--text-muted); font-size:13.5px; text-align:center; padding:30px 10px; }
 
 footer.foot{ margin-top:24px; font-size:11.5px; color:var(--text-muted); line-height:1.7; }
@@ -189,6 +218,11 @@ footer.foot b{ color:var(--text); }
     <div class="method-badge">RANK 역산 · 등급 -8 ~ +8</div>
   </div>
 
+  <div class="tabbar" role="tablist">
+    <button type="button" class="tab-btn" data-tab="calc" role="tab" aria-selected="true">환각 계산기</button>
+    <button type="button" class="tab-btn" data-tab="compare" role="tab" aria-selected="false">성장률·초기치 비교</button>
+  </div>
+
   <div class="layout">
     <aside class="sidebar">
       <div class="search-wrap">
@@ -200,8 +234,13 @@ footer.foot b{ color:var(--text); }
     </aside>
 
     <main class="main">
-      <section class="card" id="detailCard"></section>
-      <section class="card results" id="resultsCard"></section>
+      <div id="calcView">
+        <section class="card" id="detailCard"></section>
+        <section class="card results" id="resultsCard"></section>
+      </div>
+      <div id="compareView" hidden>
+        <section class="card" id="compareCard"></section>
+      </div>
     </main>
   </div>
 
@@ -212,10 +251,12 @@ footer.foot b{ color:var(--text); }
 </div>
 
 <script type="application/json" id="pet-data">__PET_DATA__</script>
+<script type="application/json" id="rank-compare-data">__RANK_COMPARE_DATA__</script>
 <script>
 (function(){
   "use strict";
   const PETS = JSON.parse(document.getElementById('pet-data').textContent);
+  const RANK_COMPARE = JSON.parse(document.getElementById('rank-compare-data').textContent);
 
   // ---- combinatorics setup ----
   const OFFSETS = [-2,-1,0,1,2];
@@ -292,7 +333,19 @@ footer.foot b{ color:var(--text); }
     count: document.getElementById('petCount'),
     detail: document.getElementById('detailCard'),
     results: document.getElementById('resultsCard'),
+    compare: document.getElementById('compareCard'),
   };
+
+  // ---- tabs ----
+  let activeTab = 'calc';
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      activeTab = btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(b=>b.setAttribute('aria-selected', String(b===btn)));
+      document.getElementById('calcView').hidden = activeTab!=='calc';
+      document.getElementById('compareView').hidden = activeTab!=='compare';
+    });
+  });
 
   // attribute chips
   const ATTRS = ['지','수','화','풍'];
@@ -344,6 +397,78 @@ footer.foot b{ color:var(--text); }
     renderGrid();
     renderDetail(p);
     if(p.ok){ runCalc(); } else { renderUnsupportedResult(p); }
+    renderCompare(p);
+  }
+
+  const RANKS_ORDER = ['1','2','3','4','5','6'];
+  function fmtVec(v){ return v.map(x=>Number.isInteger(x)?x:x.toFixed(3)).join(' / '); }
+  function fmtCalcColored(calc, disp){
+    // calc: 계산값(배열, 소수 가능), disp: 표기값(배열, 정수 또는 소수) - calc를 표기값과의
+    // 근접도에 따라 색칠해서 보여준다.
+    return calc.map((c,i)=>{
+      const diff = Math.abs(c-disp[i]);
+      const cls = diff < 0.05 ? 'diff-ok' : (diff < 0.5 ? '' : 'diff-bad');
+      return `<span class="${cls}">${Number.isInteger(c)?c:c.toFixed(3)}</span>`;
+    }).join(' / ');
+  }
+
+  function renderCompare(p){
+    const rc = RANK_COMPARE[p.id];
+    if(!rc){ els.compare.innerHTML = `<div class="empty-state">이 펫의 비교 데이터가 없습니다.</div>`; return; }
+
+    const rowsHtml = RANKS_ORDER.map(rank=>{
+      const r = rc.ranks[rank];
+      const isProd = JSON.stringify(r.origin)===JSON.stringify(rc.prodOrigin) && r.k===rc.prodK;
+      const initCalcHtml = r.initCalc ? `
+        <div class="stack">
+          <span class="calc mono">계산 ${fmtCalcColored(r.initCalc, rc.initS)}</span>
+          <span class="disp mono">표기 ${rc.initS.join(' / ')}</span>
+        </div>` : `<span style="color:var(--text-muted)">k 없음</span>`;
+      return `<tr class="${isProd?'is-prod':''}">
+        <td class="rank-cell">RANK${rank}${isProd?' <span class="tag" style="margin-left:4px;">현재적용</span>':''}</td>
+        <td class="mono">${r.origin.join('/')}</td>
+        <td class="mono">${r.growth_dev.toFixed(4)}${r.bracket_ok?'':' <span style="color:var(--danger)">✕구간</span>'}</td>
+        <td>
+          <div class="stack">
+            <span class="calc mono">계산 ${fmtCalcColored(r.growth_calc, rc.growthS)}</span>
+            <span class="disp mono">표기 ${fmtVec(rc.growthS)}</span>
+          </div>
+        </td>
+        <td>${initCalcHtml}</td>
+        <td class="mono">${r.k ?? '—'}${r.k!=null?(r.k_exact?'':' (근사)'):''}</td>
+      </tr>`;
+    }).join('');
+
+    els.compare.innerHTML = `
+      <div class="pet-detail">
+        <img src="data:image/webp;base64,${p.img}" alt="">
+        <div>
+          <h2 class="pd-name">${p.name}</h2>
+          <div class="pd-meta">
+            <span class="tag">표기 성장률 ${fmtVec(rc.growthS)}</span>
+            <span class="tag">표기 초기치 ${rc.initS.join('/')}</span>
+          </div>
+        </div>
+      </div>
+      <div style="height:16px"></div>
+      <p class="section-label">RANK 1~6 전체 비교 (내림 기준, D=2.5 고정)</p>
+      <div class="compare-legend">
+        <span><b>성장편차</b> — 원본계수가 정수에서 얼마나 벗어났는지 (작을수록 그 RANK가 유력)</span>
+        <span><b>계산값 색</b> — 표기값과의 차이: <span class="diff-ok">±0.05 이내</span> / 보통 / <span class="diff-bad">±0.5 이상</span></span>
+        <span><b>✕구간</b> — 원본계수 합이 그 RANK 조건(성장계수 범위)을 벗어남</span>
+      </div>
+      <div class="compare-scroll">
+        <table class="compare-table">
+          <thead><tr>
+            <th>RANK</th><th>원본계수</th><th>성장편차</th>
+            <th>표기/계산 성장률 (체·공·방·순)</th>
+            <th>표기/계산 초기치 (체·공·방·순)</th>
+            <th>k</th>
+          </tr></thead>
+          <tbody>${rowsHtml}</tbody>
+        </table>
+      </div>
+    `;
   }
 
   function renderDetail(p){
@@ -503,6 +628,7 @@ footer.foot b{ color:var(--text); }
         <span style="font-size:12px;">전체 ${PETS.length}마리 · 원본계수 정밀 확정 ${preciseCount}마리 · 근사 추정 ${approxCount}마리</span>
       </div>`;
     els.results.innerHTML = `<div class="empty-state">펫을 선택하면 178,750가지 조합을 대조한 등급 확률이 여기 표시됩니다.</div>`;
+    els.compare.innerHTML = `<div class="empty-state">펫을 선택하면 RANK 1~6 전체의 표기값 대 계산값을 비교해서 보여줍니다.</div>`;
   }
 
   // ---- init ----

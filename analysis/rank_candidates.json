@@ -1,0 +1,13757 @@
+{
+ "기가로스": {
+  "id": "149",
+  "growth_S": [
+   10.123,
+   1.922,
+   1.966,
+   1.114
+  ],
+  "init_S": [
+   57,
+   10,
+   11,
+   6
+  ],
+  "production": {
+   "origin": [
+    25,
+    27,
+    28,
+    18
+   ],
+   "k": 28,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     28,
+     29,
+     19
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.35948,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 0.80686
+   },
+   "2": {
+    "origin": [
+     25,
+     27,
+     28,
+     18
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.00858,
+    "bracket_ok": true,
+    "k": 28,
+    "k_resid": 0.93137
+   },
+   "3": {
+    "origin": [
+     24,
+     26,
+     27,
+     17
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.27038,
+    "bracket_ok": true,
+    "k": 29,
+    "k_resid": 0.9599
+   },
+   "4": {
+    "origin": [
+     23,
+     25,
+     26,
+     16
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.43784,
+    "bracket_ok": false,
+    "k": 30,
+    "k_resid": 0.87856
+   },
+   "5": {
+    "origin": [
+     22,
+     24,
+     24,
+     16
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.47884,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     21,
+     23,
+     23,
+     15
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.47088,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "타키": {
+  "id": "147",
+  "growth_S": [
+   9.45,
+   1.781,
+   1.178,
+   2.137
+  ],
+  "init_S": [
+   34,
+   6,
+   4,
+   7
+  ],
+  "production": {
+   "origin": [
+    20,
+    24,
+    11,
+    37
+   ],
+   "k": 19,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     22,
+     26,
+     12,
+     40
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.48947,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     21,
+     25,
+     12,
+     39
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.37542,
+    "bracket_ok": true,
+    "k": 18,
+    "k_resid": 1.24266
+   },
+   "3": {
+    "origin": [
+     20,
+     24,
+     11,
+     37
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.00809,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 1.97538
+   },
+   "4": {
+    "origin": [
+     19,
+     23,
+     10,
+     35
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.44393,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     18,
+     22,
+     10,
+     34
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.23273,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     17,
+     21,
+     9,
+     33
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.44203,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.06181
+   }
+  }
+ },
+ "호르쿠": {
+  "id": "146",
+  "growth_S": [
+   9.553,
+   1.688,
+   1.271,
+   2.034
+  ],
+  "init_S": [
+   33,
+   5,
+   4,
+   7
+  ],
+  "production": {
+   "origin": [
+    21,
+    22,
+    13,
+    35
+   ],
+   "k": 18,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     23,
+     24,
+     14,
+     38
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.47895,
+    "bracket_ok": false,
+    "k": 17,
+    "k_resid": 2.07448
+   },
+   "2": {
+    "origin": [
+     22,
+     23,
+     14,
+     37
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.40909,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     21,
+     22,
+     13,
+     35
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.00485,
+    "bracket_ok": true,
+    "k": 18,
+    "k_resid": 1.16822
+   },
+   "4": {
+    "origin": [
+     20,
+     21,
+     12,
+     34
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.48131,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 2.11923
+   },
+   "5": {
+    "origin": [
+     19,
+     20,
+     12,
+     32
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.25676,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     18,
+     19,
+     11,
+     31
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.33768,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "쿠쿠": {
+  "id": "145",
+  "growth_S": [
+   9.193,
+   1.721,
+   1.119,
+   2.189
+  ],
+  "init_S": [
+   33,
+   6,
+   4,
+   8
+  ],
+  "production": {
+   "origin": [
+    19,
+    23,
+    10,
+    38
+   ],
+   "k": 19,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     21,
+     25,
+     11,
+     42
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.41579,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     20,
+     24,
+     11,
+     40
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.41037,
+    "bracket_ok": true,
+    "k": 18,
+    "k_resid": 0.40863
+   },
+   "3": {
+    "origin": [
+     19,
+     23,
+     10,
+     38
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.00824,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 0.9822
+   },
+   "4": {
+    "origin": [
+     18,
+     22,
+     9,
+     36
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.46143,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     17,
+     21,
+     9,
+     35
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.30738,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     17,
+     20,
+     8,
+     34
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.4902,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "카키": {
+  "id": "144",
+  "growth_S": [
+   9.296,
+   1.83,
+   1.227,
+   2.086
+  ],
+  "init_S": [
+   34,
+   6,
+   4,
+   7
+  ],
+  "production": {
+   "origin": [
+    19,
+    25,
+    12,
+    36
+   ],
+   "k": 19,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     21,
+     27,
+     13,
+     39
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.49398,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     20,
+     26,
+     13,
+     38
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.35859,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     19,
+     25,
+     12,
+     36
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.00902,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 1.40964
+   },
+   "4": {
+    "origin": [
+     18,
+     24,
+     11,
+     34
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.49065,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 1.70905
+   },
+   "5": {
+    "origin": [
+     17,
+     23,
+     11,
+     33
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.30438,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 3.05064
+   },
+   "6": {
+    "origin": [
+     17,
+     22,
+     10,
+     32
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.45404,
+    "bracket_ok": false,
+    "k": 21,
+    "k_resid": 1.24073
+   }
+  }
+ },
+ "판지": {
+  "id": "143",
+  "growth_S": [
+   10.892,
+   2.254,
+   1.374,
+   1.107
+  ],
+  "init_S": [
+   42,
+   8,
+   5,
+   4
+  ],
+  "production": {
+   "origin": [
+    29,
+    33,
+    14,
+    17
+   ],
+   "k": 20,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     32,
+     36,
+     16,
+     19
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.43601,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     30,
+     35,
+     15,
+     18
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.49359,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     29,
+     33,
+     14,
+     17
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.0084,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 0.86225
+   },
+   "4": {
+    "origin": [
+     28,
+     32,
+     13,
+     16
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.40995,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.96651
+   },
+   "5": {
+    "origin": [
+     27,
+     30,
+     13,
+     15
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.44595,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     26,
+     29,
+     12,
+     15
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.49503,
+    "bracket_ok": false,
+    "k": 22,
+    "k_resid": 0.5473
+   }
+  }
+ },
+ "쟈그라": {
+  "id": "142",
+  "growth_S": [
+   10.299,
+   2.259,
+   1.344,
+   1.097
+  ],
+  "init_S": [
+   38,
+   8,
+   5,
+   4
+  ],
+  "production": {
+   "origin": [
+    25,
+    32,
+    13,
+    16
+   ],
+   "k": 20,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     29,
+     37,
+     15,
+     19
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.40526,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     27,
+     35,
+     14,
+     18
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.41005,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     26,
+     33,
+     14,
+     17
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.41678,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     25,
+     32,
+     13,
+     16
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.00467,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 0.45865
+   },
+   "5": {
+    "origin": [
+     24,
+     31,
+     12,
+     15
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.36572,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.28696
+   },
+   "6": {
+    "origin": [
+     23,
+     29,
+     12,
+     15
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.46025,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "고반케스": {
+  "id": "141",
+  "growth_S": [
+   10.566,
+   2.224,
+   1.502,
+   1.043
+  ],
+  "init_S": [
+   41,
+   8,
+   5,
+   4
+  ],
+  "production": {
+   "origin": [
+    26,
+    31,
+    16,
+    15
+   ],
+   "k": 21,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     30,
+     35,
+     19,
+     17
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.47878,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     28,
+     34,
+     18,
+     17
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.46585,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     27,
+     32,
+     17,
+     16
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.37363,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     26,
+     31,
+     16,
+     15
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.00482,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.57101
+   },
+   "5": {
+    "origin": [
+     25,
+     30,
+     15,
+     14
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.29279,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 2.40521
+   },
+   "6": {
+    "origin": [
+     24,
+     29,
+     15,
+     14
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.47405,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "쟈그": {
+  "id": "140",
+  "growth_S": [
+   11.047,
+   2.254,
+   1.327,
+   1.107
+  ],
+  "init_S": [
+   42,
+   8,
+   5,
+   4
+  ],
+  "production": {
+   "origin": [
+    30,
+    33,
+    13,
+    17
+   ],
+   "k": 20,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     33,
+     36,
+     14,
+     19
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.46541,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     31,
+     35,
+     14,
+     18
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.49278,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 0.72954
+   },
+   "3": {
+    "origin": [
+     30,
+     33,
+     13,
+     17
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.00763,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 1.49405
+   },
+   "4": {
+    "origin": [
+     29,
+     32,
+     12,
+     16
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.40921,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     28,
+     30,
+     12,
+     15
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.48069,
+    "bracket_ok": false,
+    "k": 21,
+    "k_resid": 0.25514
+   },
+   "6": {
+    "origin": [
+     26,
+     29,
+     11,
+     15
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.40559,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "도르도르": {
+  "id": "139",
+  "growth_S": [
+   10.123,
+   2.075,
+   1.318,
+   1.609
+  ],
+  "init_S": [
+   47,
+   9,
+   6,
+   7
+  ],
+  "production": {
+   "origin": [
+    25,
+    31,
+    14,
+    28
+   ],
+   "k": 23,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     32,
+     15,
+     29
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.48814,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     25,
+     31,
+     14,
+     28
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.00633,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 0.65529
+   },
+   "3": {
+    "origin": [
+     24,
+     30,
+     13,
+     27
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.38473,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.06234
+   },
+   "4": {
+    "origin": [
+     23,
+     28,
+     13,
+     26
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.42523,
+    "bracket_ok": false,
+    "k": 25,
+    "k_resid": 1.24539
+   },
+   "5": {
+    "origin": [
+     22,
+     27,
+     12,
+     24
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.49099,
+    "bracket_ok": false,
+    "k": 26,
+    "k_resid": 0.85935
+   },
+   "6": {
+    "origin": [
+     21,
+     26,
+     11,
+     23
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.48261,
+    "bracket_ok": false,
+    "k": 27,
+    "k_resid": 0.84223
+   }
+  }
+ },
+ "베로바드": {
+  "id": "138",
+  "growth_S": [
+   11.139,
+   2.018,
+   1.932,
+   1.021
+  ],
+  "init_S": [
+   56,
+   10,
+   9,
+   5
+  ],
+  "production": {
+   "origin": [
+    32,
+    30,
+    28,
+    17
+   ],
+   "k": 24,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     32,
+     30,
+     28,
+     17
+    ],
+    "origin_sum": 107,
+    "growth_dev": 0.00961,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 0.72228
+   },
+   "2": {
+    "origin": [
+     31,
+     29,
+     27,
+     16
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.47403,
+    "bracket_ok": false,
+    "k": 25,
+    "k_resid": 1.6082
+   },
+   "3": {
+    "origin": [
+     29,
+     27,
+     25,
+     15
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.4738,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     28,
+     26,
+     24,
+     15
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.41589,
+    "bracket_ok": false,
+    "k": 27,
+    "k_resid": 0.61296
+   },
+   "5": {
+    "origin": [
+     27,
+     25,
+     23,
+     14
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.31353,
+    "bracket_ok": false,
+    "k": 28,
+    "k_resid": 0.68293
+   },
+   "6": {
+    "origin": [
+     26,
+     24,
+     22,
+     13
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.3472,
+    "bracket_ok": false,
+    "k": 29,
+    "k_resid": 0.62132
+   }
+  }
+ },
+ "베노투리": {
+  "id": "137",
+  "growth_S": [
+   11.329,
+   1.728,
+   2.326,
+   0.926
+  ],
+  "init_S": [
+   57,
+   8,
+   11,
+   4
+  ],
+  "production": {
+   "origin": [
+    33,
+    23,
+    37,
+    15
+   ],
+   "k": 24,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     33,
+     23,
+     37,
+     15
+    ],
+    "origin_sum": 108,
+    "growth_dev": 0.0071,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.62142
+   },
+   "2": {
+    "origin": [
+     31,
+     22,
+     35,
+     14
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.48797,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     30,
+     21,
+     34,
+     13
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.48058,
+    "bracket_ok": false,
+    "k": 26,
+    "k_resid": 1.51419
+   },
+   "4": {
+    "origin": [
+     29,
+     20,
+     32,
+     13
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.33949,
+    "bracket_ok": false,
+    "k": 27,
+    "k_resid": 1.64768
+   },
+   "5": {
+    "origin": [
+     28,
+     19,
+     31,
+     12
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.40262,
+    "bracket_ok": false,
+    "k": 28,
+    "k_resid": 1.73335
+   },
+   "6": {
+    "origin": [
+     26,
+     18,
+     30,
+     12
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.48095,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "베톤": {
+  "id": "136",
+  "growth_S": [
+   11.756,
+   1.692,
+   2.376,
+   0.784
+  ],
+  "init_S": [
+   59,
+   8,
+   12,
+   3
+  ],
+  "production": {
+   "origin": [
+    36,
+    22,
+    38,
+    12
+   ],
+   "k": 24,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     36,
+     22,
+     38,
+     12
+    ],
+    "origin_sum": 108,
+    "growth_dev": 0.00526,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.38414
+   },
+   "2": {
+    "origin": [
+     34,
+     21,
+     36,
+     11
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.36291,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     33,
+     20,
+     35,
+     11
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.30444,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     31,
+     19,
+     33,
+     10
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.45728,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     30,
+     18,
+     32,
+     10
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.37387,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     29,
+     17,
+     31,
+     9
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.39441,
+    "bracket_ok": false,
+    "k": 29,
+    "k_resid": 1.12401
+   }
+  }
+ },
+ "베노노크": {
+  "id": "135",
+  "growth_S": [
+   11.234,
+   1.749,
+   1.963,
+   1.164
+  ],
+  "init_S": [
+   56,
+   8,
+   9,
+   5
+  ],
+  "production": {
+   "origin": [
+    33,
+    24,
+    29,
+    20
+   ],
+   "k": 24,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     33,
+     24,
+     29,
+     20
+    ],
+    "origin_sum": 106,
+    "growth_dev": 0.00526,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 2.89697
+   },
+   "2": {
+    "origin": [
+     31,
+     23,
+     28,
+     19
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.48557,
+    "bracket_ok": false,
+    "k": 25,
+    "k_resid": 2.64852
+   },
+   "3": {
+    "origin": [
+     30,
+     22,
+     26,
+     18
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.39937,
+    "bracket_ok": false,
+    "k": 26,
+    "k_resid": 2.43993
+   },
+   "4": {
+    "origin": [
+     29,
+     21,
+     25,
+     17
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.25701,
+    "bracket_ok": false,
+    "k": 27,
+    "k_resid": 2.83259
+   },
+   "5": {
+    "origin": [
+     28,
+     20,
+     24,
+     16
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.47297,
+    "bracket_ok": false,
+    "k": 28,
+    "k_resid": 2.98379
+   },
+   "6": {
+    "origin": [
+     26,
+     19,
+     23,
+     16
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.47888,
+    "bracket_ok": false,
+    "k": 29,
+    "k_resid": 2.23975
+   }
+  }
+ },
+ "프로돈": {
+  "id": "134",
+  "growth_S": [
+   11.234,
+   2.257,
+   1.36,
+   1.259
+  ],
+  "init_S": [
+   63,
+   12,
+   7,
+   7
+  ],
+  "production": {
+   "origin": [
+    33,
+    36,
+    15,
+    22
+   ],
+   "k": 27,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     33,
+     36,
+     15,
+     22
+    ],
+    "origin_sum": 106,
+    "growth_dev": 0.01028,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 1.97793
+   },
+   "2": {
+    "origin": [
+     31,
+     34,
+     14,
+     21
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.48557,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     30,
+     33,
+     13,
+     20
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.49214,
+    "bracket_ok": false,
+    "k": 29,
+    "k_resid": 0.83025
+   },
+   "4": {
+    "origin": [
+     29,
+     31,
+     13,
+     19
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.44882,
+    "bracket_ok": false,
+    "k": 30,
+    "k_resid": 0.76081
+   },
+   "5": {
+    "origin": [
+     28,
+     30,
+     12,
+     18
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.40476,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     26,
+     29,
+     12,
+     17
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.47888,
+    "bracket_ok": false,
+    "k": 33,
+    "k_resid": 2.49438
+   }
+  }
+ },
+ "기비노": {
+  "id": "133",
+  "growth_S": [
+   10.094,
+   2.457,
+   1.303,
+   1.259
+  ],
+  "init_S": [
+   48,
+   11,
+   6,
+   6
+  ],
+  "production": {
+   "origin": [
+    26,
+    41,
+    14,
+    22
+   ],
+   "k": 23,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     41,
+     14,
+     22
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.00643,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 1.67352
+   },
+   "2": {
+    "origin": [
+     25,
+     39,
+     13,
+     21
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.2587,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     24,
+     37,
+     13,
+     20
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.46656,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     23,
+     36,
+     12,
+     19
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.42212,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     22,
+     34,
+     11,
+     18
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.44194,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     21,
+     33,
+     11,
+     17
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.39565,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "기라노": {
+  "id": "132",
+  "growth_S": [
+   10.616,
+   2.341,
+   1.443,
+   1.211
+  ],
+  "init_S": [
+   64,
+   14,
+   8,
+   7
+  ],
+  "production": {
+   "origin": [
+    29,
+    38,
+    17,
+    21
+   ],
+   "k": 29,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     29,
+     38,
+     17,
+     21
+    ],
+    "origin_sum": 105,
+    "growth_dev": 0.00944,
+    "bracket_ok": true,
+    "k": 29,
+    "k_resid": 1.55828
+   },
+   "2": {
+    "origin": [
+     28,
+     36,
+     16,
+     20
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.35666,
+    "bracket_ok": false,
+    "k": 30,
+    "k_resid": 1.05711
+   },
+   "3": {
+    "origin": [
+     26,
+     35,
+     15,
+     19
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.39505,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     25,
+     33,
+     15,
+     18
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.40803,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     24,
+     32,
+     14,
+     17
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.31982,
+    "bracket_ok": false,
+    "k": 34,
+    "k_resid": 1.57759
+   },
+   "6": {
+    "origin": [
+     23,
+     31,
+     13,
+     17
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.43913,
+    "bracket_ok": false,
+    "k": 35,
+    "k_resid": 1.2466
+   }
+  }
+ },
+ "타로아": {
+  "id": "131",
+  "growth_S": [
+   10.172,
+   2.33,
+   1.662,
+   1.064
+  ],
+  "init_S": [
+   41,
+   9,
+   6,
+   4
+  ],
+  "production": {
+   "origin": [
+    25,
+    36,
+    21,
+    17
+   ],
+   "k": 20,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     38,
+     22,
+     18
+    ],
+    "origin_sum": 104,
+    "growth_dev": 0.29916,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     25,
+     36,
+     21,
+     17
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.00505,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 0.78345
+   },
+   "3": {
+    "origin": [
+     24,
+     34,
+     20,
+     16
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.4231,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.0781
+   },
+   "4": {
+    "origin": [
+     23,
+     33,
+     19,
+     15
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.38785,
+    "bracket_ok": false,
+    "k": 22,
+    "k_resid": 1.91959
+   },
+   "5": {
+    "origin": [
+     22,
+     32,
+     18,
+     15
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.38217,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     21,
+     30,
+     17,
+     14
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.45335,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "기고아": {
+  "id": "130",
+  "growth_S": [
+   9.776,
+   2.234,
+   1.788,
+   1.015
+  ],
+  "init_S": [
+   39,
+   9,
+   7,
+   4
+  ],
+  "production": {
+   "origin": [
+    23,
+    34,
+    24,
+    16
+   ],
+   "k": 20,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     24,
+     36,
+     25,
+     17
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.37185,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 0.02371
+   },
+   "2": {
+    "origin": [
+     23,
+     34,
+     24,
+     16
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.00681,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 0.31125
+   },
+   "3": {
+    "origin": [
+     22,
+     33,
+     23,
+     15
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.4886,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     21,
+     31,
+     22,
+     14
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.47196,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     20,
+     30,
+     21,
+     14
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.21171,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     19,
+     29,
+     20,
+     13
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.35066,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "골드곤": {
+  "id": "129",
+  "growth_S": [
+   10.123,
+   2.187,
+   1.652,
+   1.163
+  ],
+  "init_S": [
+   40,
+   8,
+   6,
+   4
+  ],
+  "production": {
+   "origin": [
+    25,
+    33,
+    21,
+    19
+   ],
+   "k": 20,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     35,
+     22,
+     20
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.41362,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 1.60059
+   },
+   "2": {
+    "origin": [
+     25,
+     33,
+     21,
+     19
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.00713,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 2.45285
+   },
+   "3": {
+    "origin": [
+     24,
+     32,
+     20,
+     18
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.44945,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     23,
+     30,
+     19,
+     17
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.23832,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     22,
+     29,
+     18,
+     16
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.45495,
+    "bracket_ok": false,
+    "k": 22,
+    "k_resid": 0.98172
+   },
+   "6": {
+    "origin": [
+     21,
+     28,
+     17,
+     16
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.45059,
+    "bracket_ok": false,
+    "k": 23,
+    "k_resid": 1.75709
+   }
+  }
+ },
+ "깡우비": {
+  "id": "128",
+  "growth_S": [
+   10.854,
+   2.122,
+   1.524,
+   1.211
+  ],
+  "init_S": [
+   47,
+   9,
+   6,
+   5
+  ],
+  "production": {
+   "origin": [
+    31,
+    33,
+    19,
+    21
+   ],
+   "k": 21,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     31,
+     33,
+     19,
+     21
+    ],
+    "origin_sum": 104,
+    "growth_dev": 0.00961,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.78331
+   },
+   "2": {
+    "origin": [
+     30,
+     31,
+     18,
+     20
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.48284,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     28,
+     30,
+     17,
+     19
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.24341,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     27,
+     29,
+     16,
+     18
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.37302,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     26,
+     28,
+     16,
+     17
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.40719,
+    "bracket_ok": false,
+    "k": 24,
+    "k_resid": 0.60682
+   },
+   "6": {
+    "origin": [
+     25,
+     26,
+     15,
+     17
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.47654,
+    "bracket_ok": false,
+    "k": 25,
+    "k_resid": 0.70977
+   }
+  }
+ },
+ "푸이": {
+  "id": "127",
+  "growth_S": [
+   11.063,
+   2.199,
+   1.575,
+   1.015
+  ],
+  "init_S": [
+   58,
+   11,
+   8,
+   5
+  ],
+  "production": {
+   "origin": [
+    31,
+    33,
+    19,
+    16
+   ],
+   "k": 26,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     32,
+     35,
+     20,
+     17
+    ],
+    "origin_sum": 104,
+    "growth_dev": 0.49398,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     31,
+     33,
+     19,
+     16
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.00697,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 0.4994
+   },
+   "3": {
+    "origin": [
+     30,
+     32,
+     18,
+     15
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.45654,
+    "bracket_ok": false,
+    "k": 27,
+    "k_resid": 0.77438
+   },
+   "4": {
+    "origin": [
+     28,
+     30,
+     17,
+     14
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.47196,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     27,
+     29,
+     16,
+     14
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.45324,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     26,
+     28,
+     16,
+     13
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.27557,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "푸비": {
+  "id": "126",
+  "growth_S": [
+   10.667,
+   2.1,
+   1.655,
+   1.015
+  ],
+  "init_S": [
+   56,
+   11,
+   8,
+   5
+  ],
+  "production": {
+   "origin": [
+    29,
+    31,
+    21,
+    16
+   ],
+   "k": 26,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     30,
+     32,
+     22,
+     17
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.49315,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     29,
+     31,
+     21,
+     16
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.0097,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 0.58752
+   },
+   "3": {
+    "origin": [
+     28,
+     30,
+     20,
+     15
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.3801,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 0.64331
+   },
+   "4": {
+    "origin": [
+     26,
+     28,
+     19,
+     14
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.4911,
+    "bracket_ok": true,
+    "k": 29,
+    "k_resid": 1.99922
+   },
+   "5": {
+    "origin": [
+     25,
+     27,
+     18,
+     14
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.3743,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     24,
+     26,
+     17,
+     13
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.46052,
+    "bracket_ok": true,
+    "k": 31,
+    "k_resid": 1.62577
+   }
+  }
+ },
+ "녹우리": {
+  "id": "125",
+  "growth_S": [
+   10.123,
+   2.043,
+   1.598,
+   1.361
+  ],
+  "init_S": [
+   42,
+   8,
+   6,
+   5
+  ],
+  "production": {
+   "origin": [
+    25,
+    30,
+    20,
+    23
+   ],
+   "k": 21,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     31,
+     21,
+     24
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.44954,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 1.33205
+   },
+   "2": {
+    "origin": [
+     25,
+     30,
+     20,
+     23
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.00826,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 2.54444
+   },
+   "3": {
+    "origin": [
+     24,
+     29,
+     19,
+     22
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.34266,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     23,
+     27,
+     18,
+     21
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.41782,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     22,
+     26,
+     17,
+     20
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.35872,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     21,
+     25,
+     17,
+     19
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.40159,
+    "bracket_ok": false,
+    "k": 24,
+    "k_resid": 1.35994
+   }
+  }
+ },
+ "푸우리": {
+  "id": "124",
+  "growth_S": [
+   10.429,
+   2.046,
+   1.258,
+   1.571
+  ],
+  "init_S": [
+   40,
+   7,
+   4,
+   6
+  ],
+  "production": {
+   "origin": [
+    26,
+    29,
+    12,
+    26
+   ],
+   "k": 20,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     29,
+     32,
+     13,
+     29
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.43283,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     27,
+     30,
+     13,
+     27
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.3565,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     26,
+     29,
+     12,
+     26
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.00485,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 1.93625
+   },
+   "4": {
+    "origin": [
+     25,
+     28,
+     11,
+     25
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.38488,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     24,
+     27,
+     11,
+     24
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.41177,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     23,
+     26,
+     10,
+     23
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.4931,
+    "bracket_ok": false,
+    "k": 22,
+    "k_resid": 1.49262
+   }
+  }
+ },
+ "부르보": {
+  "id": "123",
+  "growth_S": [
+   9.875,
+   1.86,
+   1.815,
+   1.262
+  ],
+  "init_S": [
+   37,
+   7,
+   6,
+   4
+  ],
+  "production": {
+   "origin": [
+    24,
+    26,
+    25,
+    21
+   ],
+   "k": 19,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     25,
+     27,
+     26,
+     22
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.28596,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     24,
+     26,
+     25,
+     21
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.00842,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 2.48995
+   },
+   "3": {
+    "origin": [
+     23,
+     25,
+     24,
+     20
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.18285,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     22,
+     24,
+     23,
+     19
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.27882,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 1.19745
+   },
+   "5": {
+    "origin": [
+     21,
+     23,
+     22,
+     18
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.2958,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.60736
+   },
+   "6": {
+    "origin": [
+     20,
+     22,
+     21,
+     17
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.44783,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 2.03151
+   }
+  }
+ },
+ "쿠보": {
+  "id": "122",
+  "growth_S": [
+   9.764,
+   1.767,
+   1.815,
+   1.204
+  ],
+  "init_S": [
+   38,
+   6,
+   7,
+   4
+  ],
+  "production": {
+   "origin": [
+    22,
+    22,
+    23,
+    18
+   ],
+   "k": 21,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     25,
+     25,
+     26,
+     21
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.47343,
+    "bracket_ok": false,
+    "k": 19,
+    "k_resid": 2.15596
+   },
+   "2": {
+    "origin": [
+     24,
+     24,
+     25,
+     20
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.22198,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     23,
+     23,
+     24,
+     19
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.12136,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     22,
+     22,
+     23,
+     18
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.00467,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.52138
+   },
+   "5": {
+    "origin": [
+     21,
+     21,
+     22,
+     17
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.19369,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 1.92162
+   },
+   "6": {
+    "origin": [
+     20,
+     20,
+     21,
+     16
+    ],
+    "origin_sum": 77,
+    "growth_dev": 0.43913,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "샤크론": {
+  "id": "121",
+  "growth_S": [
+   10.474,
+   2.148,
+   1.25,
+   1.639
+  ],
+  "init_S": [
+   57,
+   11,
+   6,
+   8
+  ],
+  "production": {
+   "origin": [
+    28,
+    34,
+    13,
+    30
+   ],
+   "k": 26,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     28,
+     34,
+     13,
+     30
+    ],
+    "origin_sum": 105,
+    "growth_dev": 0.00944,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 2.3383
+   },
+   "2": {
+    "origin": [
+     27,
+     32,
+     12,
+     29
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.441,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     25,
+     31,
+     12,
+     27
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.47873,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     24,
+     30,
+     11,
+     26
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.35803,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     23,
+     28,
+     10,
+     25
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.4694,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     22,
+     27,
+     10,
+     24
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.35052,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "파베로스": {
+  "id": "120",
+  "growth_S": [
+   9.904,
+   2.174,
+   1.148,
+   1.686
+  ],
+  "init_S": [
+   56,
+   12,
+   6,
+   9
+  ],
+  "production": {
+   "origin": [
+    25,
+    35,
+    11,
+    31
+   ],
+   "k": 27,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     25,
+     35,
+     11,
+     31
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.00627,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 0.8363
+   },
+   "2": {
+    "origin": [
+     24,
+     33,
+     10,
+     30
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.43939,
+    "bracket_ok": true,
+    "k": 28,
+    "k_resid": 0.64305
+   },
+   "3": {
+    "origin": [
+     23,
+     32,
+     10,
+     28
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.28595,
+    "bracket_ok": true,
+    "k": 29,
+    "k_resid": 0.55235
+   },
+   "4": {
+    "origin": [
+     22,
+     31,
+     9,
+     27
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.43547,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     21,
+     29,
+     9,
+     26
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.30094,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     20,
+     28,
+     8,
+     25
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.29917,
+    "bracket_ok": false,
+    "k": 33,
+    "k_resid": 1.82593
+   }
+  }
+ },
+ "카우거": {
+  "id": "119",
+  "growth_S": [
+   10.094,
+   2.181,
+   1.198,
+   1.639
+  ],
+  "init_S": [
+   57,
+   12,
+   6,
+   9
+  ],
+  "production": {
+   "origin": [
+    26,
+    35,
+    12,
+    30
+   ],
+   "k": 27,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     35,
+     12,
+     30
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.00944,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 1.05697
+   },
+   "2": {
+    "origin": [
+     25,
+     33,
+     11,
+     29
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.39498,
+    "bracket_ok": true,
+    "k": 28,
+    "k_resid": 0.73367
+   },
+   "3": {
+    "origin": [
+     24,
+     32,
+     11,
+     27
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.36593,
+    "bracket_ok": true,
+    "k": 29,
+    "k_resid": 0.89497
+   },
+   "4": {
+    "origin": [
+     23,
+     31,
+     10,
+     26
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.43829,
+    "bracket_ok": false,
+    "k": 30,
+    "k_resid": 0.66656
+   },
+   "5": {
+    "origin": [
+     22,
+     29,
+     10,
+     25
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.39361,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     21,
+     28,
+     9,
+     24
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.30166,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "갈푸스": {
+  "id": "118",
+  "growth_S": [
+   9.761,
+   2.219,
+   1.193,
+   1.639
+  ],
+  "init_S": [
+   55,
+   12,
+   6,
+   9
+  ],
+  "production": {
+   "origin": [
+    24,
+    36,
+    12,
+    30
+   ],
+   "k": 27,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     24,
+     36,
+     12,
+     30
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.00877,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 1.32786
+   },
+   "2": {
+    "origin": [
+     23,
+     34,
+     11,
+     29
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.38889,
+    "bracket_ok": true,
+    "k": 28,
+    "k_resid": 0.87126
+   },
+   "3": {
+    "origin": [
+     22,
+     33,
+     11,
+     27
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.32524,
+    "bracket_ok": true,
+    "k": 29,
+    "k_resid": 1.03294
+   },
+   "4": {
+    "origin": [
+     21,
+     31,
+     10,
+     26
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.45016,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     20,
+     30,
+     10,
+     25
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.38589,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     19,
+     29,
+     9,
+     24
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.12319,
+    "bracket_ok": false,
+    "k": 33,
+    "k_resid": 2.24518
+   }
+  }
+ },
+ "아리노스": {
+  "id": "117",
+  "growth_S": [
+   10.996,
+   1.55,
+   1.806,
+   1.259
+  ],
+  "init_S": [
+   53,
+   7,
+   8,
+   6
+  ],
+  "production": {
+   "origin": [
+    33,
+    20,
+    26,
+    22
+   ],
+   "k": 23,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     33,
+     20,
+     26,
+     22
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.0071,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 0.87896
+   },
+   "2": {
+    "origin": [
+     31,
+     19,
+     25,
+     21
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.48172,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     30,
+     18,
+     24,
+     20
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.37317,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.1457
+   },
+   "4": {
+    "origin": [
+     29,
+     17,
+     23,
+     19
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.42464,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 1.50415
+   },
+   "5": {
+    "origin": [
+     28,
+     16,
+     22,
+     18
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.47455,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 1.73191
+   },
+   "6": {
+    "origin": [
+     26,
+     16,
+     21,
+     17
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.47557,
+    "bracket_ok": true,
+    "k": 28,
+    "k_resid": 1.13004
+   }
+  }
+ },
+ "아토라지": {
+  "id": "116",
+  "growth_S": [
+   10.996,
+   1.54,
+   1.626,
+   1.449
+  ],
+  "init_S": [
+   50,
+   7,
+   7,
+   6
+  ],
+  "production": {
+   "origin": [
+    33,
+    20,
+    22,
+    26
+   ],
+   "k": 22,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     33,
+     20,
+     22,
+     26
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.0071,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 1.66719
+   },
+   "2": {
+    "origin": [
+     31,
+     19,
+     21,
+     25
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.48172,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 1.46413
+   },
+   "3": {
+    "origin": [
+     30,
+     18,
+     20,
+     24
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.36408,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     29,
+     17,
+     19,
+     23
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.41589,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     28,
+     16,
+     18,
+     22
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.46454,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     26,
+     16,
+     17,
+     21
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.47557,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "스토라지": {
+  "id": "115",
+  "growth_S": [
+   10.964,
+   1.637,
+   1.682,
+   1.361
+  ],
+  "init_S": [
+   46,
+   6,
+   7,
+   5
+  ],
+  "production": {
+   "origin": [
+    31,
+    21,
+    22,
+    23
+   ],
+   "k": 21,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     32,
+     22,
+     23,
+     24
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.49449,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     31,
+     21,
+     22,
+     23
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.00553,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.77845
+   },
+   "3": {
+    "origin": [
+     30,
+     20,
+     21,
+     22
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.37887,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     28,
+     19,
+     20,
+     21
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.34557,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     27,
+     18,
+     19,
+     20
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.23917,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     26,
+     17,
+     18,
+     19
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.44824,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "다이노로스": {
+  "id": "114",
+  "growth_S": [
+   11.509,
+   1.744,
+   1.699,
+   1.213
+  ],
+  "init_S": [
+   58,
+   8,
+   8,
+   6
+  ],
+  "production": {
+   "origin": [
+    34,
+    23,
+    22,
+    20
+   ],
+   "k": 25,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     36,
+     24,
+     23,
+     21
+    ],
+    "origin_sum": 104,
+    "growth_dev": 0.3802,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.12913
+   },
+   "2": {
+    "origin": [
+     34,
+     23,
+     22,
+     20
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.00746,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.01914
+   },
+   "3": {
+    "origin": [
+     33,
+     22,
+     21,
+     19
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.4963,
+    "bracket_ok": false,
+    "k": 26,
+    "k_resid": 1.46312
+   },
+   "4": {
+    "origin": [
+     31,
+     21,
+     20,
+     18
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.1729,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     30,
+     20,
+     19,
+     17
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.35586,
+    "bracket_ok": false,
+    "k": 28,
+    "k_resid": 0.91071
+   },
+   "6": {
+    "origin": [
+     29,
+     19,
+     18,
+     17
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.40435,
+    "bracket_ok": false,
+    "k": 29,
+    "k_resid": 1.04793
+   }
+  }
+ },
+ "아코로비": {
+  "id": "113",
+  "growth_S": [
+   10.426,
+   2.158,
+   1.474,
+   1.354
+  ],
+  "init_S": [
+   59,
+   12,
+   8,
+   7
+  ],
+  "production": {
+   "origin": [
+    28,
+    34,
+    18,
+    24
+   ],
+   "k": 27,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     28,
+     34,
+     18,
+     24
+    ],
+    "origin_sum": 104,
+    "growth_dev": 0.00627,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 0.76528
+   },
+   "2": {
+    "origin": [
+     27,
+     32,
+     17,
+     23
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.45046,
+    "bracket_ok": true,
+    "k": 28,
+    "k_resid": 0.6418
+   },
+   "3": {
+    "origin": [
+     25,
+     31,
+     16,
+     22
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.47041,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     24,
+     30,
+     15,
+     21
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.4822,
+    "bracket_ok": false,
+    "k": 31,
+    "k_resid": 2.27827
+   },
+   "5": {
+    "origin": [
+     23,
+     28,
+     15,
+     20
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.45581,
+    "bracket_ok": false,
+    "k": 32,
+    "k_resid": 1.56032
+   },
+   "6": {
+    "origin": [
+     22,
+     27,
+     14,
+     19
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.34306,
+    "bracket_ok": false,
+    "k": 33,
+    "k_resid": 0.86239
+   }
+  }
+ },
+ "그린고르": {
+  "id": "112",
+  "growth_S": [
+   10.62,
+   2.053,
+   2.149,
+   0.401
+  ],
+  "init_S": [
+   51,
+   9,
+   10,
+   1
+  ],
+  "production": {
+   "origin": [
+    27,
+    27,
+    29,
+    3
+   ],
+   "k": 26,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     31,
+     31,
+     33,
+     4
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.22381,
+    "bracket_ok": false,
+    "k": 23,
+    "k_resid": 2.0895
+   },
+   "2": {
+    "origin": [
+     30,
+     30,
+     32,
+     4
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.45527,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     28,
+     28,
+     30,
+     3
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.2938,
+    "bracket_ok": false,
+    "k": 25,
+    "k_resid": 1.6982
+   },
+   "4": {
+    "origin": [
+     27,
+     27,
+     29,
+     3
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.0069,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 2.42858
+   },
+   "5": {
+    "origin": [
+     26,
+     26,
+     28,
+     3
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.27477,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     25,
+     25,
+     27,
+     2
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.47391,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "쿠팡": {
+  "id": "111",
+  "growth_S": [
+   9.336,
+   2.133,
+   1.17,
+   1.685
+  ],
+  "init_S": [
+   40,
+   9,
+   5,
+   7
+  ],
+  "production": {
+   "origin": [
+    19,
+    30,
+    10,
+    27
+   ],
+   "k": 23,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     22,
+     34,
+     12,
+     31
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.35163,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     21,
+     33,
+     11,
+     30
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.4596,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     20,
+     31,
+     11,
+     28
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.44267,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     19,
+     30,
+     10,
+     27
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.00556,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 0.10855
+   },
+   "5": {
+    "origin": [
+     18,
+     29,
+     9,
+     26
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.47211,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     17,
+     28,
+     9,
+     25
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.40518,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 0.42602
+   }
+  }
+ },
+ "쿠아": {
+  "id": "110",
+  "growth_S": [
+   9.965,
+   2.048,
+   1.446,
+   1.519
+  ],
+  "init_S": [
+   46,
+   9,
+   6,
+   7
+  ],
+  "production": {
+   "origin": [
+    23,
+    29,
+    16,
+    25
+   ],
+   "k": 24,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     25,
+     32,
+     18,
+     27
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.47895,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     24,
+     30,
+     17,
+     26
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.34496,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 0.75798
+   },
+   "3": {
+    "origin": [
+     23,
+     29,
+     16,
+     25
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.00824,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.04276
+   },
+   "4": {
+    "origin": [
+     22,
+     28,
+     15,
+     24
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.26027,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.30352
+   },
+   "5": {
+    "origin": [
+     21,
+     27,
+     15,
+     23
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.47412,
+    "bracket_ok": false,
+    "k": 26,
+    "k_resid": 2.2294
+   },
+   "6": {
+    "origin": [
+     20,
+     25,
+     14,
+     22
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.49696,
+    "bracket_ok": false,
+    "k": 27,
+    "k_resid": 1.24598
+   }
+  }
+ },
+ "프이토": {
+  "id": "109",
+  "growth_S": [
+   9.55,
+   1.612,
+   1.756,
+   1.632
+  ],
+  "init_S": [
+   46,
+   7,
+   8,
+   7
+  ],
+  "production": {
+   "origin": [
+    20,
+    19,
+    22,
+    26
+   ],
+   "k": 26,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     23,
+     22,
+     25,
+     30
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.34361,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 1.71142
+   },
+   "2": {
+    "origin": [
+     22,
+     21,
+     24,
+     28
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.4697,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.59738
+   },
+   "3": {
+    "origin": [
+     21,
+     20,
+     23,
+     27
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.18932,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.88727
+   },
+   "4": {
+    "origin": [
+     20,
+     19,
+     22,
+     26
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.00601,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 2.01175
+   },
+   "5": {
+    "origin": [
+     19,
+     18,
+     21,
+     25
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.15894,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 1.93415
+   },
+   "6": {
+    "origin": [
+     18,
+     17,
+     20,
+     24
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.37081,
+    "bracket_ok": true,
+    "k": 28,
+    "k_resid": 1.74531
+   }
+  }
+ },
+ "라이혼": {
+  "id": "108",
+  "growth_S": [
+   9.904,
+   1.98,
+   1.638,
+   1.591
+  ],
+  "init_S": [
+   56,
+   11,
+   9,
+   9
+  ],
+  "production": {
+   "origin": [
+    24,
+    30,
+    22,
+    29
+   ],
+   "k": 27,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     24,
+     30,
+     22,
+     29
+    ],
+    "origin_sum": 105,
+    "growth_dev": 0.00877,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 0.2477
+   },
+   "2": {
+    "origin": [
+     23,
+     29,
+     21,
+     28
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.38552,
+    "bracket_ok": false,
+    "k": 28,
+    "k_resid": 0.37997
+   },
+   "3": {
+    "origin": [
+     22,
+     27,
+     20,
+     26
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.3932,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     21,
+     26,
+     19,
+     25
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.23832,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     20,
+     25,
+     18,
+     24
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.18769,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     19,
+     24,
+     17,
+     23
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.39855,
+    "bracket_ok": false,
+    "k": 33,
+    "k_resid": 0.54791
+   }
+  }
+ },
+ "라나프": {
+  "id": "107",
+  "growth_S": [
+   9.038,
+   1.855,
+   1.763,
+   1.674
+  ],
+  "init_S": [
+   49,
+   10,
+   9,
+   9
+  ],
+  "production": {
+   "origin": [
+    17,
+    25,
+    23,
+    28
+   ],
+   "k": 28,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     19,
+     27,
+     25,
+     31
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.47728,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 0.64995
+   },
+   "2": {
+    "origin": [
+     18,
+     26,
+     24,
+     29
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.31818,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 0.41615
+   },
+   "3": {
+    "origin": [
+     17,
+     25,
+     23,
+     28
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.00871,
+    "bracket_ok": true,
+    "k": 28,
+    "k_resid": 0.37706
+   },
+   "4": {
+    "origin": [
+     16,
+     24,
+     22,
+     27
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.21028,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     15,
+     23,
+     21,
+     26
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.44766,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     15,
+     22,
+     20,
+     25
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.38696,
+    "bracket_ok": false,
+    "k": 31,
+    "k_resid": 0.26929
+   }
+  }
+ },
+ "푸룡": {
+  "id": "106",
+  "growth_S": [
+   10.616,
+   2.246,
+   1.348,
+   1.401
+  ],
+  "init_S": [
+   60,
+   12,
+   7,
+   7
+  ],
+  "production": {
+   "origin": [
+    29,
+    36,
+    15,
+    25
+   ],
+   "k": 27,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     29,
+     36,
+     15,
+     25
+    ],
+    "origin_sum": 105,
+    "growth_dev": 0.00944,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 2.07158
+   },
+   "2": {
+    "origin": [
+     28,
+     34,
+     14,
+     24
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.3727,
+    "bracket_ok": false,
+    "k": 28,
+    "k_resid": 1.76594
+   },
+   "3": {
+    "origin": [
+     26,
+     33,
+     13,
+     23
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.48875,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     25,
+     31,
+     13,
+     22
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.46633,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     24,
+     30,
+     12,
+     21
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.25676,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     23,
+     29,
+     12,
+     20
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.38834,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "골로스": {
+  "id": "105",
+  "growth_S": [
+   9.904,
+   2.284,
+   1.514,
+   1.211
+  ],
+  "init_S": [
+   60,
+   13,
+   9,
+   7
+  ],
+  "production": {
+   "origin": [
+    25,
+    37,
+    19,
+    21
+   ],
+   "k": 29,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     25,
+     37,
+     19,
+     21
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.00961,
+    "bracket_ok": true,
+    "k": 29,
+    "k_resid": 1.31856
+   },
+   "2": {
+    "origin": [
+     24,
+     35,
+     18,
+     20
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.33245,
+    "bracket_ok": true,
+    "k": 30,
+    "k_resid": 0.72856
+   },
+   "3": {
+    "origin": [
+     23,
+     34,
+     17,
+     19
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.29057,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     22,
+     32,
+     16,
+     18
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.36263,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     21,
+     31,
+     16,
+     17
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.38917,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     20,
+     30,
+     15,
+     17
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.43913,
+    "bracket_ok": false,
+    "k": 35,
+    "k_resid": 1.85472
+   }
+  }
+ },
+ "모가로스": {
+  "id": "104",
+  "growth_S": [
+   10.189,
+   2.288,
+   1.433,
+   1.401
+  ],
+  "init_S": [
+   57,
+   13,
+   8,
+   7
+  ],
+  "production": {
+   "origin": [
+    26,
+    37,
+    17,
+    25
+   ],
+   "k": 27,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     37,
+     17,
+     25
+    ],
+    "origin_sum": 105,
+    "growth_dev": 0.00627,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 1.79019
+   },
+   "2": {
+    "origin": [
+     25,
+     35,
+     16,
+     24
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.31722,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     24,
+     34,
+     15,
+     23
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.36362,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     23,
+     32,
+     15,
+     22
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.41678,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     22,
+     31,
+     14,
+     21
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.39146,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     21,
+     30,
+     13,
+     20
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.29959,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "오르곤": {
+  "id": "103",
+  "growth_S": [
+   10.759,
+   2.167,
+   1.526,
+   1.259
+  ],
+  "init_S": [
+   63,
+   12,
+   8,
+   7
+  ],
+  "production": {
+   "origin": [
+    30,
+    34,
+    19,
+    22
+   ],
+   "k": 28,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     30,
+     34,
+     19,
+     22
+    ],
+    "origin_sum": 105,
+    "growth_dev": 0.00526,
+    "bracket_ok": true,
+    "k": 28,
+    "k_resid": 1.94345
+   },
+   "2": {
+    "origin": [
+     29,
+     32,
+     18,
+     21
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.4402,
+    "bracket_ok": false,
+    "k": 29,
+    "k_resid": 1.47936
+   },
+   "3": {
+    "origin": [
+     27,
+     31,
+     17,
+     20
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.32108,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     26,
+     30,
+     16,
+     19
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.36575,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     25,
+     28,
+     16,
+     18
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.44666,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     24,
+     27,
+     15,
+     17
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.39565,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "오가로스": {
+  "id": "102",
+  "growth_S": [
+   10.123,
+   2.147,
+   1.791,
+   1.064
+  ],
+  "init_S": [
+   55,
+   11,
+   9,
+   5
+  ],
+  "production": {
+   "origin": [
+    25,
+    32,
+    24,
+    17
+   ],
+   "k": 27,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     34,
+     25,
+     18
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.46508,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 2.1012
+   },
+   "2": {
+    "origin": [
+     25,
+     32,
+     24,
+     17
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.00713,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 1.7888
+   },
+   "3": {
+    "origin": [
+     24,
+     31,
+     23,
+     16
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.41925,
+    "bracket_ok": true,
+    "k": 28,
+    "k_resid": 1.87647
+   },
+   "4": {
+    "origin": [
+     23,
+     29,
+     22,
+     15
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.38785,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     22,
+     28,
+     21,
+     15
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.32883,
+    "bracket_ok": false,
+    "k": 30,
+    "k_resid": 1.59566
+   },
+   "6": {
+    "origin": [
+     21,
+     27,
+     20,
+     14
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.10331,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "리비노": {
+  "id": "101",
+  "growth_S": [
+   10.017,
+   2.293,
+   1.505,
+   1.056
+  ],
+  "init_S": [
+   52,
+   12,
+   7,
+   5
+  ],
+  "production": {
+   "origin": [
+    24,
+    34,
+    17,
+    16
+   ],
+   "k": 27,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     37,
+     19,
+     18
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.40075,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.4457
+   },
+   "2": {
+    "origin": [
+     25,
+     36,
+     18,
+     17
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.44533,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 1.69823
+   },
+   "3": {
+    "origin": [
+     24,
+     34,
+     17,
+     16
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.00485,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 1.34536
+   },
+   "4": {
+    "origin": [
+     23,
+     33,
+     16,
+     15
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.44007,
+    "bracket_ok": true,
+    "k": 28,
+    "k_resid": 1.16918
+   },
+   "5": {
+    "origin": [
+     22,
+     31,
+     15,
+     15
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.47297,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     21,
+     30,
+     15,
+     14
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.2452,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "얀기로": {
+  "id": "100",
+  "growth_S": [
+   10.469,
+   2.323,
+   1.432,
+   1.213
+  ],
+  "init_S": [
+   57,
+   12,
+   7,
+   6
+  ],
+  "production": {
+   "origin": [
+    27,
+    36,
+    16,
+    20
+   ],
+   "k": 27,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     28,
+     38,
+     17,
+     21
+    ],
+    "origin_sum": 104,
+    "growth_dev": 0.32155,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 1.77832
+   },
+   "2": {
+    "origin": [
+     27,
+     36,
+     16,
+     20
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.00505,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 1.49351
+   },
+   "3": {
+    "origin": [
+     26,
+     34,
+     15,
+     19
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.43111,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     25,
+     33,
+     14,
+     18
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.47107,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     24,
+     32,
+     14,
+     17
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.40948,
+    "bracket_ok": false,
+    "k": 30,
+    "k_resid": 1.36731
+   },
+   "6": {
+    "origin": [
+     23,
+     30,
+     13,
+     17
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.40435,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "반보로": {
+  "id": "99",
+  "growth_S": [
+   10.141,
+   2.376,
+   1.436,
+   1.259
+  ],
+  "init_S": [
+   55,
+   13,
+   7,
+   6
+  ],
+  "production": {
+   "origin": [
+    26,
+    39,
+    17,
+    22
+   ],
+   "k": 26,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     39,
+     17,
+     22
+    ],
+    "origin_sum": 104,
+    "growth_dev": 0.0071,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 1.78926
+   },
+   "2": {
+    "origin": [
+     25,
+     37,
+     16,
+     21
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.23802,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     24,
+     36,
+     15,
+     20
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.38288,
+    "bracket_ok": false,
+    "k": 28,
+    "k_resid": 1.61695
+   },
+   "4": {
+    "origin": [
+     23,
+     34,
+     15,
+     19
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.42345,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     22,
+     33,
+     14,
+     18
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.39918,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     21,
+     31,
+     13,
+     17
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.43099,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "부르돈": {
+  "id": "98",
+  "growth_S": [
+   10.236,
+   2.236,
+   1.338,
+   1.401
+  ],
+  "init_S": [
+   51,
+   11,
+   6,
+   7
+  ],
+  "production": {
+   "origin": [
+    27,
+    36,
+    15,
+    25
+   ],
+   "k": 24,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     27,
+     36,
+     15,
+     25
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.00643,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.19425
+   },
+   "2": {
+    "origin": [
+     26,
+     34,
+     14,
+     24
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.36308,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.32258
+   },
+   "3": {
+    "origin": [
+     25,
+     33,
+     13,
+     23
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.4795,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     23,
+     31,
+     13,
+     22
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.46885,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 0.6904
+   },
+   "5": {
+    "origin": [
+     22,
+     30,
+     12,
+     21
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.46096,
+    "bracket_ok": false,
+    "k": 28,
+    "k_resid": 0.54767
+   },
+   "6": {
+    "origin": [
+     22,
+     29,
+     12,
+     20
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.47681,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "반기노": {
+  "id": "97",
+  "growth_S": [
+   9.951,
+   2.417,
+   1.433,
+   1.211
+  ],
+  "init_S": [
+   52,
+   12,
+   7,
+   6
+  ],
+  "production": {
+   "origin": [
+    25,
+    40,
+    17,
+    21
+   ],
+   "k": 25,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     25,
+     40,
+     17,
+     21
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.01028,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.09352
+   },
+   "2": {
+    "origin": [
+     24,
+     38,
+     16,
+     20
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.21188,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 0.94634
+   },
+   "3": {
+    "origin": [
+     23,
+     37,
+     15,
+     19
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.44683,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 1.20857
+   },
+   "4": {
+    "origin": [
+     22,
+     35,
+     15,
+     18
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.41767,
+    "bracket_ok": false,
+    "k": 28,
+    "k_resid": 1.1677
+   },
+   "5": {
+    "origin": [
+     21,
+     34,
+     14,
+     17
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.40562,
+    "bracket_ok": false,
+    "k": 29,
+    "k_resid": 1.02471
+   },
+   "6": {
+    "origin": [
+     20,
+     32,
+     13,
+     17
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.43913,
+    "bracket_ok": false,
+    "k": 30,
+    "k_resid": 0.65056
+   }
+  }
+ },
+ "마모나스": {
+  "id": "95",
+  "growth_S": [
+   12.659,
+   1.97,
+   2.227,
+   0.451
+  ],
+  "init_S": [
+   66,
+   10,
+   11,
+   2
+  ],
+  "production": {
+   "origin": [
+    42,
+    28,
+    34,
+    5
+   ],
+   "k": 25,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     42,
+     28,
+     34,
+     5
+    ],
+    "origin_sum": 109,
+    "growth_dev": 0.00961,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.18383
+   },
+   "2": {
+    "origin": [
+     40,
+     27,
+     32,
+     5
+    ],
+    "origin_sum": 104,
+    "growth_dev": 0.45366,
+    "bracket_ok": false,
+    "k": 26,
+    "k_resid": 0.92929
+   },
+   "3": {
+    "origin": [
+     38,
+     25,
+     31,
+     4
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.4738,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     37,
+     24,
+     30,
+     4
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.35329,
+    "bracket_ok": false,
+    "k": 28,
+    "k_resid": 0.99205
+   },
+   "5": {
+    "origin": [
+     35,
+     23,
+     28,
+     4
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.45867,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     34,
+     22,
+     27,
+     3
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.3461,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "만모르": {
+  "id": "94",
+  "growth_S": [
+   12.231,
+   1.999,
+   2.127,
+   0.451
+  ],
+  "init_S": [
+   66,
+   10,
+   11,
+   2
+  ],
+  "production": {
+   "origin": [
+    40,
+    29,
+    32,
+    5
+   ],
+   "k": 26,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     40,
+     29,
+     32,
+     5
+    ],
+    "origin_sum": 106,
+    "growth_dev": 0.00944,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 2.41758
+   },
+   "2": {
+    "origin": [
+     38,
+     28,
+     31,
+     5
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.4713,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     37,
+     26,
+     29,
+     4
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.45932,
+    "bracket_ok": false,
+    "k": 28,
+    "k_resid": 1.59411
+   },
+   "4": {
+    "origin": [
+     35,
+     25,
+     28,
+     4
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.25137,
+    "bracket_ok": false,
+    "k": 29,
+    "k_resid": 1.17526
+   },
+   "5": {
+    "origin": [
+     34,
+     24,
+     27,
+     4
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.4172,
+    "bracket_ok": false,
+    "k": 30,
+    "k_resid": 1.81466
+   },
+   "6": {
+    "origin": [
+     32,
+     23,
+     26,
+     3
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.34486,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "만모": {
+  "id": "93",
+  "growth_S": [
+   12.516,
+   1.785,
+   2.255,
+   0.451
+  ],
+  "init_S": [
+   71,
+   10,
+   12,
+   2
+  ],
+  "production": {
+   "origin": [
+    42,
+    24,
+    35,
+    5
+   ],
+   "k": 27,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     42,
+     24,
+     35,
+     5
+    ],
+    "origin_sum": 106,
+    "growth_dev": 0.00526,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 1.03088
+   },
+   "2": {
+    "origin": [
+     40,
+     23,
+     33,
+     5
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.40268,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     38,
+     22,
+     32,
+     4
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.38766,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     37,
+     21,
+     31,
+     4
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.43117,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     35,
+     20,
+     29,
+     4
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.37387,
+    "bracket_ok": false,
+    "k": 32,
+    "k_resid": 2.13856
+   },
+   "6": {
+    "origin": [
+     34,
+     19,
+     28,
+     3
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.34348,
+    "bracket_ok": false,
+    "k": 33,
+    "k_resid": 1.676
+   }
+  }
+ },
+ "프라키토스": {
+  "id": "92",
+  "growth_S": [
+   11.424,
+   2.243,
+   1.944,
+   0.499
+  ],
+  "init_S": [
+   57,
+   11,
+   9,
+   2
+  ],
+  "production": {
+   "origin": [
+    35,
+    35,
+    28,
+    6
+   ],
+   "k": 24,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     35,
+     35,
+     28,
+     6
+    ],
+    "origin_sum": 104,
+    "growth_dev": 0.00526,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.57604
+   },
+   "2": {
+    "origin": [
+     33,
+     33,
+     27,
+     6
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.41919,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.36133
+   },
+   "3": {
+    "origin": [
+     32,
+     32,
+     25,
+     5
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.47704,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 1.15574
+   },
+   "4": {
+    "origin": [
+     31,
+     31,
+     24,
+     5
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.43384,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     29,
+     29,
+     23,
+     4
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.49099,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     28,
+     28,
+     22,
+     4
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.349,
+    "bracket_ok": false,
+    "k": 29,
+    "k_resid": 0.83966
+   }
+  }
+ },
+ "프리토스": {
+  "id": "91",
+  "growth_S": [
+   11.851,
+   2.037,
+   2.079,
+   0.641
+  ],
+  "init_S": [
+   64,
+   11,
+   11,
+   3
+  ],
+  "production": {
+   "origin": [
+    37,
+    30,
+    31,
+    9
+   ],
+   "k": 26,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     37,
+     30,
+     31,
+     9
+    ],
+    "origin_sum": 107,
+    "growth_dev": 0.01028,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 1.1843
+   },
+   "2": {
+    "origin": [
+     35,
+     29,
+     30,
+     8
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.44949,
+    "bracket_ok": false,
+    "k": 27,
+    "k_resid": 0.54829
+   },
+   "3": {
+    "origin": [
+     34,
+     27,
+     28,
+     8
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.32987,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     32,
+     26,
+     27,
+     7
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.48131,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     31,
+     25,
+     26,
+     7
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.12334,
+    "bracket_ok": false,
+    "k": 30,
+    "k_resid": 0.27926
+   },
+   "6": {
+    "origin": [
+     30,
+     24,
+     25,
+     7
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.35217,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "다이노스": {
+  "id": "90",
+  "growth_S": [
+   12.421,
+   1.958,
+   2.129,
+   0.499
+  ],
+  "init_S": [
+   67,
+   10,
+   11,
+   2
+  ],
+  "production": {
+   "origin": [
+    41,
+    28,
+    32,
+    6
+   ],
+   "k": 26,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     41,
+     28,
+     32,
+     6
+    ],
+    "origin_sum": 107,
+    "growth_dev": 0.00526,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 2.45761
+   },
+   "2": {
+    "origin": [
+     39,
+     27,
+     31,
+     6
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.47835,
+    "bracket_ok": false,
+    "k": 27,
+    "k_resid": 2.68939
+   },
+   "3": {
+    "origin": [
+     37,
+     25,
+     29,
+     5
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.47226,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     36,
+     24,
+     28,
+     5
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.3518,
+    "bracket_ok": false,
+    "k": 29,
+    "k_resid": 1.3386
+   },
+   "5": {
+    "origin": [
+     34,
+     23,
+     27,
+     4
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.49099,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     33,
+     22,
+     26,
+     4
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.35093,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "루이": {
+  "id": "89",
+  "growth_S": [
+   11.519,
+   1.932,
+   2.018,
+   0.641
+  ],
+  "init_S": [
+   55,
+   9,
+   9,
+   3
+  ],
+  "production": {
+   "origin": [
+    36,
+    28,
+    30,
+    9
+   ],
+   "k": 23,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     36,
+     28,
+     30,
+     9
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.00961,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 1.3296
+   },
+   "2": {
+    "origin": [
+     34,
+     27,
+     29,
+     8
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.44949,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.26234
+   },
+   "3": {
+    "origin": [
+     33,
+     25,
+     27,
+     8
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.4738,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.3457
+   },
+   "4": {
+    "origin": [
+     31,
+     24,
+     26,
+     7
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.48131,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     30,
+     23,
+     25,
+     7
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.31353,
+    "bracket_ok": false,
+    "k": 27,
+    "k_resid": 1.3069
+   },
+   "6": {
+    "origin": [
+     29,
+     22,
+     24,
+     7
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.35217,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "무이": {
+  "id": "88",
+  "growth_S": [
+   12.231,
+   1.904,
+   2.032,
+   0.641
+  ],
+  "init_S": [
+   56,
+   8,
+   9,
+   2
+  ],
+  "production": {
+   "origin": [
+    40,
+    27,
+    30,
+    9
+   ],
+   "k": 22,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     40,
+     27,
+     30,
+     9
+    ],
+    "origin_sum": 106,
+    "growth_dev": 0.00944,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 2.19858
+   },
+   "2": {
+    "origin": [
+     38,
+     26,
+     29,
+     8
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.44949,
+    "bracket_ok": false,
+    "k": 23,
+    "k_resid": 2.34937
+   },
+   "3": {
+    "origin": [
+     37,
+     25,
+     27,
+     8
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.45932,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     35,
+     23,
+     26,
+     7
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.48131,
+    "bracket_ok": false,
+    "k": 25,
+    "k_resid": 2.31914
+   },
+   "5": {
+    "origin": [
+     34,
+     22,
+     25,
+     7
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.46754,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     32,
+     22,
+     24,
+     7
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.47046,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "씨보스": {
+  "id": "87",
+  "growth_S": [
+   11.851,
+   1.892,
+   1.977,
+   0.689
+  ],
+  "init_S": [
+   57,
+   9,
+   9,
+   3
+  ],
+  "production": {
+   "origin": [
+    38,
+    27,
+    29,
+    10
+   ],
+   "k": 23,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     38,
+     27,
+     29,
+     10
+    ],
+    "origin_sum": 104,
+    "growth_dev": 0.0071,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 0.61516
+   },
+   "2": {
+    "origin": [
+     36,
+     26,
+     28,
+     9
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.41919,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 0.61351
+   },
+   "3": {
+    "origin": [
+     35,
+     25,
+     26,
+     9
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.44005,
+    "bracket_ok": false,
+    "k": 25,
+    "k_resid": 1.26164
+   },
+   "4": {
+    "origin": [
+     33,
+     23,
+     25,
+     8
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.47359,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 0.34338
+   },
+   "5": {
+    "origin": [
+     32,
+     22,
+     24,
+     8
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.46554,
+    "bracket_ok": false,
+    "k": 27,
+    "k_resid": 0.88179
+   },
+   "6": {
+    "origin": [
+     31,
+     22,
+     23,
+     7
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.48261,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "투이": {
+  "id": "86",
+  "growth_S": [
+   12.016,
+   1.805,
+   1.855,
+   0.583
+  ],
+  "init_S": [
+   51,
+   7,
+   8,
+   2
+  ],
+  "production": {
+   "origin": [
+    34,
+    21,
+    22,
+    6
+   ],
+   "k": 24,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     40,
+     25,
+     26,
+     8
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.48546,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     39,
+     24,
+     25,
+     7
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.33213,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     37,
+     23,
+     24,
+     7
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.17961,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     35,
+     22,
+     23,
+     6
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.44036,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     34,
+     21,
+     22,
+     6
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.0045,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.84212
+   },
+   "6": {
+    "origin": [
+     33,
+     20,
+     21,
+     6
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.36087,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "메가로스": {
+  "id": "85",
+  "growth_S": [
+   11.329,
+   1.923,
+   1.923,
+   0.736
+  ],
+  "init_S": [
+   64,
+   10,
+   10,
+   4
+  ],
+  "production": {
+   "origin": [
+    35,
+    28,
+    28,
+    11
+   ],
+   "k": 27,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     35,
+     28,
+     28,
+     11
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.00877,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 1.91355
+   },
+   "2": {
+    "origin": [
+     33,
+     27,
+     27,
+     10
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.40236,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     32,
+     25,
+     25,
+     10
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.48382,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     31,
+     24,
+     24,
+     9
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.43146,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     29,
+     23,
+     23,
+     9
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.32282,
+    "bracket_ok": true,
+    "k": 32,
+    "k_resid": 2.61645
+   },
+   "6": {
+    "origin": [
+     28,
+     22,
+     22,
+     8
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.35507,
+    "bracket_ok": true,
+    "k": 33,
+    "k_resid": 1.89456
+   }
+  }
+ },
+ "비트로스": {
+  "id": "84",
+  "growth_S": [
+   10.321,
+   2.103,
+   1.835,
+   0.866
+  ],
+  "init_S": [
+   54,
+   11,
+   9,
+   4
+  ],
+  "production": {
+   "origin": [
+    27,
+    31,
+    25,
+    13
+   ],
+   "k": 26,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     28,
+     33,
+     26,
+     14
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.49432,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 0.80664
+   },
+   "2": {
+    "origin": [
+     27,
+     31,
+     25,
+     13
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.0105,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 0.75745
+   },
+   "3": {
+    "origin": [
+     26,
+     30,
+     24,
+     12
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.36855,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 0.84074
+   },
+   "4": {
+    "origin": [
+     25,
+     28,
+     23,
+     12
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.35551,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     24,
+     27,
+     22,
+     11
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.40433,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     23,
+     26,
+     21,
+     11
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.43913,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "토르프스": {
+  "id": "83",
+  "growth_S": [
+   10.299,
+   1.697,
+   2.227,
+   0.776
+  ],
+  "init_S": [
+   28,
+   4,
+   6,
+   2
+  ],
+  "production": {
+   "origin": [
+    25,
+    20,
+    31,
+    10
+   ],
+   "k": 15,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     29,
+     23,
+     35,
+     12
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.4858,
+    "bracket_ok": false,
+    "k": 13,
+    "k_resid": 0.49637
+   },
+   "2": {
+    "origin": [
+     27,
+     22,
+     34,
+     11
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.38504,
+    "bracket_ok": false,
+    "k": 14,
+    "k_resid": 1.59101
+   },
+   "3": {
+    "origin": [
+     26,
+     21,
+     32,
+     11
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.43204,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     25,
+     20,
+     31,
+     10
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.00586,
+    "bracket_ok": true,
+    "k": 15,
+    "k_resid": 1.43137
+   },
+   "5": {
+    "origin": [
+     24,
+     19,
+     30,
+     9
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.48198,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     23,
+     18,
+     29,
+     9
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.46825,
+    "bracket_ok": true,
+    "k": 16,
+    "k_resid": 1.08368
+   }
+  }
+ },
+ "토리케라": {
+  "id": "82",
+  "growth_S": [
+   10.906,
+   1.547,
+   2.246,
+   0.86
+  ],
+  "init_S": [
+   33,
+   4,
+   6,
+   2
+  ],
+  "production": {
+   "origin": [
+    27,
+    16,
+    30,
+    11
+   ],
+   "k": 17,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     32,
+     19,
+     36,
+     14
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.45188,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     31,
+     18,
+     34,
+     13
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.48413,
+    "bracket_ok": true,
+    "k": 15,
+    "k_resid": 1.37858
+   },
+   "3": {
+    "origin": [
+     29,
+     18,
+     33,
+     12
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.45099,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     28,
+     17,
+     31,
+     12
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.42523,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     27,
+     16,
+     30,
+     11
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.00665,
+    "bracket_ok": true,
+    "k": 17,
+    "k_resid": 1.88872
+   },
+   "6": {
+    "origin": [
+     26,
+     15,
+     29,
+     10
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.45652,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "펜타스": {
+  "id": "81",
+  "growth_S": [
+   10.566,
+   1.593,
+   2.123,
+   0.829
+  ],
+  "init_S": [
+   31,
+   4,
+   6,
+   2
+  ],
+  "production": {
+   "origin": [
+    27,
+    18,
+    29,
+    11
+   ],
+   "k": 16,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     31,
+     21,
+     33,
+     13
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.24018,
+    "bracket_ok": false,
+    "k": 14,
+    "k_resid": 0.78681
+   },
+   "2": {
+    "origin": [
+     30,
+     20,
+     32,
+     12
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.45671,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     28,
+     19,
+     30,
+     12
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.40291,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     27,
+     18,
+     29,
+     11
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.00764,
+    "bracket_ok": true,
+    "k": 16,
+    "k_resid": 1.2952
+   },
+   "5": {
+    "origin": [
+     26,
+     17,
+     28,
+     10
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.43694,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     25,
+     16,
+     27,
+     10
+    ],
+    "origin_sum": 78,
+    "growth_dev": 0.43513,
+    "bracket_ok": true,
+    "k": 17,
+    "k_resid": 0.87355
+   }
+  }
+ },
+ "토리노프스": {
+  "id": "80",
+  "growth_S": [
+   10.24,
+   1.777,
+   1.927,
+   0.916
+  ],
+  "init_S": [
+   25,
+   4,
+   4,
+   2
+  ],
+  "production": {
+   "origin": [
+    24,
+    21,
+    24,
+    12
+   ],
+   "k": 14,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     29,
+     25,
+     29,
+     15
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.28647,
+    "bracket_ok": false,
+    "k": 12,
+    "k_resid": 2.08597
+   },
+   "2": {
+    "origin": [
+     27,
+     24,
+     27,
+     14
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.45767,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     26,
+     23,
+     26,
+     13
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.28641,
+    "bracket_ok": false,
+    "k": 13,
+    "k_resid": 1.45681
+   },
+   "4": {
+    "origin": [
+     25,
+     22,
+     25,
+     13
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.3785,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     24,
+     21,
+     24,
+     12
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.00708,
+    "bracket_ok": true,
+    "k": 14,
+    "k_resid": 1.76095
+   },
+   "6": {
+    "origin": [
+     23,
+     20,
+     23,
+     11
+    ],
+    "origin_sum": 77,
+    "growth_dev": 0.43043,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "베르가": {
+  "id": "79",
+  "growth_S": [
+   10.073,
+   2.028,
+   1.36,
+   1.559
+  ],
+  "init_S": [
+   46,
+   9,
+   6,
+   7
+  ],
+  "production": {
+   "origin": [
+    25,
+    30,
+    15,
+    27
+   ],
+   "k": 23,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     31,
+     16,
+     28
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.4472,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 0.30449
+   },
+   "2": {
+    "origin": [
+     25,
+     30,
+     15,
+     27
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.00521,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 0.98996
+   },
+   "3": {
+    "origin": [
+     24,
+     29,
+     14,
+     26
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.34481,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     23,
+     27,
+     14,
+     25
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.45757,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     22,
+     26,
+     13,
+     24
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.40991,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     21,
+     25,
+     12,
+     23
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.38696,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "베루루": {
+  "id": "78",
+  "growth_S": [
+   9.759,
+   2.082,
+   1.248,
+   1.674
+  ],
+  "init_S": [
+   41,
+   8,
+   5,
+   7
+  ],
+  "production": {
+   "origin": [
+    22,
+    30,
+    12,
+    28
+   ],
+   "k": 22,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     24,
+     33,
+     13,
+     31
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.39825,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     23,
+     31,
+     13,
+     29
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.39562,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 0.7589
+   },
+   "3": {
+    "origin": [
+     22,
+     30,
+     12,
+     28
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.00809,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 1.40551
+   },
+   "4": {
+    "origin": [
+     21,
+     29,
+     11,
+     27
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.39097,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     20,
+     28,
+     11,
+     26
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.48498,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     19,
+     26,
+     10,
+     25
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.40145,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "고르고르": {
+  "id": "77",
+  "growth_S": [
+   9.399,
+   2.126,
+   1.291,
+   1.622
+  ],
+  "init_S": [
+   38,
+   8,
+   5,
+   6
+  ],
+  "production": {
+   "origin": [
+    20,
+    31,
+    13,
+    27
+   ],
+   "k": 21,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     22,
+     34,
+     14,
+     30
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.46525,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     21,
+     32,
+     14,
+     28
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.44196,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     20,
+     31,
+     13,
+     27
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.00778,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.00036
+   },
+   "4": {
+    "origin": [
+     19,
+     30,
+     12,
+     26
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.3383,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 1.58335
+   },
+   "5": {
+    "origin": [
+     18,
+     28,
+     12,
+     25
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.44823,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 1.85153
+   },
+   "6": {
+    "origin": [
+     17,
+     27,
+     11,
+     24
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.44576,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 2.01886
+   }
+  }
+ },
+ "노르노르": {
+  "id": "76",
+  "growth_S": [
+   9.708,
+   2.046,
+   1.443,
+   1.674
+  ],
+  "init_S": [
+   47,
+   9,
+   7,
+   8
+  ],
+  "production": {
+   "origin": [
+    21,
+    29,
+    16,
+    28
+   ],
+   "k": 25,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     23,
+     32,
+     18,
+     31
+    ],
+    "origin_sum": 104,
+    "growth_dev": 0.28045,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 0.94019
+   },
+   "2": {
+    "origin": [
+     22,
+     30,
+     17,
+     29
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.35714,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     21,
+     29,
+     16,
+     28
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.00624,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 0.89852
+   },
+   "4": {
+    "origin": [
+     20,
+     28,
+     15,
+     27
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.249,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     19,
+     27,
+     15,
+     26
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.48327,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     18,
+     26,
+     14,
+     25
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.49255,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "카우": {
+  "id": "75",
+  "growth_S": [
+   8.781,
+   1.801,
+   1.801,
+   1.622
+  ],
+  "init_S": [
+   27,
+   5,
+   5,
+   5
+  ],
+  "production": {
+   "origin": [
+    16,
+    24,
+    24,
+    27
+   ],
+   "k": 16,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     18,
+     26,
+     26,
+     30
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.39574,
+    "bracket_ok": true,
+    "k": 15,
+    "k_resid": 1.5019
+   },
+   "2": {
+    "origin": [
+     17,
+     25,
+     25,
+     28
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.26768,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     16,
+     24,
+     24,
+     27
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.00485,
+    "bracket_ok": true,
+    "k": 16,
+    "k_resid": 0.79043
+   },
+   "4": {
+    "origin": [
+     15,
+     23,
+     23,
+     26
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.23787,
+    "bracket_ok": true,
+    "k": 17,
+    "k_resid": 1.74156
+   },
+   "5": {
+    "origin": [
+     15,
+     22,
+     22,
+     25
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.4734,
+    "bracket_ok": true,
+    "k": 17,
+    "k_resid": 0.6598
+   },
+   "6": {
+    "origin": [
+     14,
+     21,
+     21,
+     24
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.2913,
+    "bracket_ok": true,
+    "k": 18,
+    "k_resid": 1.22916
+   }
+  }
+ },
+ "바우": {
+  "id": "74",
+  "growth_S": [
+   9.296,
+   1.85,
+   1.618,
+   1.674
+  ],
+  "init_S": [
+   28,
+   5,
+   5,
+   5
+  ],
+  "production": {
+   "origin": [
+    19,
+    25,
+    20,
+    28
+   ],
+   "k": 16,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     21,
+     27,
+     22,
+     31
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.48162,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     20,
+     26,
+     21,
+     29
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.31818,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     19,
+     25,
+     20,
+     28
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.00778,
+    "bracket_ok": true,
+    "k": 16,
+    "k_resid": 1.37469
+   },
+   "4": {
+    "origin": [
+     18,
+     24,
+     19,
+     27
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.21028,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     17,
+     23,
+     18,
+     26
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.33784,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     17,
+     22,
+     17,
+     25
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.4499,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "바카": {
+  "id": "73",
+  "growth_S": [
+   9.502,
+   1.858,
+   1.672,
+   1.622
+  ],
+  "init_S": [
+   36,
+   7,
+   6,
+   6
+  ],
+  "production": {
+   "origin": [
+    20,
+    25,
+    21,
+    27
+   ],
+   "k": 20,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     22,
+     27,
+     23,
+     30
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.48797,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     21,
+     26,
+     22,
+     28
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.26768,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 0.35353
+   },
+   "3": {
+    "origin": [
+     20,
+     25,
+     21,
+     27
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.00948,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 1.19125
+   },
+   "4": {
+    "origin": [
+     19,
+     24,
+     20,
+     26
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.18224,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     18,
+     23,
+     19,
+     25
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.27477,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     17,
+     22,
+     18,
+     24
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.447,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "카쿠": {
+  "id": "72",
+  "growth_S": [
+   9.924,
+   1.767,
+   1.671,
+   1.525
+  ],
+  "init_S": [
+   33,
+   5,
+   5,
+   5
+  ],
+  "production": {
+   "origin": [
+    22,
+    22,
+    20,
+    24
+   ],
+   "k": 18,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     25,
+     25,
+     23,
+     28
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.39474,
+    "bracket_ok": true,
+    "k": 16,
+    "k_resid": 1.24048
+   },
+   "2": {
+    "origin": [
+     24,
+     24,
+     22,
+     26
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.30808,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     23,
+     23,
+     21,
+     25
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.11165,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     22,
+     22,
+     20,
+     24
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.00868,
+    "bracket_ok": true,
+    "k": 18,
+    "k_resid": 1.4461
+   },
+   "5": {
+    "origin": [
+     21,
+     21,
+     19,
+     23
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.12548,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     20,
+     20,
+     18,
+     22
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.30373,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "토로쟈": {
+  "id": "71",
+  "growth_S": [
+   10.299,
+   1.938,
+   1.89,
+   1.097
+  ],
+  "init_S": [
+   40,
+   7,
+   7,
+   4
+  ],
+  "production": {
+   "origin": [
+    24,
+    25,
+    24,
+    16
+   ],
+   "k": 21,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     28,
+     29,
+     28,
+     19
+    ],
+    "origin_sum": 104,
+    "growth_dev": 0.40526,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     26,
+     27,
+     26,
+     18
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.38264,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     25,
+     26,
+     25,
+     17
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.19903,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     24,
+     25,
+     24,
+     16
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.00467,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 0.81734
+   },
+   "5": {
+    "origin": [
+     23,
+     24,
+     23,
+     15
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.26577,
+    "bracket_ok": false,
+    "k": 22,
+    "k_resid": 1.46904
+   },
+   "6": {
+    "origin": [
+     22,
+     23,
+     22,
+     15
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.42174,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "포보": {
+  "id": "70",
+  "growth_S": [
+   10.739,
+   1.791,
+   1.941,
+   0.971
+  ],
+  "init_S": [
+   38,
+   6,
+   6,
+   3
+  ],
+  "production": {
+   "origin": [
+    26,
+    21,
+    24,
+    13
+   ],
+   "k": 20,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     31,
+     25,
+     29,
+     16
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.28947,
+    "bracket_ok": true,
+    "k": 17,
+    "k_resid": 1.42784
+   },
+   "2": {
+    "origin": [
+     30,
+     24,
+     27,
+     15
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.45286,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     28,
+     23,
+     26,
+     14
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.37055,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     27,
+     22,
+     25,
+     14
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.35047,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 1.19021
+   },
+   "5": {
+    "origin": [
+     26,
+     21,
+     24,
+     13
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.0045,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 1.93705
+   },
+   "6": {
+    "origin": [
+     25,
+     20,
+     23,
+     12
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.38696,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "휴보": {
+  "id": "69",
+  "growth_S": [
+   9.871,
+   1.975,
+   1.831,
+   1.097
+  ],
+  "init_S": [
+   42,
+   8,
+   7,
+   4
+  ],
+  "production": {
+   "origin": [
+    22,
+    26,
+    23,
+    16
+   ],
+   "k": 23,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     25,
+     30,
+     26,
+     19
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.47343,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     24,
+     28,
+     25,
+     18
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.4543,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     23,
+     27,
+     24,
+     17
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.19903,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 1.35582
+   },
+   "4": {
+    "origin": [
+     22,
+     26,
+     23,
+     16
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.00957,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 1.7032
+   },
+   "5": {
+    "origin": [
+     21,
+     25,
+     22,
+     15
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.26577,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.97364
+   },
+   "6": {
+    "origin": [
+     20,
+     24,
+     21,
+     15
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.42174,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 2.80477
+   }
+  }
+ },
+ "고르고": {
+  "id": "68",
+  "growth_S": [
+   9.862,
+   2.095,
+   1.492,
+   1.313
+  ],
+  "init_S": [
+   49,
+   10,
+   7,
+   6
+  ],
+  "production": {
+   "origin": [
+    23,
+    30,
+    17,
+    21
+   ],
+   "k": 26,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     25,
+     33,
+     19,
+     23
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.31554,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.37009
+   },
+   "2": {
+    "origin": [
+     24,
+     31,
+     18,
+     22
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.39947,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.32227
+   },
+   "3": {
+    "origin": [
+     23,
+     30,
+     17,
+     21
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.00532,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 1.63682
+   },
+   "4": {
+    "origin": [
+     22,
+     29,
+     16,
+     20
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.2846,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 1.69411
+   },
+   "5": {
+    "origin": [
+     21,
+     28,
+     15,
+     19
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.48155,
+    "bracket_ok": true,
+    "k": 28,
+    "k_resid": 1.47169
+   },
+   "6": {
+    "origin": [
+     20,
+     26,
+     15,
+     18
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.40476,
+    "bracket_ok": true,
+    "k": 29,
+    "k_resid": 1.00575
+   }
+  }
+ },
+ "투르돈": {
+  "id": "67",
+  "growth_S": [
+   10.352,
+   2.069,
+   1.539,
+   1.15
+  ],
+  "init_S": [
+   48,
+   9,
+   7,
+   5
+  ],
+  "production": {
+   "origin": [
+    25,
+    28,
+    17,
+    17
+   ],
+   "k": 25,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     29,
+     32,
+     20,
+     20
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.29382,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 0.6072
+   },
+   "2": {
+    "origin": [
+     27,
+     31,
+     19,
+     19
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.38648,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     26,
+     29,
+     18,
+     18
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.26083,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 0.55556
+   },
+   "4": {
+    "origin": [
+     25,
+     28,
+     17,
+     17
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.00853,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 0.76602
+   },
+   "5": {
+    "origin": [
+     24,
+     27,
+     16,
+     16
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.22072,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 0.90712
+   },
+   "6": {
+    "origin": [
+     23,
+     26,
+     15,
+     16
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.5,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 1.44763
+   }
+  }
+ },
+ "기라돈": {
+  "id": "66",
+  "growth_S": [
+   10.295,
+   1.927,
+   1.727,
+   1.027
+  ],
+  "init_S": [
+   46,
+   8,
+   7,
+   4
+  ],
+  "production": {
+   "origin": [
+    24,
+    24,
+    20,
+    14
+   ],
+   "k": 25,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     29,
+     29,
+     24,
+     17
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.20443,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     27,
+     27,
+     23,
+     16
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.45527,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     26,
+     26,
+     22,
+     15
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.44175,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     25,
+     25,
+     21,
+     15
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.30374,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.49726
+   },
+   "5": {
+    "origin": [
+     24,
+     24,
+     20,
+     14
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.00779,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.6057
+   },
+   "6": {
+    "origin": [
+     23,
+     23,
+     19,
+     13
+    ],
+    "origin_sum": 78,
+    "growth_dev": 0.36087,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 1.55457
+   }
+  }
+ },
+ "고르돈": {
+  "id": "65",
+  "growth_S": [
+   10.172,
+   2.048,
+   1.736,
+   1.064
+  ],
+  "init_S": [
+   51,
+   10,
+   8,
+   5
+  ],
+  "production": {
+   "origin": [
+    26,
+    30,
+    23,
+    17
+   ],
+   "k": 25,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     27,
+     31,
+     24,
+     18
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.45188,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 0.72842
+   },
+   "2": {
+    "origin": [
+     26,
+     30,
+     23,
+     17
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.00505,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 0.99039
+   },
+   "3": {
+    "origin": [
+     25,
+     29,
+     22,
+     16
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.3405,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 1.29929
+   },
+   "4": {
+    "origin": [
+     24,
+     27,
+     21,
+     15
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.41989,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 0.90085
+   },
+   "5": {
+    "origin": [
+     23,
+     26,
+     20,
+     15
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.32883,
+    "bracket_ok": true,
+    "k": 28,
+    "k_resid": 1.29261
+   },
+   "6": {
+    "origin": [
+     22,
+     25,
+     19,
+     14
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.24244,
+    "bracket_ok": true,
+    "k": 29,
+    "k_resid": 0.93372
+   }
+  }
+ },
+ "골드카비트": {
+  "id": "64",
+  "growth_S": [
+   8.999,
+   1.669,
+   1.41,
+   1.869
+  ],
+  "init_S": [
+   26,
+   4,
+   4,
+   5
+  ],
+  "production": {
+   "origin": [
+    16,
+    19,
+    14,
+    28
+   ],
+   "k": 17,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     20,
+     24,
+     18,
+     35
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.31654,
+    "bracket_ok": false,
+    "k": 14,
+    "k_resid": 1.31609
+   },
+   "2": {
+    "origin": [
+     19,
+     23,
+     17,
+     33
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.31385,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     18,
+     22,
+     16,
+     32
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.38904,
+    "bracket_ok": false,
+    "k": 15,
+    "k_resid": 1.03205
+   },
+   "4": {
+    "origin": [
+     18,
+     21,
+     15,
+     30
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.46662,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     17,
+     20,
+     15,
+     29
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.33712,
+    "bracket_ok": true,
+    "k": 16,
+    "k_resid": 0.88291
+   },
+   "6": {
+    "origin": [
+     16,
+     19,
+     14,
+     28
+    ],
+    "origin_sum": 77,
+    "growth_dev": 0.00435,
+    "bracket_ok": true,
+    "k": 17,
+    "k_resid": 1.54312
+   }
+  }
+ },
+ "큐이": {
+  "id": "63",
+  "growth_S": [
+   8.769,
+   1.724,
+   1.517,
+   1.696
+  ],
+  "init_S": [
+   19,
+   3,
+   3,
+   3
+  ],
+  "production": {
+   "origin": [
+    15,
+    20,
+    16,
+    25
+   ],
+   "k": 13,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     19,
+     25,
+     20,
+     31
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.32456,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     18,
+     24,
+     19,
+     30
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.32155,
+    "bracket_ok": false,
+    "k": 11,
+    "k_resid": 1.60712
+   },
+   "3": {
+    "origin": [
+     17,
+     23,
+     18,
+     28
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.43204,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     16,
+     22,
+     18,
+     27
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.4595,
+    "bracket_ok": false,
+    "k": 12,
+    "k_resid": 1.84683
+   },
+   "5": {
+    "origin": [
+     16,
+     21,
+     17,
+     26
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.2988,
+    "bracket_ok": true,
+    "k": 12,
+    "k_resid": 1.11243
+   },
+   "6": {
+    "origin": [
+     15,
+     20,
+     16,
+     25
+    ],
+    "origin_sum": 76,
+    "growth_dev": 0.00725,
+    "bracket_ok": true,
+    "k": 13,
+    "k_resid": 2.36584
+   }
+  }
+ },
+ "케이비": {
+  "id": "62",
+  "growth_S": [
+   9.015,
+   1.743,
+   1.55,
+   1.792
+  ],
+  "init_S": [
+   30,
+   5,
+   5,
+   6
+  ],
+  "production": {
+   "origin": [
+    17,
+    22,
+    18,
+    29
+   ],
+   "k": 18,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     20,
+     25,
+     21,
+     33
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.3528,
+    "bracket_ok": false,
+    "k": 16,
+    "k_resid": 0.96234
+   },
+   "2": {
+    "origin": [
+     19,
+     24,
+     20,
+     32
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.29798,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     18,
+     23,
+     19,
+     30
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.29612,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     17,
+     22,
+     18,
+     29
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.00482,
+    "bracket_ok": true,
+    "k": 18,
+    "k_resid": 0.90187
+   },
+   "5": {
+    "origin": [
+     16,
+     21,
+     17,
+     28
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.22716,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 1.47737
+   },
+   "6": {
+    "origin": [
+     16,
+     20,
+     16,
+     27
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.49379,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "카비트": {
+  "id": "61",
+  "growth_S": [
+   9.282,
+   1.753,
+   1.609,
+   1.792
+  ],
+  "init_S": [
+   29,
+   5,
+   5,
+   5
+  ],
+  "production": {
+   "origin": [
+    18,
+    22,
+    19,
+    29
+   ],
+   "k": 17,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     21,
+     25,
+     22,
+     33
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.33759,
+    "bracket_ok": true,
+    "k": 15,
+    "k_resid": 0.73929
+   },
+   "2": {
+    "origin": [
+     20,
+     24,
+     21,
+     32
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.29798,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     19,
+     23,
+     20,
+     30
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.29612,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     18,
+     22,
+     19,
+     29
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.00868,
+    "bracket_ok": true,
+    "k": 17,
+    "k_resid": 1.06766
+   },
+   "5": {
+    "origin": [
+     17,
+     21,
+     18,
+     28
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.21171,
+    "bracket_ok": true,
+    "k": 18,
+    "k_resid": 2.15388
+   },
+   "6": {
+    "origin": [
+     16,
+     20,
+     17,
+     27
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.43665,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "리스키": {
+  "id": "60",
+  "growth_S": [
+   9.685,
+   1.761,
+   1.711,
+   1.471
+  ],
+  "init_S": [
+   29,
+   5,
+   5,
+   4
+  ],
+  "production": {
+   "origin": [
+    20,
+    21,
+    20,
+    22
+   ],
+   "k": 17,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     24,
+     25,
+     24,
+     26
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.46842,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     23,
+     24,
+     23,
+     25
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.21717,
+    "bracket_ok": true,
+    "k": 15,
+    "k_resid": 0.42414
+   },
+   "3": {
+    "origin": [
+     22,
+     23,
+     22,
+     24
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.09917,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     21,
+     22,
+     21,
+     23
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.08611,
+    "bracket_ok": true,
+    "k": 16,
+    "k_resid": 0.2552
+   },
+   "5": {
+    "origin": [
+     20,
+     21,
+     20,
+     22
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.0045,
+    "bracket_ok": true,
+    "k": 17,
+    "k_resid": 0.90962
+   },
+   "6": {
+    "origin": [
+     19,
+     20,
+     19,
+     21
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.15107,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "포링": {
+  "id": "59",
+  "growth_S": [
+   9.796,
+   1.702,
+   1.603,
+   1.526
+  ],
+  "init_S": [
+   33,
+   5,
+   5,
+   5
+  ],
+  "production": {
+   "origin": [
+    21,
+    20,
+    18,
+    23
+   ],
+   "k": 19,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     25,
+     24,
+     22,
+     28
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.37368,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     24,
+     23,
+     21,
+     26
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.32828,
+    "bracket_ok": false,
+    "k": 17,
+    "k_resid": 1.38957
+   },
+   "3": {
+    "origin": [
+     23,
+     22,
+     20,
+     25
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.24295,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     22,
+     21,
+     19,
+     24
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.14976,
+    "bracket_ok": true,
+    "k": 18,
+    "k_resid": 0.75357
+   },
+   "5": {
+    "origin": [
+     21,
+     20,
+     18,
+     23
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.00922,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 1.25929
+   },
+   "6": {
+    "origin": [
+     20,
+     19,
+     17,
+     22
+    ],
+    "origin_sum": 78,
+    "growth_dev": 0.22588,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 1.95885
+   }
+  }
+ },
+ "쿠쿠르": {
+  "id": "58",
+  "growth_S": [
+   10.189,
+   1.664,
+   1.621,
+   1.639
+  ],
+  "init_S": [
+   40,
+   6,
+   6,
+   6
+  ],
+  "production": {
+   "origin": [
+    27,
+    23,
+    22,
+    30
+   ],
+   "k": 19,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     27,
+     23,
+     22,
+     30
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.00643,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 1.54076
+   },
+   "2": {
+    "origin": [
+     26,
+     22,
+     21,
+     29
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.38889,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     25,
+     21,
+     20,
+     27
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.44822,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     23,
+     20,
+     19,
+     26
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.46573,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     22,
+     19,
+     18,
+     25
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.45796,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     22,
+     18,
+     17,
+     24
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.47971,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "쿠링": {
+  "id": "57",
+  "growth_S": [
+   10.189,
+   1.671,
+   1.756,
+   1.496
+  ],
+  "init_S": [
+   36,
+   5,
+   6,
+   5
+  ],
+  "production": {
+   "origin": [
+    27,
+    23,
+    25,
+    27
+   ],
+   "k": 17,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     27,
+     23,
+     25,
+     27
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.0071,
+    "bracket_ok": true,
+    "k": 17,
+    "k_resid": 1.38381
+   },
+   "2": {
+    "origin": [
+     26,
+     22,
+     24,
+     26
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.27778,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     25,
+     21,
+     23,
+     25
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.45146,
+    "bracket_ok": true,
+    "k": 18,
+    "k_resid": 0.92347
+   },
+   "4": {
+    "origin": [
+     23,
+     20,
+     22,
+     23
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.47018,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     22,
+     19,
+     21,
+     22
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.46225,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     22,
+     18,
+     20,
+     22
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.48261,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "카르기안": {
+  "id": "56",
+  "growth_S": [
+   10.326,
+   1.899,
+   2.177,
+   0.901
+  ],
+  "init_S": [
+   38,
+   7,
+   8,
+   3
+  ],
+  "production": {
+   "origin": [
+    25,
+    25,
+    31,
+    13
+   ],
+   "k": 19,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     27,
+     27,
+     34,
+     14
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.48797,
+    "bracket_ok": true,
+    "k": 18,
+    "k_resid": 0.54344
+   },
+   "2": {
+    "origin": [
+     26,
+     26,
+     32,
+     14
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.43106,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     25,
+     25,
+     31,
+     13
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.00485,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 0.11573
+   },
+   "4": {
+    "origin": [
+     24,
+     24,
+     30,
+     12
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.34112,
+    "bracket_ok": false,
+    "k": 20,
+    "k_resid": 0.63765
+   },
+   "5": {
+    "origin": [
+     23,
+     23,
+     28,
+     12
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.43851,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     22,
+     22,
+     27,
+     11
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.29282,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "쿠타스": {
+  "id": "55",
+  "growth_S": [
+   11.234,
+   1.939,
+   2.238,
+   0.499
+  ],
+  "init_S": [
+   49,
+   8,
+   9,
+   2
+  ],
+  "production": {
+   "origin": [
+    34,
+    28,
+    35,
+    6
+   ],
+   "k": 21,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     34,
+     28,
+     35,
+     6
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.00944,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.61613
+   },
+   "2": {
+    "origin": [
+     32,
+     27,
+     33,
+     6
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.44757,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 1.66398
+   },
+   "3": {
+    "origin": [
+     31,
+     25,
+     32,
+     5
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.47241,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     30,
+     24,
+     31,
+     5
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.43829,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     28,
+     23,
+     29,
+     4
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.49099,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 2.14258
+   },
+   "6": {
+    "origin": [
+     27,
+     22,
+     28,
+     4
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.34486,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "아이카스": {
+  "id": "54",
+  "growth_S": [
+   11.162,
+   1.776,
+   2.444,
+   0.47
+  ],
+  "init_S": [
+   49,
+   7,
+   10,
+   2
+  ],
+  "production": {
+   "origin": [
+    32,
+    23,
+    38,
+    5
+   ],
+   "k": 22,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     34,
+     24,
+     40,
+     5
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.46391,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     32,
+     23,
+     38,
+     5
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.00505,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 1.92066
+   },
+   "3": {
+    "origin": [
+     31,
+     22,
+     36,
+     5
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.41817,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     29,
+     21,
+     35,
+     4
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.28505,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 2.58628
+   },
+   "5": {
+    "origin": [
+     28,
+     20,
+     33,
+     4
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.40419,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     27,
+     19,
+     32,
+     4
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.32609,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "로기안": {
+  "id": "53",
+  "growth_S": [
+   10.222,
+   1.81,
+   2.523,
+   0.569
+  ],
+  "init_S": [
+   45,
+   8,
+   11,
+   2
+  ],
+  "production": {
+   "origin": [
+    26,
+    24,
+    40,
+    7
+   ],
+   "k": 22,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     27,
+     25,
+     42,
+     7
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.47895,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     26,
+     24,
+     40,
+     7
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.00922,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 0.51397
+   },
+   "3": {
+    "origin": [
+     25,
+     23,
+     38,
+     7
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.45146,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 1.25971
+   },
+   "4": {
+    "origin": [
+     24,
+     22,
+     37,
+     6
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.33148,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     23,
+     21,
+     35,
+     6
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.29193,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     22,
+     20,
+     34,
+     5
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.39565,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "코로카스": {
+  "id": "52",
+  "growth_S": [
+   10.686,
+   1.912,
+   2.375,
+   0.438
+  ],
+  "init_S": [
+   37,
+   6,
+   8,
+   1
+  ],
+  "production": {
+   "origin": [
+    28,
+    25,
+    35,
+    4
+   ],
+   "k": 18,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     31,
+     27,
+     38,
+     5
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.4863,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     29,
+     26,
+     37,
+     4
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.41326,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     28,
+     25,
+     35,
+     4
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.00886,
+    "bracket_ok": true,
+    "k": 18,
+    "k_resid": 0.96071
+   },
+   "4": {
+    "origin": [
+     27,
+     24,
+     34,
+     4
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.48517,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     26,
+     23,
+     32,
+     3
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.39189,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     25,
+     22,
+     31,
+     3
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.39193,
+    "bracket_ok": false,
+    "k": 20,
+    "k_resid": 1.04265
+   }
+  }
+ },
+ "쿠카스": {
+  "id": "51",
+  "growth_S": [
+   10.377,
+   1.768,
+   2.509,
+   0.541
+  ],
+  "init_S": [
+   44,
+   7,
+   10,
+   2
+  ],
+  "production": {
+   "origin": [
+    26,
+    22,
+    38,
+    6
+   ],
+   "k": 22,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     29,
+     24,
+     42,
+     7
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.43383,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 0.70125
+   },
+   "2": {
+    "origin": [
+     27,
+     23,
+     40,
+     6
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.42929,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     26,
+     22,
+     38,
+     6
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.00717,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 1.02683
+   },
+   "4": {
+    "origin": [
+     25,
+     21,
+     36,
+     6
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.40432,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 1.55842
+   },
+   "5": {
+    "origin": [
+     24,
+     20,
+     35,
+     5
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.24775,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     23,
+     19,
+     34,
+     5
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.4412,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "카타르카스": {
+  "id": "50",
+  "growth_S": [
+   10.326,
+   1.873,
+   2.615,
+   0.489
+  ],
+  "init_S": [
+   44,
+   8,
+   11,
+   2
+  ],
+  "production": {
+   "origin": [
+    25,
+    24,
+    40,
+    5
+   ],
+   "k": 22,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     27,
+     26,
+     44,
+     6
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.48797,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     26,
+     25,
+     42,
+     5
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.37879,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     25,
+     24,
+     40,
+     5
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.0064,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 0.04928
+   },
+   "4": {
+    "origin": [
+     24,
+     23,
+     38,
+     5
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.35981,
+    "bracket_ok": false,
+    "k": 23,
+    "k_resid": 0.32344
+   },
+   "5": {
+    "origin": [
+     23,
+     22,
+     37,
+     4
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.31081,
+    "bracket_ok": false,
+    "k": 24,
+    "k_resid": 0.72129
+   },
+   "6": {
+    "origin": [
+     22,
+     21,
+     35,
+     4
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.35852,
+    "bracket_ok": false,
+    "k": 25,
+    "k_resid": 0.87758
+   }
+  }
+ },
+ "쿠로로": {
+  "id": "49",
+  "growth_S": [
+   10.171,
+   1.711,
+   1.526,
+   1.571
+  ],
+  "init_S": [
+   43,
+   7,
+   6,
+   6
+  ],
+  "production": {
+   "origin": [
+    25,
+    22,
+    18,
+    26
+   ],
+   "k": 22,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     27,
+     24,
+     20,
+     29
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.48045,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     26,
+     23,
+     19,
+     27
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.23737,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     25,
+     22,
+     18,
+     26
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.0064,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 1.0702
+   },
+   "4": {
+    "origin": [
+     24,
+     21,
+     17,
+     25
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.16503,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 1.68288
+   },
+   "5": {
+    "origin": [
+     23,
+     20,
+     16,
+     24
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.38431,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     22,
+     19,
+     16,
+     23
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.3421,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "루니": {
+  "id": "48",
+  "growth_S": [
+   9.965,
+   1.781,
+   1.92,
+   1.313
+  ],
+  "init_S": [
+   36,
+   6,
+   7,
+   4
+  ],
+  "production": {
+   "origin": [
+    23,
+    23,
+    26,
+    21
+   ],
+   "k": 19,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     25,
+     25,
+     29,
+     23
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.42464,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     24,
+     24,
+     27,
+     22
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.23898,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     23,
+     23,
+     26,
+     21
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.00747,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 1.63006
+   },
+   "4": {
+    "origin": [
+     22,
+     22,
+     25,
+     20
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.13403,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     21,
+     21,
+     24,
+     19
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.19226,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     20,
+     20,
+     23,
+     18
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.33478,
+    "bracket_ok": false,
+    "k": 21,
+    "k_resid": 0.80184
+   }
+  }
+ },
+ "토루루": {
+  "id": "47",
+  "growth_S": [
+   9.656,
+   1.77,
+   1.817,
+   1.519
+  ],
+  "init_S": [
+   39,
+   7,
+   7,
+   6
+  ],
+  "production": {
+   "origin": [
+    21,
+    23,
+    24,
+    25
+   ],
+   "k": 21,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     23,
+     25,
+     26,
+     27
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.47895,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     22,
+     24,
+     25,
+     26
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.18687,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     21,
+     23,
+     24,
+     25
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.00747,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 0.39276
+   },
+   "4": {
+    "origin": [
+     20,
+     22,
+     23,
+     24
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.10748,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 0.89537
+   },
+   "5": {
+    "origin": [
+     19,
+     21,
+     22,
+     23
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.16195,
+    "bracket_ok": false,
+    "k": 23,
+    "k_resid": 1.32409
+   },
+   "6": {
+    "origin": [
+     18,
+     20,
+     21,
+     22
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.33892,
+    "bracket_ok": false,
+    "k": 24,
+    "k_resid": 1.49406
+   }
+  }
+ },
+ "후바바": {
+  "id": "46",
+  "growth_S": [
+   9.811,
+   1.86,
+   1.629,
+   1.571
+  ],
+  "init_S": [
+   41,
+   7,
+   6,
+   6
+  ],
+  "production": {
+   "origin": [
+    22,
+    25,
+    20,
+    26
+   ],
+   "k": 22,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     24,
+     27,
+     22,
+     29
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.47393,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 1.73745
+   },
+   "2": {
+    "origin": [
+     23,
+     26,
+     21,
+     27
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.23737,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 2.14099
+   },
+   "3": {
+    "origin": [
+     22,
+     25,
+     20,
+     26
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.00948,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 3.14676
+   },
+   "4": {
+    "origin": [
+     21,
+     24,
+     19,
+     25
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.13551,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     20,
+     23,
+     18,
+     24
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.24045,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     19,
+     22,
+     17,
+     23
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.44948,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "라고고": {
+  "id": "45",
+  "growth_S": [
+   9.811,
+   1.999,
+   1.49,
+   1.571
+  ],
+  "init_S": [
+   43,
+   8,
+   6,
+   7
+  ],
+  "production": {
+   "origin": [
+    22,
+    28,
+    17,
+    26
+   ],
+   "k": 23,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     24,
+     31,
+     19,
+     29
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.42632,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.34005
+   },
+   "2": {
+    "origin": [
+     23,
+     29,
+     18,
+     27
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.30215,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     22,
+     28,
+     17,
+     26
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.01056,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 1.95497
+   },
+   "4": {
+    "origin": [
+     21,
+     27,
+     16,
+     25
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.22511,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     20,
+     26,
+     15,
+     24
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.45767,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     19,
+     25,
+     15,
+     23
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.40076,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "보크곤": {
+  "id": "44",
+  "growth_S": [
+   9.443,
+   2.211,
+   1.585,
+   1.311
+  ],
+  "init_S": [
+   40,
+   9,
+   6,
+   5
+  ],
+  "production": {
+   "origin": [
+    19,
+    31,
+    18,
+    20
+   ],
+   "k": 23,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     22,
+     35,
+     21,
+     23
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.4863,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     21,
+     34,
+     20,
+     22
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.18094,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.1249
+   },
+   "3": {
+    "origin": [
+     20,
+     32,
+     19,
+     21
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.38057,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 1.27138
+   },
+   "4": {
+    "origin": [
+     19,
+     31,
+     18,
+     20
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.00467,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 1.67421
+   },
+   "5": {
+    "origin": [
+     18,
+     30,
+     17,
+     19
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.27749,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.91002
+   },
+   "6": {
+    "origin": [
+     17,
+     29,
+     16,
+     18
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.46784,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.89039
+   }
+  }
+ },
+ "다고스": {
+  "id": "43",
+  "growth_S": [
+   9.862,
+   2.249,
+   1.647,
+   1.004
+  ],
+  "init_S": [
+   44,
+   10,
+   7,
+   4
+  ],
+  "production": {
+   "origin": [
+    23,
+    33,
+    20,
+    15
+   ],
+   "k": 23,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     25,
+     36,
+     22,
+     17
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.36316,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     24,
+     35,
+     21,
+     16
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.49054,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     23,
+     33,
+     20,
+     15
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.0064,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 0.36479
+   },
+   "4": {
+    "origin": [
+     22,
+     32,
+     19,
+     14
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.40714,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 0.445
+   },
+   "5": {
+    "origin": [
+     21,
+     30,
+     18,
+     14
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.40991,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 0.66133
+   },
+   "6": {
+    "origin": [
+     20,
+     29,
+     17,
+     13
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.44921,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 0.53517
+   }
+  }
+ },
+ "타로곤": {
+  "id": "42",
+  "growth_S": [
+   9.708,
+   2.2,
+   1.69,
+   1.056
+  ],
+  "init_S": [
+   43,
+   9,
+   7,
+   4
+  ],
+  "production": {
+   "origin": [
+    22,
+    32,
+    21,
+    16
+   ],
+   "k": 23,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     24,
+     35,
+     23,
+     18
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.26842,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     23,
+     33,
+     22,
+     17
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.46825,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 1.23446
+   },
+   "3": {
+    "origin": [
+     22,
+     32,
+     21,
+     16
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.00948,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 1.62299
+   },
+   "4": {
+    "origin": [
+     21,
+     31,
+     20,
+     15
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.37049,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 2.0202
+   },
+   "5": {
+    "origin": [
+     20,
+     29,
+     19,
+     15
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.47297,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 2.15008
+   },
+   "6": {
+    "origin": [
+     19,
+     28,
+     18,
+     14
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.33064,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 2.04314
+   }
+  }
+ },
+ "네고스": {
+  "id": "41",
+  "growth_S": [
+   9.914,
+   2.208,
+   1.745,
+   1.004
+  ],
+  "init_S": [
+   42,
+   9,
+   7,
+   4
+  ],
+  "production": {
+   "origin": [
+    23,
+    32,
+    22,
+    15
+   ],
+   "k": 22,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     25,
+     35,
+     24,
+     17
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.36316,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     24,
+     33,
+     23,
+     16
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.47274,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     23,
+     32,
+     22,
+     15
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.00886,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 0.59841
+   },
+   "4": {
+    "origin": [
+     22,
+     31,
+     21,
+     14
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.36634,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 1.0902
+   },
+   "5": {
+    "origin": [
+     21,
+     29,
+     20,
+     14
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.40991,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.38097
+   },
+   "6": {
+    "origin": [
+     20,
+     28,
+     19,
+     13
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.24272,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.47102
+   }
+  }
+ },
+ "아고아": {
+  "id": "40",
+  "growth_S": [
+   9.759,
+   2.298,
+   1.649,
+   1.056
+  ],
+  "init_S": [
+   41,
+   9,
+   7,
+   4
+  ],
+  "production": {
+   "origin": [
+    22,
+    34,
+    20,
+    16
+   ],
+   "k": 22,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     24,
+     37,
+     22,
+     18
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.26842,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     23,
+     36,
+     21,
+     17
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.44789,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.20284
+   },
+   "3": {
+    "origin": [
+     22,
+     34,
+     20,
+     16
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.00547,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 1.40658
+   },
+   "4": {
+    "origin": [
+     21,
+     33,
+     19,
+     15
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.44244,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 2.14504
+   },
+   "5": {
+    "origin": [
+     20,
+     31,
+     18,
+     15
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.47297,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     19,
+     30,
+     17,
+     14
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.43858,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "돌북이": {
+  "id": "39",
+  "growth_S": [
+   9.962,
+   1.658,
+   2.707,
+   0.416
+  ],
+  "init_S": [
+   37,
+   6,
+   10,
+   1
+  ],
+  "production": {
+   "origin": [
+    22,
+    18,
+    39,
+    3
+   ],
+   "k": 21,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     22,
+     46,
+     4
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.46341,
+    "bracket_ok": false,
+    "k": 18,
+    "k_resid": 0.53318
+   },
+   "2": {
+    "origin": [
+     25,
+     21,
+     44,
+     4
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.27377,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     24,
+     20,
+     42,
+     4
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.42233,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     23,
+     19,
+     41,
+     3
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.37376,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 0.43325
+   },
+   "5": {
+    "origin": [
+     22,
+     18,
+     39,
+     3
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.0045,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 0.94752
+   },
+   "6": {
+    "origin": [
+     21,
+     17,
+     37,
+     3
+    ],
+    "origin_sum": 78,
+    "growth_dev": 0.48703,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 1.46784
+   }
+  }
+ },
+ "깡북이": {
+  "id": "38",
+  "growth_S": [
+   9.851,
+   1.958,
+   2.407,
+   0.527
+  ],
+  "init_S": [
+   21,
+   4,
+   5,
+   1
+  ],
+  "production": {
+   "origin": [
+    21,
+    24,
+    33,
+    5
+   ],
+   "k": 12,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     25,
+     29,
+     39,
+     7
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.40526,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     24,
+     27,
+     38,
+     6
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.4612,
+    "bracket_ok": true,
+    "k": 11,
+    "k_resid": 0.96777
+   },
+   "3": {
+    "origin": [
+     23,
+     26,
+     36,
+     6
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.26699,
+    "bracket_ok": true,
+    "k": 11,
+    "k_resid": 0.07682
+   },
+   "4": {
+    "origin": [
+     22,
+     25,
+     34,
+     5
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.39571,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     21,
+     24,
+     33,
+     5
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.00593,
+    "bracket_ok": true,
+    "k": 12,
+    "k_resid": 0.20591
+   },
+   "6": {
+    "origin": [
+     20,
+     23,
+     32,
+     5
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.33478,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "북이": {
+  "id": "37",
+  "growth_S": [
+   9.907,
+   1.697,
+   2.496,
+   0.527
+  ],
+  "init_S": [
+   24,
+   4,
+   6,
+   1
+  ],
+  "production": {
+   "origin": [
+    22,
+    19,
+    35,
+    5
+   ],
+   "k": 14,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     23,
+     42,
+     7
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.46591,
+    "bracket_ok": false,
+    "k": 12,
+    "k_resid": 1.15927
+   },
+   "2": {
+    "origin": [
+     25,
+     22,
+     40,
+     6
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.21477,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     24,
+     21,
+     38,
+     6
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.26699,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     23,
+     20,
+     36,
+     5
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.47434,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     22,
+     19,
+     35,
+     5
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.0045,
+    "bracket_ok": true,
+    "k": 14,
+    "k_resid": 1.25559
+   },
+   "6": {
+    "origin": [
+     21,
+     18,
+     34,
+     5
+    ],
+    "origin_sum": 78,
+    "growth_dev": 0.37605,
+    "bracket_ok": true,
+    "k": 14,
+    "k_resid": 0.16057
+   }
+  }
+ },
+ "노북이": {
+  "id": "36",
+  "growth_S": [
+   9.851,
+   1.639,
+   2.438,
+   0.583
+  ],
+  "init_S": [
+   24,
+   4,
+   6,
+   1
+  ],
+  "production": {
+   "origin": [
+    22,
+    18,
+    34,
+    6
+   ],
+   "k": 14,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     22,
+     40,
+     8
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.48713,
+    "bracket_ok": false,
+    "k": 12,
+    "k_resid": 0.71943
+   },
+   "2": {
+    "origin": [
+     25,
+     21,
+     39,
+     7
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.33053,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     24,
+     20,
+     37,
+     7
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.24542,
+    "bracket_ok": false,
+    "k": 13,
+    "k_resid": 1.10007
+   },
+   "4": {
+    "origin": [
+     23,
+     19,
+     35,
+     6
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.44185,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     22,
+     18,
+     34,
+     6
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.00651,
+    "bracket_ok": true,
+    "k": 14,
+    "k_resid": 0.98357
+   },
+   "6": {
+    "origin": [
+     21,
+     17,
+     33,
+     6
+    ],
+    "origin_sum": 77,
+    "growth_dev": 0.36087,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "베로포리": {
+  "id": "35",
+  "growth_S": [
+   11.063,
+   1.716,
+   2.206,
+   0.886
+  ],
+  "init_S": [
+   53,
+   8,
+   10,
+   4
+  ],
+  "production": {
+   "origin": [
+    32,
+    23,
+    35,
+    14
+   ],
+   "k": 23,
+   "approx": true
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     32,
+     23,
+     35,
+     14
+    ],
+    "origin_sum": 104,
+    "growth_dev": 0.44018,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 0.79922
+   },
+   "2": {
+    "origin": [
+     31,
+     22,
+     33,
+     13
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.39899,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.04049
+   },
+   "3": {
+    "origin": [
+     30,
+     21,
+     32,
+     13
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.47396,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     28,
+     20,
+     30,
+     12
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.26057,
+    "bracket_ok": false,
+    "k": 26,
+    "k_resid": 0.81982
+   },
+   "5": {
+    "origin": [
+     27,
+     19,
+     29,
+     11
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.46396,
+    "bracket_ok": false,
+    "k": 27,
+    "k_resid": 1.03038
+   },
+   "6": {
+    "origin": [
+     26,
+     18,
+     28,
+     11
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.29821,
+    "bracket_ok": false,
+    "k": 28,
+    "k_resid": 1.64616
+   }
+  }
+ },
+ "베로보크": {
+  "id": "34",
+  "growth_S": [
+   11.509,
+   1.437,
+   2.194,
+   0.817
+  ],
+  "init_S": [
+   58,
+   7,
+   11,
+   4
+  ],
+  "production": {
+   "origin": [
+    35,
+    16,
+    33,
+    12
+   ],
+   "k": 25,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     37,
+     17,
+     35,
+     13
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.42364,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 0.6418
+   },
+   "2": {
+    "origin": [
+     35,
+     16,
+     33,
+     12
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.00537,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 0.10352
+   },
+   "3": {
+    "origin": [
+     33,
+     15,
+     32,
+     11
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.46533,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     32,
+     14,
+     30,
+     11
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.47226,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     31,
+     14,
+     29,
+     10
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.27091,
+    "bracket_ok": true,
+    "k": 28,
+    "k_resid": 0.25625
+   },
+   "6": {
+    "origin": [
+     30,
+     13,
+     28,
+     10
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.49627,
+    "bracket_ok": false,
+    "k": 29,
+    "k_resid": 0.64027
+   }
+  }
+ },
+ "베로로크": {
+  "id": "33",
+  "growth_S": [
+   11.36,
+   1.432,
+   2.145,
+   0.916
+  ],
+  "init_S": [
+   50,
+   6,
+   9,
+   4
+  ],
+  "production": {
+   "origin": [
+    34,
+    16,
+    32,
+    14
+   ],
+   "k": 22,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     36,
+     17,
+     34,
+     15
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.45455,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.01387
+   },
+   "2": {
+    "origin": [
+     34,
+     16,
+     32,
+     14
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.00826,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 0.65962
+   },
+   "3": {
+    "origin": [
+     32,
+     15,
+     31,
+     13
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.49954,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 0.61083
+   },
+   "4": {
+    "origin": [
+     31,
+     14,
+     29,
+     13
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.47078,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.00935
+   },
+   "5": {
+    "origin": [
+     30,
+     14,
+     28,
+     12
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.21286,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     29,
+     13,
+     27,
+     11
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.43043,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "베론": {
+  "id": "32",
+  "growth_S": [
+   11.804,
+   1.402,
+   2.129,
+   0.974
+  ],
+  "init_S": [
+   62,
+   7,
+   11,
+   5
+  ],
+  "production": {
+   "origin": [
+    38,
+    16,
+    33,
+    16
+   ],
+   "k": 25,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     38,
+     16,
+     33,
+     16
+    ],
+    "origin_sum": 103,
+    "growth_dev": 0.00944,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 0.21914
+   },
+   "2": {
+    "origin": [
+     36,
+     15,
+     31,
+     15
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.4814,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     35,
+     14,
+     30,
+     14
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.41262,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     33,
+     14,
+     29,
+     14
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.30745,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     32,
+     13,
+     28,
+     13
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.40848,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     31,
+     12,
+     26,
+     12
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.47529,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "오투투": {
+  "id": "31",
+  "growth_S": [
+   9.74,
+   1.644,
+   1.444,
+   1.915
+  ],
+  "init_S": [
+   35,
+   5,
+   5,
+   6
+  ],
+  "production": {
+   "origin": [
+    20,
+    19,
+    15,
+    30
+   ],
+   "k": 20,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     24,
+     23,
+     18,
+     36
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.27611,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     23,
+     22,
+     17,
+     34
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.35586,
+    "bracket_ok": true,
+    "k": 18,
+    "k_resid": 2.03433
+   },
+   "3": {
+    "origin": [
+     22,
+     21,
+     17,
+     33
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.49291,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     21,
+     20,
+     16,
+     31
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.29439,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     20,
+     19,
+     15,
+     30
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.00694,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 1.71765
+   },
+   "6": {
+    "origin": [
+     19,
+     18,
+     14,
+     29
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.31504,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "투투": {
+  "id": "30",
+  "growth_S": [
+   10.299,
+   1.842,
+   1.119,
+   1.739
+  ],
+  "init_S": [
+   30,
+   5,
+   3,
+   5
+  ],
+  "production": {
+   "origin": [
+    25,
+    24,
+    9,
+    28
+   ],
+   "k": 16,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     29,
+     28,
+     11,
+     32
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.39373,
+    "bracket_ok": true,
+    "k": 14,
+    "k_resid": 0.72392
+   },
+   "2": {
+    "origin": [
+     27,
+     26,
+     10,
+     31
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.38504,
+    "bracket_ok": false,
+    "k": 15,
+    "k_resid": 1.4763
+   },
+   "3": {
+    "origin": [
+     26,
+     25,
+     10,
+     29
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.48613,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     25,
+     24,
+     9,
+     28
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.01001,
+    "bracket_ok": true,
+    "k": 16,
+    "k_resid": 1.05917
+   },
+   "5": {
+    "origin": [
+     24,
+     23,
+     9,
+     27
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.49614,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     23,
+     22,
+     8,
+     26
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.25652,
+    "bracket_ok": true,
+    "k": 17,
+    "k_resid": 0.58816
+   }
+  }
+ },
+ "우푸": {
+  "id": "29",
+  "growth_S": [
+   9.502,
+   1.819,
+   1.031,
+   2.086
+  ],
+  "init_S": [
+   23,
+   4,
+   2,
+   5
+  ],
+  "production": {
+   "origin": [
+    21,
+    25,
+    8,
+    36
+   ],
+   "k": 13,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     23,
+     27,
+     9,
+     39
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.47928,
+    "bracket_ok": false,
+    "k": 12,
+    "k_resid": 1.35181
+   },
+   "2": {
+    "origin": [
+     22,
+     26,
+     8,
+     38
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.4992,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     21,
+     25,
+     8,
+     36
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.00562,
+    "bracket_ok": true,
+    "k": 13,
+    "k_resid": 1.75512
+   },
+   "4": {
+    "origin": [
+     20,
+     24,
+     8,
+     34
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.49065,
+    "bracket_ok": true,
+    "k": 13,
+    "k_resid": 0.51434
+   },
+   "5": {
+    "origin": [
+     19,
+     23,
+     7,
+     33
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.16452,
+    "bracket_ok": true,
+    "k": 14,
+    "k_resid": 1.52639
+   },
+   "6": {
+    "origin": [
+     18,
+     22,
+     7,
+     32
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.34141,
+    "bracket_ok": true,
+    "k": 14,
+    "k_resid": 0.51207
+   }
+  }
+ },
+ "푸푸": {
+  "id": "28",
+  "growth_S": [
+   9.352,
+   1.73,
+   1.231,
+   2.081
+  ],
+  "init_S": [
+   18,
+   3,
+   2,
+   4
+  ],
+  "production": {
+   "origin": [
+    18,
+    21,
+    11,
+    33
+   ],
+   "k": 11,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     22,
+     25,
+     14,
+     39
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.38287,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     21,
+     24,
+     13,
+     38
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.4596,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     20,
+     23,
+     12,
+     36
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.25035,
+    "bracket_ok": true,
+    "k": 10,
+    "k_resid": 0.33516
+   },
+   "4": {
+    "origin": [
+     19,
+     22,
+     12,
+     34
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.4147,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     18,
+     21,
+     11,
+     33
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.00565,
+    "bracket_ok": true,
+    "k": 11,
+    "k_resid": 0.67905
+   },
+   "6": {
+    "origin": [
+     17,
+     20,
+     10,
+     32
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.46632,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "얼룩부이비": {
+  "id": "27",
+  "growth_S": [
+   10.406,
+   1.911,
+   1.478,
+   1.204
+  ],
+  "init_S": [
+   35,
+   6,
+   4,
+   4
+  ],
+  "production": {
+   "origin": [
+    26,
+    25,
+    16,
+    18
+   ],
+   "k": 18,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     30,
+     29,
+     19,
+     21
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.40894,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     28,
+     27,
+     18,
+     20
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.46585,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     27,
+     26,
+     17,
+     19
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.20242,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     26,
+     25,
+     16,
+     18
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.00586,
+    "bracket_ok": true,
+    "k": 18,
+    "k_resid": 1.13369
+   },
+   "5": {
+    "origin": [
+     25,
+     24,
+     15,
+     17
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.26262,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     24,
+     23,
+     15,
+     16
+    ],
+    "origin_sum": 78,
+    "growth_dev": 0.43913,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "부이비": {
+  "id": "26",
+  "growth_S": [
+   11.315,
+   1.925,
+   1.395,
+   1.15
+  ],
+  "init_S": [
+   35,
+   6,
+   4,
+   3
+  ],
+  "production": {
+   "origin": [
+    31,
+    25,
+    14,
+    17
+   ],
+   "k": 17,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     35,
+     29,
+     16,
+     20
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.48246,
+    "bracket_ok": true,
+    "k": 15,
+    "k_resid": 0.81822
+   },
+   "2": {
+    "origin": [
+     34,
+     27,
+     15,
+     19
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.49439,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     32,
+     26,
+     15,
+     18
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.37702,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     31,
+     25,
+     14,
+     17
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.00675,
+    "bracket_ok": true,
+    "k": 17,
+    "k_resid": 1.54172
+   },
+   "5": {
+    "origin": [
+     30,
+     24,
+     13,
+     16
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.33283,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     29,
+     23,
+     13,
+     16
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.5,
+    "bracket_ok": false,
+    "k": 18,
+    "k_resid": 1.49401
+   }
+  }
+ },
+ "부이": {
+  "id": "25",
+  "growth_S": [
+   13.348,
+   1.711,
+   1.47,
+   0.829
+  ],
+  "init_S": [
+   47,
+   6,
+   5,
+   2
+  ],
+  "production": {
+   "origin": [
+    43,
+    20,
+    15,
+    11
+   ],
+   "k": 19,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     49,
+     23,
+     17,
+     13
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.46475,
+    "bracket_ok": true,
+    "k": 17,
+    "k_resid": 1.46227
+   },
+   "2": {
+    "origin": [
+     47,
+     22,
+     17,
+     12
+    ],
+    "origin_sum": 98,
+    "growth_dev": 0.42272,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     45,
+     21,
+     16,
+     12
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.40291,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     43,
+     20,
+     15,
+     11
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.0066,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 1.11122
+   },
+   "5": {
+    "origin": [
+     41,
+     19,
+     14,
+     10
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.43694,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 1.36625
+   },
+   "6": {
+    "origin": [
+     40,
+     18,
+     14,
+     10
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.35521,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "골드부비": {
+  "id": "24",
+  "growth_S": [
+   10.887,
+   1.748,
+   1.989,
+   0.936
+  ],
+  "init_S": [
+   50,
+   8,
+   9,
+   4
+  ],
+  "production": {
+   "origin": [
+    28,
+    21,
+    26,
+    13
+   ],
+   "k": 25,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     32,
+     24,
+     30,
+     15
+    ],
+    "origin_sum": 101,
+    "growth_dev": 0.21863,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 0.21415
+   },
+   "2": {
+    "origin": [
+     31,
+     23,
+     28,
+     14
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.46793,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 0.6053
+   },
+   "3": {
+    "origin": [
+     29,
+     22,
+     27,
+     14
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.32524,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 0.53345
+   },
+   "4": {
+    "origin": [
+     28,
+     21,
+     26,
+     13
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.00467,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.02102
+   },
+   "5": {
+    "origin": [
+     27,
+     20,
+     25,
+     12
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.36486,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     26,
+     19,
+     24,
+     12
+    ],
+    "origin_sum": 81,
+    "growth_dev": 0.26108,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ },
+ "부비": {
+  "id": "23",
+  "growth_S": [
+   12.653,
+   1.593,
+   1.497,
+   0.829
+  ],
+  "init_S": [
+   37,
+   4,
+   4,
+   2
+  ],
+  "production": {
+   "origin": [
+    40,
+    18,
+    16,
+    11
+   ],
+   "k": 16,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     46,
+     21,
+     19,
+     13
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.40326,
+    "bracket_ok": false,
+    "k": 14,
+    "k_resid": 1.30836
+   },
+   "2": {
+    "origin": [
+     44,
+     20,
+     18,
+     12
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.40332,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     42,
+     19,
+     17,
+     12
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.40291,
+    "bracket_ok": true,
+    "k": 15,
+    "k_resid": 0.84748
+   },
+   "4": {
+    "origin": [
+     40,
+     18,
+     16,
+     11
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.00645,
+    "bracket_ok": true,
+    "k": 16,
+    "k_resid": 1.74627
+   },
+   "5": {
+    "origin": [
+     38,
+     17,
+     15,
+     10
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.43694,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     37,
+     16,
+     15,
+     10
+    ],
+    "origin_sum": 78,
+    "growth_dev": 0.43499,
+    "bracket_ok": true,
+    "k": 17,
+    "k_resid": 1.11011
+   }
+  }
+ },
+ "환생얼룩우리": {
+  "id": "22",
+  "growth_S": [
+   10.223,
+   1.629,
+   1.768,
+   1.468
+  ],
+  "init_S": [
+   47,
+   7,
+   8,
+   6
+  ],
+  "production": {
+   "origin": [
+    25,
+    20,
+    23,
+    24
+   ],
+   "k": 24,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     27,
+     22,
+     25,
+     26
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.48145,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     26,
+     21,
+     24,
+     25
+    ],
+    "origin_sum": 96,
+    "growth_dev": 0.18927,
+    "bracket_ok": true,
+    "k": 23,
+    "k_resid": 1.03467
+   },
+   "3": {
+    "origin": [
+     25,
+     20,
+     23,
+     24
+    ],
+    "origin_sum": 92,
+    "growth_dev": 0.00562,
+    "bracket_ok": true,
+    "k": 24,
+    "k_resid": 1.51994
+   },
+   "4": {
+    "origin": [
+     24,
+     19,
+     22,
+     23
+    ],
+    "origin_sum": 88,
+    "growth_dev": 0.10525,
+    "bracket_ok": true,
+    "k": 25,
+    "k_resid": 1.95602
+   },
+   "5": {
+    "origin": [
+     23,
+     18,
+     21,
+     22
+    ],
+    "origin_sum": 84,
+    "growth_dev": 0.23945,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 2.13611
+   },
+   "6": {
+    "origin": [
+     22,
+     17,
+     20,
+     21
+    ],
+    "origin_sum": 80,
+    "growth_dev": 0.44852,
+    "bracket_ok": true,
+    "k": 27,
+    "k_resid": 1.98094
+   }
+  }
+ },
+ "실버우리": {
+  "id": "21",
+  "growth_S": [
+   9.71,
+   1.716,
+   1.764,
+   1.471
+  ],
+  "init_S": [
+   36,
+   6,
+   6,
+   5
+  ],
+  "production": {
+   "origin": [
+    21,
+    21,
+    22,
+    23
+   ],
+   "k": 20,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     24,
+     24,
+     25,
+     26
+    ],
+    "origin_sum": 99,
+    "growth_dev": 0.46842,
+    "bracket_ok": false,
+    "k": 18,
+    "k_resid": 1.01646
+   },
+   "2": {
+    "origin": [
+     23,
+     23,
+     24,
+     25
+    ],
+    "origin_sum": 95,
+    "growth_dev": 0.21717,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     22,
+     22,
+     23,
+     24
+    ],
+    "origin_sum": 91,
+    "growth_dev": 0.06311,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     21,
+     21,
+     22,
+     23
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.00467,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 0.86625
+   },
+   "5": {
+    "origin": [
+     20,
+     20,
+     21,
+     22
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.08172,
+    "bracket_ok": true,
+    "k": 21,
+    "k_resid": 1.39779
+   },
+   "6": {
+    "origin": [
+     19,
+     19,
+     20,
+     21
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.22671,
+    "bracket_ok": true,
+    "k": 22,
+    "k_resid": 1.84746
+   }
+  }
+ },
+ "얼룩우리": {
+  "id": "19",
+  "growth_S": [
+   9.689,
+   1.577,
+   1.629,
+   1.294
+  ],
+  "init_S": [
+   28,
+   4,
+   4,
+   3
+  ],
+  "production": {
+   "origin": [
+    21,
+    17,
+    18,
+    18
+   ],
+   "k": 17,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     22,
+     23,
+     23
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.4731,
+    "bracket_ok": false,
+    "k": 14,
+    "k_resid": 2.17955
+   },
+   "2": {
+    "origin": [
+     25,
+     20,
+     22,
+     22
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.47531,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     24,
+     20,
+     21,
+     21
+    ],
+    "origin_sum": 86,
+    "growth_dev": 0.49461,
+    "bracket_ok": false,
+    "k": 15,
+    "k_resid": 1.97669
+   },
+   "4": {
+    "origin": [
+     23,
+     19,
+     20,
+     20
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.392,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     22,
+     18,
+     19,
+     19
+    ],
+    "origin_sum": 78,
+    "growth_dev": 0.22472,
+    "bracket_ok": false,
+    "k": 16,
+    "k_resid": 1.46557
+   },
+   "6": {
+    "origin": [
+     21,
+     17,
+     18,
+     18
+    ],
+    "origin_sum": 74,
+    "growth_dev": 0.00531,
+    "bracket_ok": true,
+    "k": 17,
+    "k_resid": 2.19986
+   }
+  }
+ },
+ "두리": {
+  "id": "18",
+  "growth_S": [
+   10.018,
+   1.908,
+   1.408,
+   1.526
+  ],
+  "init_S": [
+   34,
+   6,
+   4,
+   5
+  ],
+  "production": {
+   "origin": [
+    22,
+    24,
+    14,
+    23
+   ],
+   "k": 19,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     26,
+     29,
+     17,
+     28
+    ],
+    "origin_sum": 100,
+    "growth_dev": 0.46642,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     25,
+     27,
+     16,
+     26
+    ],
+    "origin_sum": 94,
+    "growth_dev": 0.45895,
+    "bracket_ok": false,
+    "k": 17,
+    "k_resid": 0.86733
+   },
+   "3": {
+    "origin": [
+     24,
+     26,
+     15,
+     25
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.43034,
+    "bracket_ok": true,
+    "k": 18,
+    "k_resid": 1.87019
+   },
+   "4": {
+    "origin": [
+     23,
+     25,
+     15,
+     24
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.31472,
+    "bracket_ok": true,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     22,
+     24,
+     14,
+     23
+    ],
+    "origin_sum": 83,
+    "growth_dev": 0.00608,
+    "bracket_ok": true,
+    "k": 19,
+    "k_resid": 1.09433
+   },
+   "6": {
+    "origin": [
+     21,
+     23,
+     13,
+     22
+    ],
+    "origin_sum": 79,
+    "growth_dev": 0.35066,
+    "bracket_ok": true,
+    "k": 20,
+    "k_resid": 1.65125
+   }
+  }
+ },
+ "우리": {
+  "id": "17",
+  "growth_S": [
+   9.401,
+   1.287,
+   1.442,
+   1.696
+  ],
+  "init_S": [
+   16,
+   2,
+   2,
+   2
+  ],
+  "production": {
+   "origin": [
+    20,
+    12,
+    15,
+    25
+   ],
+   "k": 10,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     25,
+     15,
+     19,
+     31
+    ],
+    "origin_sum": 90,
+    "growth_dev": 0.48312,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "2": {
+    "origin": [
+     24,
+     15,
+     18,
+     30
+    ],
+    "origin_sum": 87,
+    "growth_dev": 0.32427,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "3": {
+    "origin": [
+     23,
+     14,
+     17,
+     28
+    ],
+    "origin_sum": 82,
+    "growth_dev": 0.43204,
+    "bracket_ok": false,
+    "k": 9,
+    "k_resid": 1.34515
+   },
+   "4": {
+    "origin": [
+     22,
+     13,
+     16,
+     27
+    ],
+    "origin_sum": 78,
+    "growth_dev": 0.46113,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     21,
+     13,
+     16,
+     26
+    ],
+    "origin_sum": 76,
+    "growth_dev": 0.39733,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     20,
+     12,
+     15,
+     25
+    ],
+    "origin_sum": 72,
+    "growth_dev": 0.0078,
+    "bracket_ok": true,
+    "k": 10,
+    "k_resid": 1.33896
+   }
+  }
+ },
+ "가가로스": {
+  "id": "148",
+  "growth_S": [
+   10.996,
+   2.155,
+   2.027,
+   0.831
+  ],
+  "init_S": [
+   60,
+   11,
+   11,
+   4
+  ],
+  "production": {
+   "origin": [
+    31,
+    33,
+    30,
+    13
+   ],
+   "k": 26,
+   "approx": false
+  },
+  "ranks": {
+   "1": {
+    "origin": [
+     31,
+     33,
+     30,
+     13
+    ],
+    "origin_sum": 107,
+    "growth_dev": 0.00643,
+    "bracket_ok": true,
+    "k": 26,
+    "k_resid": 0.98373
+   },
+   "2": {
+    "origin": [
+     30,
+     31,
+     29,
+     12
+    ],
+    "origin_sum": 102,
+    "growth_dev": 0.47868,
+    "bracket_ok": false,
+    "k": 27,
+    "k_resid": 0.76535
+   },
+   "3": {
+    "origin": [
+     28,
+     30,
+     27,
+     12
+    ],
+    "origin_sum": 97,
+    "growth_dev": 0.36408,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "4": {
+    "origin": [
+     27,
+     29,
+     26,
+     11
+    ],
+    "origin_sum": 93,
+    "growth_dev": 0.21132,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "5": {
+    "origin": [
+     26,
+     28,
+     25,
+     10
+    ],
+    "origin_sum": 89,
+    "growth_dev": 0.47297,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   },
+   "6": {
+    "origin": [
+     25,
+     26,
+     24,
+     10
+    ],
+    "origin_sum": 85,
+    "growth_dev": 0.47295,
+    "bracket_ok": false,
+    "k": null,
+    "k_resid": null
+   }
+  }
+ }
+}
