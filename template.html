@@ -34,6 +34,7 @@
 }
 
 *{box-sizing:border-box;}
+[hidden]{ display:none !important; } /* display를 직접 지정한 요소라도 hidden 속성이 항상 이기도록 */
 html,body{height:100%;}
 body{
   margin:0; background:var(--bg); color:var(--text);
@@ -222,9 +223,9 @@ h1,h2,h3,.display{
     <div class="method-badge">RANK 역산 · 등급 -8 ~ +8</div>
   </div>
 
-  <div class="tabbar" role="tablist" hidden>
+  <div class="tabbar" role="tablist">
     <button type="button" class="tab-btn" data-tab="calc" role="tab" aria-selected="true">환각 계산기</button>
-    <button type="button" class="tab-btn" data-tab="compare" role="tab" aria-selected="false">성장률·초기치 비교</button>
+    <button type="button" class="tab-btn" data-tab="compare" role="tab" aria-selected="false" hidden>성장률·초기치 비교</button>
   </div>
 
   <div class="layout">
