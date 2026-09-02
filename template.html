@@ -49,7 +49,7 @@ h1,h2,h3,.display{
 }
 .mono{ font-family:"JetBrains Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums; }
 
-.app{ max-width:1180px; margin:0 auto; padding:28px 20px 60px; }
+.app{ max-width:clamp(1180px, 62vw, 1680px); margin:0 auto; padding:28px 20px 60px; }
 
 .masthead{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:22px; flex-wrap:wrap;}
 .masthead .title-block h1{ font-size:28px; margin:0 0 4px; }
@@ -72,6 +72,30 @@ h1,h2,h3,.display{
 
 .layout{ display:grid; grid-template-columns:340px 1fr; gap:20px; align-items:start; }
 @media (max-width:860px){ .layout{ grid-template-columns:1fr; } }
+
+/* QHD(2560+) 등 대형·고해상도 모니터: 콘텐츠가 화면 가운데 작게 몰려 보이지
+   않도록 폭을 넓히고, 사이드바·카드·주요 텍스트도 비례해서 키운다 */
+@media (min-width:1600px){
+  .layout{ grid-template-columns:400px 1fr; gap:26px; }
+  .pet-grid{ grid-template-columns:repeat(4,1fr); max-height:720px; }
+  .masthead .title-block h1{ font-size:32px; }
+  .masthead .title-block p{ font-size:14.5px; max-width:64ch; }
+  .card{ padding:26px 30px; }
+  .section-label{ font-size:12px; }
+  .result-summary .rs-item .rv{ font-size:30px; }
+  .pet-detail img{ width:88px; height:88px; }
+  .pet-detail .pd-name{ font-size:25px; }
+}
+@media (min-width:2200px){
+  .layout{ grid-template-columns:440px 1fr; gap:32px; }
+  .pet-grid{ grid-template-columns:repeat(5,1fr); max-height:820px; }
+  .masthead .title-block h1{ font-size:37px; }
+  .masthead .title-block p{ font-size:16px; }
+  .card{ padding:30px 34px; }
+  .result-summary .rs-item .rv{ font-size:34px; }
+  .pet-detail img{ width:96px; height:96px; }
+  .pet-detail .pd-name{ font-size:28px; }
+}
 
 /* sidebar */
 .sidebar{ background:var(--surface); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; }
