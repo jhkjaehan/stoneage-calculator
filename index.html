@@ -683,6 +683,28 @@ h1,h2,h3,.display{
     });
   }
 
+  // RANK별 보정계수 중앙값(B) - 원본계수 합으로 어느 RANK인지 판정
+  const RANKS_JS = [
+    {lo:100, hi:null, Bmid:475},
+    {lo:95,  hi:99,   Bmid:495},
+    {lo:90,  hi:94,   Bmid:515},
+    {lo:85,  hi:89,   Bmid:535},
+    {lo:80,  hi:84,   Bmid:555},
+    {lo:null,hi:80,   Bmid:575},
+  ];
+  function bMidFromOrigin(origin){
+    const s = origin[0]+origin[1]+origin[2]+origin[3];
+    for(const r of RANKS_JS){
+      if((r.lo===null||s>=r.lo) && (r.hi===null||s<=r.hi)) return r.Bmid;
+    }
+    return 575;
+  }
+  function growthForOffset(origin, offset, Bmid){
+    const raw = offset.map((d,i)=>(origin[i]+d+2.5)*Bmid/10000);
+    const [g0,g1,g2,g3] = raw;
+    return [4*g0+g1+g2+g3, 0.1*g0+g1+0.1*g2+0.05*g3, 0.1*g0+0.1*g1+g2+0.05*g3, g3];
+  }
+
   function renderDetailTable(grade){
     const list = lastMatches[grade] || [];
     const rows = list.map(m=>`
@@ -691,6 +713,31 @@ h1,h2,h3,.display{
         <td class="mono">${m.bonus.join(' / ')}</td>
         <td class="mono">${m.raw.map(v=>v.toFixed(3)).join(' / ')}</td>
       </tr>`).join('');
+
+    const p = findPet(selectedId);
+    let growthRangeHtml = '';
+    if(p && p.origin){
+      const Bmid = bMidFromOrigin(p.origin);
+      const seen = new Set();
+      const growthVecs = [];
+      for(const m of list){
+        const key = m.offset.join(',');
+        if(seen.has(key)) continue;
+        seen.add(key);
+        growthVecs.push(growthForOffset(p.origin, m.offset, Bmid));
+      }
+      if(growthVecs.length){
+        const mins = [0,1,2,3].map(i=>Math.min(...growthVecs.map(v=>v[i])));
+        const maxs = [0,1,2,3].map(i=>Math.max(...growthVecs.map(v=>v[i])));
+        const LABELS = ['체','공','방','순'];
+        const rangeStr = LABELS.map((l,i)=> mins[i].toFixed(3)===maxs[i].toFixed(3)
+          ? `${l} ${mins[i].toFixed(3)}`
+          : `${l} ${mins[i].toFixed(3)}~${maxs[i].toFixed(3)}`
+        ).join(' / ');
+        growthRangeHtml = `<p class="detail-count">이 등급의 성장률 범위(등급오프셋 ${growthVecs.length}가지 조합 기준): <span class="mono">${rangeStr}</span></p>`;
+      }
+    }
+
     return `
       <div class="detail-scroll">
         <table class="detail-table">
@@ -699,6 +746,7 @@ h1,h2,h3,.display{
         </table>
       </div>
       <p class="detail-count">${list.length}개 조합 전부 표시 (등급오프셋 -2~+2 × 보너스분배 10P → 이 등급을 만드는 모든 경우의 수)</p>
+      ${growthRangeHtml}
     `;
   }
 
