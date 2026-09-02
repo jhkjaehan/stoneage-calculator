@@ -742,10 +742,12 @@ h1,h2,h3,.display{
     }
     return RANKS_JS[RANKS_JS.length-1];
   }
-  function growthForOffsetB(origin, offset, B){
-    // A(보너스분배)는 초기치의 D와 마찬가지로 2.5 고정 - 등급오프셋은 이미
-    // 확정된 값이고, 유일하게 매 레벨업마다 새로 랜덤하게 정해지는 건 B뿐이다.
-    const raw = offset.map((d,i)=>(origin[i]+d+2.5)*B/10000);
+  function growthForOffsetDB(origin, offset, D, B){
+    // A(보너스분배) 자리에 그 건(일치 조합)이 실제로 가진 D(보너스분배)를
+    // 그대로 넣는다 - 2.5 고정은 S급 참고값을 구할 때만 쓰는 이론치고,
+    // 실제 일치 건들은 이미 구체적인 D값을 갖고 있다. 매 레벨업마다 새로
+    // 랜덤하게 정해지는 값은 RANK 보정계수(B) 하나뿐이다.
+    const raw = offset.map((d,i)=>(origin[i]+d+D[i])*B/10000);
     const [g0,g1,g2,g3] = raw;
     return [4*g0+g1+g2+g3, 0.1*g0+g1+0.1*g2+0.05*g3, 0.1*g0+0.1*g1+g2+0.05*g3, g3];
   }
@@ -769,31 +771,23 @@ h1,h2,h3,.display{
     `;
   }
 
-  // 등급 하나(offset 목록)에 대한 성장률 최소~최대. 그 등급을 실제로 만드는
-  // 건(=일치 조합)마다 등급오프셋은 이미 확정된 값이고, 성장률은 D(10포인트
-  // 분배)와도 무관하다. 매 레벨업마다 새로 랜덤하게 정해지는 값은 오직
-  // RANK 보정계수(B)뿐이므로, 각 건(오프셋)마다 B를 RANK 범위 양끝(Blo/Bhi -
-  // 계산식이 B에 대해 선형이라 양끝만 보면 충분)에 넣어보고, 그 전체 중
-  // 최소~최대를 구한다.
+  // 등급 하나에 대한 성장률 최소~최대. 화면에 나온 일치 건(=lastMatches[grade],
+  // 가가로스 8등급이면 10건 식) 하나하나가 이미 구체적인 등급오프셋과
+  // 보너스분배(D)를 갖고 있으므로, 그 D를 성장률 공식의 A 자리에 그대로 쓴다.
+  // 매 레벨업마다 새로 랜덤하게 정해지는 값은 RANK 보정계수(B) 하나뿐이므로,
+  // 건마다 B를 RANK 범위 양끝(Blo/Bhi - 계산식이 B에 대해 선형이라 양끝만
+  // 보면 충분)에 넣어보고, 전체 건 중 최소~최대를 구한다.
   function computeGrowthRange(origin, rankBounds, list){
-    const seen = new Set();
-    const offsets = [];
-    for(const m of list){
-      const key = m.offset.join(',');
-      if(seen.has(key)) continue;
-      seen.add(key);
-      offsets.push(m.offset);
-    }
-    if(!offsets.length) return null;
+    if(!list.length) return null;
     const mins=[Infinity,Infinity,Infinity,Infinity], maxs=[-Infinity,-Infinity,-Infinity,-Infinity];
     const Bs = [rankBounds.Blo, rankBounds.Bhi];
-    for(const offset of offsets){
+    for(const m of list){
       for(const B of Bs){
-        const v = growthForOffsetB(origin, offset, B);
+        const v = growthForOffsetDB(origin, m.offset, m.bonus, B);
         for(let i=0;i<4;i++){ if(v[i]<mins[i]) mins[i]=v[i]; if(v[i]>maxs[i]) maxs[i]=v[i]; }
       }
     }
-    return {mins, maxs, offsetCount:offsets.length};
+    return {mins, maxs, count:list.length};
   }
 
   let growthPanelOpen = false;
@@ -830,17 +824,17 @@ h1,h2,h3,.display{
         const lo = range.mins[i].toFixed(3), hi = range.maxs[i].toFixed(3);
         return `<td class="mono">${lo===hi ? lo : `${lo}~${hi}`}</td>`;
       }).join('');
-      return `<tr><td class="mono">${g}등급</td>${cells}<td class="mono">${range.offsetCount}종</td></tr>`;
+      return `<tr><td class="mono">${g}등급</td>${cells}<td class="mono">${range.count}건</td></tr>`;
     }).join('');
     panel.innerHTML = `
       <p class="section-label">등급별 성장률 범위 (내구/공격/방어/순발)</p>
       <div class="compare-scroll">
         <table class="detail-table">
-          <thead><tr><th>등급</th><th>체</th><th>공</th><th>방</th><th>순</th><th>등급오프셋 종류</th></tr></thead>
+          <thead><tr><th>등급</th><th>체</th><th>공</th><th>방</th><th>순</th><th>일치 건수</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>
-      <p class="detail-count">S급 참고 성장률은 RANK 보정계수 평균값으로 계산한 이론치지만, 실제 표기 성장률은 레벨업마다 보정계수(B)가 그 RANK 범위 안에서 새로 랜덤하게 정해지는 값입니다(보너스분배는 초기치와 마찬가지로 2.5 고정, 등급오프셋도 건마다 이미 확정된 값). 그래서 같은 등급이라도(심지어 오프셋이 1종뿐인 8등급도) B값에 따라 이 범위 안에서 표기 성장률이 달라질 수 있습니다.</p>
+      <p class="detail-count">각 등급의 일치 건(등급오프셋+보너스분배 조합)마다 실제 보너스분배 값을 그대로 넣고, 레벨업마다 그 RANK 범위 안에서 새로 랜덤하게 정해지는 보정계수(B)만 양끝값으로 대입해서, 그 등급의 모든 건 중 최소~최대 성장률을 구한 것입니다.</p>
     `;
   }
 
