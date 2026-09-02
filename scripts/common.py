@@ -6,9 +6,12 @@ klaking.tistory.com/3 분석 공식 + 서버 확인 사항을 반영한다:
   - 초기치: 등급오프셋(+2, S급) + 보너스포인트 "2.5 고정"(균등분배)으로 계산된 이론값
   - 표기값은 반올림이 아니라 "내림"(floor) 처리된다 (서버 확인)
 
-원본계수(체/공/방/순)는 성장률만으로 RANK 1~6 전 구간을 대입해 역산한다(정수로
-가장 깨끗하게 떨어지는 RANK를 채택). 초기치계수(k)는 그 원본계수 + D=2.5 고정 +
-내림 조건을 만족하는 정수를 찾는다.
+원본계수(체/공/방/순)는 성장률만으로 RANK 1~6 전 구간을 대입해 역산한다 — 각
+후보 원본계수로 "계산 성장률"을 다시 만들어 실제 표기 성장률과 직접 비교했을 때
+잔차가 가장 작은 RANK를 채택한다(원본계수 자체가 정수에서 얼마나 벗어났는지만
+보면, 개별 원본계수의 반올림 오차가 보너스공식 가중치를 거치며 서로 상쇄/증폭될
+수 있어 오판할 수 있다). 초기치계수(k)는 그 원본계수 + D=2.5 고정 + 내림 조건을
+만족하는 정수를 찾는다.
 
 실제 개체의 등급 확률을 구할 때는(178,750가지 전수조사) 개별 펫의 진짜 10포인트
 분배는 정수 랜덤값이므로 D를 고정하지 않고 전부 탐색하되, 표기값 매칭은 동일하게
@@ -110,56 +113,57 @@ def best_approx_k_fixed_D(origin, init_S):
 
 def calibrate_pet(growth_S, init_S):
     """growth_S, init_S (둘 다 [체,공,방,순] 순서) 로부터
-    {'rank','origin','k','ok','approx','fit_resid'} 를 계산한다.
+    {'rank','origin','k','ok','approx','fit_resid','growth_resid'} 를 계산한다.
 
     1) 성장률 4개 방정식을 풀어 raw growth(before-bonus) r을 구한다.
-    2) RANK 1~6 각각의 보정계수 중앙값으로 원본계수를 역산, 정수와의
-       편차가 가장 작은 RANK를 채택한다 (편차 < 0.05일 때만 '정밀' 후보).
-    3) 그 원본계수 + D=2.5 고정으로 초기치를 정확히(내림 기준) 재현하는
-       정수 k가 있는지 찾는다.
-    4) 실패하면 6개 RANK 전체에서 D=2.5 고정 최소자승 근사해를 찾아
+    2) RANK 1~6 각각의 보정계수 중앙값으로 원본계수(정수)를 역산한다 (자기
+       RANK 구간에 부합하는 것만 후보로 삼는다).
+    3) 각 후보 원본계수로 "계산 성장률"(보너스공식까지 통과시킨 값)을 만들어
+       실제 표기 성장률과 직접 비교한 잔차가 가장 작은 RANK를 채택한다.
+       (원본계수 자체가 정수에서 얼마나 벗어났는지를 보는 것보다, 보너스공식을
+       거친 뒤의 실제 재현 오차를 직접 비교하는 게 더 정확한 지표다 — 원본계수
+       하나의 반올림 오차가 보너스공식의 가중치를 거치며 서로 상쇄/증폭될 수
+       있기 때문에, 개별 원본계수 편차만 보면 오판할 수 있다.)
+    4) 그 원본계수 + D=2.5 고정으로 초기치를 정확히(내림 기준) 재현하는
+       정수 k를 찾는다. 정확히 맞는 게 없으면 최소자승 근사 k를 쓰고
        'approx'로 표시한다.
     """
     r = solve4(M, growth_S)
 
-    devs_by_rank = {}
+    candidates = []
     for rank, (lo, hi, Blo, Bhi, Bmid) in RANKS.items():
-        origin = [r[i] * 10000 / Bmid - 4.5 for i in range(4)]
-        origin_int = [round(x) for x in origin]
-        dev = max(abs(origin[i] - origin_int[i]) for i in range(4))
+        origin_real = [r[i] * 10000 / Bmid - 4.5 for i in range(4)]
+        origin_int = [round(x) for x in origin_real]
+        dev = max(abs(origin_real[i] - origin_int[i]) for i in range(4))
         s = sum(origin_int)
         ok_bracket = (lo is None or s >= lo) and (hi is None or s <= hi)
-        devs_by_rank[rank] = (dev, origin_int, ok_bracket)
+        if not ok_bracket:
+            continue
 
-    bracket_candidates = [
-        (dev, rank, oi) for rank, (dev, oi, okb) in devs_by_rank.items() if okb
-    ]
+        G = [origin_int[i] + 2 for i in range(4)]
+        growth_raw = [(G[i] + BONUS_AVG) * Bmid / 10000 for i in range(4)]
+        growth_calc = matvec(M, growth_raw)
+        growth_resid = sum((growth_calc[i] - growth_S[i]) ** 2 for i in range(4))
+        candidates.append((growth_resid, rank, origin_int, dev))
 
     result = {"ok": False, "approx": False}
+    if not candidates:
+        return result
 
-    if bracket_candidates:
-        bracket_candidates.sort()
-        dev, rank, origin_int = bracket_candidates[0]
-        result.update(rank=rank, origin_dev=dev, origin=origin_int)
-        if dev < 0.05:
-            res = best_k_fixed_D(origin_int, init_S, kmax=300)
-            if res:
-                resid, k, disp = res
-                result.update(k=k, ok=True, fit_resid=round(resid, 5))
+    candidates.sort(key=lambda x: x[0])
+    growth_resid, rank, origin_int, dev = candidates[0]
+    result.update(rank=rank, origin=origin_int, origin_dev=round(dev, 5),
+                   growth_resid=round(growth_resid, 6))
 
-    if not result["ok"]:
-        # 근사치 폴백: 6개 RANK 전체에서 D=2.5 고정 최소자승 최적해 탐색
-        cand = []
-        for rank, (dev, origin_int, okb) in devs_by_rank.items():
-            res = best_approx_k_fixed_D(origin_int, init_S)
-            if res:
-                resid, k, disp = res
-                cand.append((resid, rank, origin_int, k))
-        if cand:
-            cand.sort(key=lambda x: x[0])
-            resid, rank, origin_int, k = cand[0]
-            result.update(rank=rank, origin=origin_int, k=k, ok=True,
-                           approx=True, fit_resid=round(resid, 5))
+    res = best_k_fixed_D(origin_int, init_S, kmax=300)
+    if res:
+        resid, k, disp = res
+        result.update(k=k, ok=True, approx=False, fit_resid=round(resid, 5))
+    else:
+        approx = best_approx_k_fixed_D(origin_int, init_S)
+        if approx:
+            resid, k, disp = approx
+            result.update(k=k, ok=True, approx=True, fit_resid=round(resid, 5))
 
     return result
 
