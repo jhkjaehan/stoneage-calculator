@@ -202,11 +202,23 @@ h1,h2,h3,.display{
 .icon-btn:hover{ background:var(--surface-3); color:var(--text); }
 .icon-btn[aria-expanded="true"]{ background:var(--accent); border-color:var(--accent); color:var(--accent-ink); }
 .icon-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
-.growth-panel{
-  margin:0 0 16px; padding:14px 16px; background:var(--surface-2); border:1px solid var(--border);
-  border-radius:12px;
+.modal-backdrop{
+  position:fixed; inset:0; background:rgba(0,0,0,.5); display:flex; align-items:center;
+  justify-content:center; padding:24px; z-index:100;
 }
-.growth-panel .section-label{ margin-bottom:8px; }
+.modal-box{
+  position:relative; background:var(--surface); border:1px solid var(--border); border-radius:16px;
+  box-shadow:var(--shadow); padding:24px 26px; max-width:720px; width:100%;
+  max-height:calc(100vh - 48px); overflow-y:auto;
+}
+.modal-close{
+  position:absolute; top:14px; right:14px; width:30px; height:30px; border-radius:8px;
+  border:1px solid var(--border); background:var(--surface-2); color:var(--text-muted);
+  font-size:14px; cursor:pointer; line-height:1;
+}
+.modal-close:hover{ background:var(--surface-3); color:var(--text); }
+.modal-close:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+.modal-box .section-label{ margin:0 32px 10px 0; }
 
 .grade-list{ display:flex; flex-direction:column; gap:6px; }
 .grade-block{ border-radius:8px; }
@@ -293,6 +305,13 @@ h1,h2,h3,.display{
         <section class="card" id="compareCard"></section>
       </div>
     </main>
+  </div>
+
+  <div class="modal-backdrop" id="growthModalBackdrop" hidden>
+    <div class="modal-box" id="growthModalBox" role="dialog" aria-modal="true" aria-label="등급별 성장률 범위">
+      <button type="button" class="modal-close" id="growthModalClose" aria-label="닫기">✕</button>
+      <div id="growthRangePanel"></div>
+    </div>
   </div>
 
 </div>
@@ -682,7 +701,6 @@ h1,h2,h3,.display{
         <span class="fun-emoji">${fun.emoji}</span>
         <span class="fun-text">${fun.text}</span>
       </div>
-      <div id="growthRangePanel" class="growth-panel" hidden></div>
       <p class="calc-note">등급을 클릭하면 그 등급을 만드는 실제 조합(오프셋·보너스분배)을 화면 이동 없이 펼쳐볼 수 있습니다.</p>
       <div class="grade-list">${rows}</div>
     `;
@@ -706,24 +724,26 @@ h1,h2,h3,.display{
     });
   }
 
-  // RANK별 보정계수 중앙값(B) - 원본계수 합으로 어느 RANK인지 판정
+  // RANK별 보정계수(B) 범위 - 원본계수 합으로 어느 RANK인지 판정.
+  // B는 레벨업마다 이 범위 안에서 새로 랜덤하게 정해지므로(고정값이 아님),
+  // 성장률 범위를 구할 땐 중앙값 하나가 아니라 Blo~Bhi 양끝을 다 봐야 한다.
   const RANKS_JS = [
-    {lo:100, hi:null, Bmid:475},
-    {lo:95,  hi:99,   Bmid:495},
-    {lo:90,  hi:94,   Bmid:515},
-    {lo:85,  hi:89,   Bmid:535},
-    {lo:80,  hi:84,   Bmid:555},
-    {lo:null,hi:80,   Bmid:575},
+    {lo:100, hi:null, Blo:450, Bhi:500},
+    {lo:95,  hi:99,   Blo:470, Bhi:520},
+    {lo:90,  hi:94,   Blo:490, Bhi:540},
+    {lo:85,  hi:89,   Blo:510, Bhi:560},
+    {lo:80,  hi:84,   Blo:530, Bhi:580},
+    {lo:null,hi:80,   Blo:550, Bhi:600},
   ];
-  function bMidFromOrigin(origin){
+  function rankBoundsFromOrigin(origin){
     const s = origin[0]+origin[1]+origin[2]+origin[3];
     for(const r of RANKS_JS){
-      if((r.lo===null||s>=r.lo) && (r.hi===null||s<=r.hi)) return r.Bmid;
+      if((r.lo===null||s>=r.lo) && (r.hi===null||s<=r.hi)) return r;
     }
-    return 575;
+    return RANKS_JS[RANKS_JS.length-1];
   }
-  function growthForOffset(origin, offset, Bmid){
-    const raw = offset.map((d,i)=>(origin[i]+d+2.5)*Bmid/10000);
+  function growthForOffsetAB(origin, offset, A, B){
+    const raw = offset.map((d,i)=>(origin[i]+d+A[i])*B/10000);
     const [g0,g1,g2,g3] = raw;
     return [4*g0+g1+g2+g3, 0.1*g0+g1+0.1*g2+0.05*g3, 0.1*g0+0.1*g1+g2+0.05*g3, g3];
   }
@@ -747,58 +767,78 @@ h1,h2,h3,.display{
     `;
   }
 
-  // 등급 하나(offset 목록)에 대한 성장률 최소~최대 (D와 무관, 서로 다른 offset만 계산)
-  function computeGrowthRange(origin, Bmid, list){
+  // 등급 하나(offset 목록)에 대한 성장률 최소~최대. 성장률은 초기치 계산과
+  // 달리 D(10포인트분배)와는 무관하지만, 대신 레벨업마다 새로 랜덤하게
+  // 정해지는 A(10포인트분배, 286가지)와 B(RANK 범위 안 임의값)에 좌우된다.
+  // A는 전수조사, B는 계산식이 B에 대해 선형이라 양끝값(Blo/Bhi)만 보면 된다.
+  function computeGrowthRange(origin, rankBounds, list){
     const seen = new Set();
-    const vecs = [];
+    const offsets = [];
     for(const m of list){
       const key = m.offset.join(',');
       if(seen.has(key)) continue;
       seen.add(key);
-      vecs.push(growthForOffset(origin, m.offset, Bmid));
+      offsets.push(m.offset);
     }
-    if(!vecs.length) return null;
-    const mins = [0,1,2,3].map(i=>Math.min(...vecs.map(v=>v[i])));
-    const maxs = [0,1,2,3].map(i=>Math.max(...vecs.map(v=>v[i])));
-    return {mins, maxs, count:vecs.length};
+    if(!offsets.length) return null;
+    const mins=[Infinity,Infinity,Infinity,Infinity], maxs=[-Infinity,-Infinity,-Infinity,-Infinity];
+    const Bs = [rankBounds.Blo, rankBounds.Bhi];
+    for(const offset of offsets){
+      for(const A of Ds){
+        for(const B of Bs){
+          const v = growthForOffsetAB(origin, offset, A, B);
+          for(let i=0;i<4;i++){ if(v[i]<mins[i]) mins[i]=v[i]; if(v[i]>maxs[i]) maxs[i]=v[i]; }
+        }
+      }
+    }
+    return {mins, maxs, offsetCount:offsets.length};
   }
 
   let growthPanelOpen = false;
-  function toggleGrowthPanel(){
-    growthPanelOpen = !growthPanelOpen;
-    const panel = document.getElementById('growthRangePanel');
-    if(!panel) return;
-    panel.hidden = !growthPanelOpen;
-    const btn = document.getElementById('growthRangeBtn');
-    if(btn) btn.setAttribute('aria-expanded', String(growthPanelOpen));
-    if(growthPanelOpen) renderGrowthRangePanel();
+  function openGrowthModal(){
+    growthPanelOpen = true;
+    document.getElementById('growthModalBackdrop').hidden = false;
+    document.getElementById('growthRangeBtn')?.setAttribute('aria-expanded','true');
+    renderGrowthRangePanel();
   }
+  function closeGrowthModal(){
+    growthPanelOpen = false;
+    document.getElementById('growthModalBackdrop').hidden = true;
+    document.getElementById('growthRangeBtn')?.setAttribute('aria-expanded','false');
+  }
+  function toggleGrowthPanel(){ growthPanelOpen ? closeGrowthModal() : openGrowthModal(); }
+
+  document.getElementById('growthModalClose').addEventListener('click', closeGrowthModal);
+  document.getElementById('growthModalBackdrop').addEventListener('click', (e)=>{
+    if(e.target.id==='growthModalBackdrop') closeGrowthModal();
+  });
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && growthPanelOpen) closeGrowthModal(); });
 
   function renderGrowthRangePanel(){
     const panel = document.getElementById('growthRangePanel');
     if(!panel) return;
     const p = findPet(selectedId);
     if(!p || !p.origin){ panel.innerHTML = ''; return; }
-    const Bmid = bMidFromOrigin(p.origin);
+    const rankBounds = rankBoundsFromOrigin(p.origin);
     const LABELS = ['체','공','방','순'];
     const rows = GRADES.filter(g=>lastCounts[g]).map(g=>{
-      const range = computeGrowthRange(p.origin, Bmid, lastMatches[g]||[]);
+      const range = computeGrowthRange(p.origin, rankBounds, lastMatches[g]||[]);
       if(!range) return '';
       const cells = LABELS.map((l,i)=>{
         const lo = range.mins[i].toFixed(3), hi = range.maxs[i].toFixed(3);
         return `<td class="mono">${lo===hi ? lo : `${lo}~${hi}`}</td>`;
       }).join('');
-      return `<tr><td class="mono">${g}등급</td>${cells}<td class="mono">${range.count}종</td></tr>`;
+      return `<tr><td class="mono">${g}등급</td>${cells}<td class="mono">${range.offsetCount}종</td></tr>`;
     }).join('');
     panel.innerHTML = `
       <p class="section-label">등급별 성장률 범위 (내구/공격/방어/순발)</p>
       <div class="compare-scroll">
         <table class="detail-table">
-          <thead><tr><th>등급</th><th>체</th><th>공</th><th>방</th><th>순</th><th>오프셋 종류</th></tr></thead>
+          <thead><tr><th>등급</th><th>체</th><th>공</th><th>방</th><th>순</th><th>등급오프셋 종류</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>
-      <p class="detail-count">지금 조회된 등급표(${GRADES.filter(g=>lastCounts[g]).length}개 등급) 기준, 각 등급에서 나올 수 있는 성장률의 최소~최대입니다 (10포인트분배와 무관, 등급오프셋 조합별 계산).</p>
+      <p class="detail-count">S급 참고 성장률은 RANK 보정계수 평균값으로 계산한 이론치지만, 실제 표기 성장률은 레벨업마다 보정계수(B, RANK 범위 안 랜덤)와 보너스분배(A, 10포인트 랜덤)가 새로 정해지는 값입니다. 그래서 같은 등급이라도(심지어 오프셋이 1종뿐인 8등급도) 실제로는 이 범위 안에서 표기 성장률이 달라질 수 있습니다.</p>
     `;
   }
 
