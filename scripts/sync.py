@@ -110,8 +110,13 @@ def main():
                 "growth_S": p["growth_S"], "init_S": p["init_S"],
             })
 
-    if new_pets or attrs_refreshed:
-        merged = list(existing_by_id.values())
+    # 항상 ohrsa.net 표시 순서(live_pets 순서) 그대로 정렬해서 저장한다 -
+    # 신펫을 dict 뒤에 그냥 얹기만 하면 사이트 순서와 어긋나기 때문에,
+    # 매번 live_pets 순서를 기준으로 다시 나열한다.
+    merged = [existing_by_id[p["id"]] for p in live_pets if p["id"] in existing_by_id]
+    order_changed = [p["id"] for p in existing] != [p["id"] for p in merged]
+
+    if new_pets or attrs_refreshed or order_changed:
         with open(PETS_PATH, "w", encoding="utf-8") as f:
             json.dump(merged, f, ensure_ascii=False)
 
@@ -134,7 +139,7 @@ def main():
     gh_out = os.environ.get("GITHUB_OUTPUT")
     if gh_out:
         with open(gh_out, "a", encoding="utf-8") as f:
-            f.write(f"has_new={'true' if (new_pets or attrs_refreshed) else 'false'}\n")
+            f.write(f"has_new={'true' if (new_pets or attrs_refreshed or order_changed) else 'false'}\n")
             f.write(f"needs_review={'true' if needs_review else 'false'}\n")
             f.write(f"added_count={len(added)}\n")
 
