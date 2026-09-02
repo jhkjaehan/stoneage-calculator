@@ -154,6 +154,12 @@ h1,h2,h3,.display{
 .result-summary{ display:flex; gap:22px; flex-wrap:wrap; align-items:baseline; }
 .result-summary .rs-item .rv{ font-size:26px; font-family:"JetBrains Mono",monospace; font-weight:700; }
 .result-summary .rs-item .rl{ font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:.07em; }
+.fun-banner{
+  display:flex; align-items:center; gap:12px; margin-top:16px; padding:14px 16px;
+  background:var(--surface-2); border:1px solid var(--border); border-radius:12px;
+}
+.fun-banner .fun-emoji{ font-size:28px; line-height:1; flex-shrink:0; }
+.fun-banner .fun-text{ font-size:14px; font-weight:600; }
 
 .grade-list{ display:flex; flex-direction:column; gap:6px; }
 .grade-block{ border-radius:8px; }
@@ -203,8 +209,6 @@ h1,h2,h3,.display{
 
 .empty-state{ color:var(--text-muted); font-size:13.5px; text-align:center; padding:30px 10px; }
 
-footer.foot{ margin-top:24px; font-size:11.5px; color:var(--text-muted); line-height:1.7; }
-footer.foot b{ color:var(--text); }
 </style>
 </head>
 <body>
@@ -244,10 +248,6 @@ footer.foot b{ color:var(--text); }
     </main>
   </div>
 
-  <footer class="foot">
-    <b>계산 방식</b> — 각 펫의 성장률(S급 참고값)을 RANK 1~6 전 구간에 대입해 원본계수(체·공·방·순)가 정수로 떨어지는 지점을 찾아 역산합니다. 초기치계수는 그 원본계수에 보너스포인트 균등분배(2.5)를 적용했을 때 S급 초기치를 내림(반올림 아님) 기준으로 정확히 재현하는 정수를 찾아 확정합니다. 이렇게 확정한 원본계수·초기치계수로, 등급 오프셋(±2, 625가지) × 개체별 실제 10포인트 분배(286가지) = 178,750가지 조합을 모두 대입해 <b>내림</b> 결과가 입력한 초기치와 일치하는 조합만 남기고, 그 안에서 등급별 비율을 계산합니다.<br>
-    10포인트 분배가 286가지 조합에서 <b>균등확률</b>이라는 가정 아래의 추정치이며, 원본계수/초기치계수가 정수로 깔끔하게 안 떨어지는 일부 특수 개체는 근사치로 표시됩니다.
-  </footer>
 </div>
 
 <script type="application/json" id="pet-data">__PET_DATA__</script>
@@ -530,6 +530,22 @@ footer.foot b{ color:var(--text); }
     return `color-mix(in srgb, var(--accent2) ${Math.round((1-t)*100)}%, var(--accent) ${Math.round(t*100)}%)`;
   }
 
+  function funMessage(eightPct, topGrade){
+    if(topGrade < 0){
+      return {emoji:'😢', text:'등급이 마이너스대예요… 그래도 이 아이만의 매력이 있으니 너무 상심하지 마세요.'};
+    }
+    if(eightPct <= 0){
+      if(topGrade >= 6) return {emoji:'😯', text:`환각(+8)은 아니지만 최고 ${topGrade}등급까지 가능! 실전에서 충분히 훌륭합니다.`};
+      if(topGrade >= 3) return {emoji:'🙂', text:'무난한 개체네요. 육성해서 손해는 없어요.'};
+      return {emoji:'🍀', text:'아쉽지만 다음 기회에! 좋은 펫은 또 만날 거예요.'};
+    }
+    if(eightPct < 1)  return {emoji:'✨', text:'아주 희미하지만 환각 가능성이 있어요… 로또도 한 장 사보시죠.'};
+    if(eightPct < 5)  return {emoji:'🌱', text:'나쁘지 않은 확률! 기대해볼 만합니다.'};
+    if(eightPct < 15) return {emoji:'🔥', text:'오, 꽤 쏠쏠한 확률인데요?'};
+    if(eightPct < 30) return {emoji:'🎉', text:'이 정도면 진짜 기대해도 됩니다!'};
+    return {emoji:'👑', text:'사실상 환각 확정급! 완전 대박이에요!!'};
+  }
+
   let lastMatches = {};
   let openGrades = new Set();
 
@@ -551,9 +567,9 @@ footer.foot b{ color:var(--text); }
       els.results.innerHTML = `<div class="empty-state">입력하신 초기치(${statVals.join('/')})와 일치하는 조합이 없습니다. 스탯을 다시 확인해주세요.</div>`;
       return;
     }
-    let bestGrade = GRADES[0], bestCnt=-1;
-    for(const g of GRADES){ const c=counts[g]||0; if(c>bestCnt){bestCnt=c; bestGrade=g;} }
+    const topGrade = GRADES.find(g=>counts[g]);
     const eightPct = ((counts[8]||0)/total*100);
+    const fun = funMessage(eightPct, topGrade);
 
     const rows = GRADES.filter(g=>counts[g]).map(g=>{
       const c = counts[g];
@@ -562,7 +578,7 @@ footer.foot b{ color:var(--text); }
       return `<div class="grade-block">
         <button type="button" class="grade-row" data-grade="${g}" aria-expanded="${open}">
           <span class="gchev">${open?'▾':'▸'}</span>
-          <span class="glabel ${g===bestGrade?'best':''}">${g>0?'+':''}${g}</span>
+          <span class="glabel ${g===topGrade?'best':''}">${g}</span>
           <div class="gtrack"><div class="gfill" style="width:${pct.toFixed(2)}%; background:${gradeColor(g)}"></div></div>
           <span class="gpct">${c}건 · ${pct.toFixed(1)}%</span>
         </button>
@@ -575,8 +591,12 @@ footer.foot b{ color:var(--text); }
       ${p.approx ? `<p class="approx-note">⚠ 근사치 추정 개체 — 아래 확률은 참고용입니다.</p>` : ''}
       <div class="result-summary">
         <div class="rs-item"><div class="rv mono">${total.toLocaleString()}<span style="font-size:14px;color:var(--text-muted)"> / 178,750</span></div><div class="rl">일치 조합</div></div>
-        <div class="rs-item"><div class="rv mono" style="color:var(--accent)">${bestGrade>0?'+':''}${bestGrade}등급</div><div class="rl">최빈 등급</div></div>
+        <div class="rs-item"><div class="rv mono" style="color:var(--accent)">${topGrade}등급</div><div class="rl">최고 등급</div></div>
         <div class="rs-item"><div class="rv mono">${eightPct.toFixed(2)}%</div><div class="rl">+8등급(환각) 확률</div></div>
+      </div>
+      <div class="fun-banner">
+        <span class="fun-emoji">${fun.emoji}</span>
+        <span class="fun-text">${fun.text}</span>
       </div>
       <p class="calc-note">등급을 클릭하면 그 등급을 만드는 실제 조합(오프셋·보너스분배)을 화면 이동 없이 펼쳐볼 수 있습니다.</p>
       <div class="grade-list">${rows}</div>
