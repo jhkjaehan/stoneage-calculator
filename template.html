@@ -320,6 +320,19 @@ h1,h2,h3,.display{
   }
   for(const p of PETS){ p._cho = chosung(p.name); }
 
+  // 겹자음 초성 검색 보정: 빠르게 연속 입력하면 IME가 'ㄹ'+'ㅍ' -> 'ㄿ' 처럼
+  // 받침용 겹자음으로 합쳐버리는 경우가 있어서, 검색어에서만 원래 두 자음으로
+  // 풀어준다 (초성 자리엔 겹자음이 올 수 없으므로 펫 이름 쪽엔 해당 없음).
+  const CLUSTER_SPLIT = {
+    'ㄳ':'ㄱㅅ','ㄵ':'ㄴㅈ','ㄶ':'ㄴㅎ','ㄺ':'ㄹㄱ','ㄻ':'ㄹㅁ',
+    'ㄼ':'ㄹㅂ','ㄽ':'ㄹㅅ','ㄾ':'ㄹㅌ','ㄿ':'ㄹㅍ','ㅀ':'ㄹㅎ','ㅄ':'ㅂㅅ',
+  };
+  function expandClusters(str){
+    let out='';
+    for(const ch of str){ out += CLUSTER_SPLIT[ch] || ch; }
+    return out;
+  }
+
   // ---- state ----
   let selectedId = null;
   let activeAttrs = new Set();
@@ -366,7 +379,7 @@ h1,h2,h3,.display{
       if(!ok) return false;
     }
     if(!q) return true;
-    return p.name.includes(q) || p._cho.includes(q);
+    return p.name.includes(q) || p._cho.includes(expandClusters(q));
   }
 
   function renderGrid(){
