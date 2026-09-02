@@ -689,7 +689,7 @@ h1,h2,h3,.display{
     els.results.innerHTML = `
       <div class="results-header">
         <p class="section-label" style="margin:0;">등급 감정 결과</p>
-        <button type="button" class="icon-btn" id="growthRangeBtn" title="등급별 성장률 범위 보기" aria-expanded="false">📈 성장률 범위</button>
+        <button type="button" class="icon-btn" id="growthRangeBtn" title="등급별 성장률 범위 보기" aria-expanded="false" hidden>📈 성장률 범위</button>
       </div>
       ${p.approx ? `<p class="approx-note">⚠ 근사치 추정 개체 — 아래 확률은 참고용입니다.</p>` : ''}
       <div class="result-summary">
