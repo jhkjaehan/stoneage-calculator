@@ -742,8 +742,10 @@ h1,h2,h3,.display{
     }
     return RANKS_JS[RANKS_JS.length-1];
   }
-  function growthForOffsetAB(origin, offset, A, B){
-    const raw = offset.map((d,i)=>(origin[i]+d+A[i])*B/10000);
+  function growthForOffsetB(origin, offset, B){
+    // A(보너스분배)는 초기치의 D와 마찬가지로 2.5 고정 - 등급오프셋은 이미
+    // 확정된 값이고, 유일하게 매 레벨업마다 새로 랜덤하게 정해지는 건 B뿐이다.
+    const raw = offset.map((d,i)=>(origin[i]+d+2.5)*B/10000);
     const [g0,g1,g2,g3] = raw;
     return [4*g0+g1+g2+g3, 0.1*g0+g1+0.1*g2+0.05*g3, 0.1*g0+0.1*g1+g2+0.05*g3, g3];
   }
@@ -767,10 +769,12 @@ h1,h2,h3,.display{
     `;
   }
 
-  // 등급 하나(offset 목록)에 대한 성장률 최소~최대. 성장률은 초기치 계산과
-  // 달리 D(10포인트분배)와는 무관하지만, 대신 레벨업마다 새로 랜덤하게
-  // 정해지는 A(10포인트분배, 286가지)와 B(RANK 범위 안 임의값)에 좌우된다.
-  // A는 전수조사, B는 계산식이 B에 대해 선형이라 양끝값(Blo/Bhi)만 보면 된다.
+  // 등급 하나(offset 목록)에 대한 성장률 최소~최대. 그 등급을 실제로 만드는
+  // 건(=일치 조합)마다 등급오프셋은 이미 확정된 값이고, 성장률은 D(10포인트
+  // 분배)와도 무관하다. 매 레벨업마다 새로 랜덤하게 정해지는 값은 오직
+  // RANK 보정계수(B)뿐이므로, 각 건(오프셋)마다 B를 RANK 범위 양끝(Blo/Bhi -
+  // 계산식이 B에 대해 선형이라 양끝만 보면 충분)에 넣어보고, 그 전체 중
+  // 최소~최대를 구한다.
   function computeGrowthRange(origin, rankBounds, list){
     const seen = new Set();
     const offsets = [];
@@ -784,11 +788,9 @@ h1,h2,h3,.display{
     const mins=[Infinity,Infinity,Infinity,Infinity], maxs=[-Infinity,-Infinity,-Infinity,-Infinity];
     const Bs = [rankBounds.Blo, rankBounds.Bhi];
     for(const offset of offsets){
-      for(const A of Ds){
-        for(const B of Bs){
-          const v = growthForOffsetAB(origin, offset, A, B);
-          for(let i=0;i<4;i++){ if(v[i]<mins[i]) mins[i]=v[i]; if(v[i]>maxs[i]) maxs[i]=v[i]; }
-        }
+      for(const B of Bs){
+        const v = growthForOffsetB(origin, offset, B);
+        for(let i=0;i<4;i++){ if(v[i]<mins[i]) mins[i]=v[i]; if(v[i]>maxs[i]) maxs[i]=v[i]; }
       }
     }
     return {mins, maxs, offsetCount:offsets.length};
@@ -838,7 +840,7 @@ h1,h2,h3,.display{
           <tbody>${rows}</tbody>
         </table>
       </div>
-      <p class="detail-count">S급 참고 성장률은 RANK 보정계수 평균값으로 계산한 이론치지만, 실제 표기 성장률은 레벨업마다 보정계수(B, RANK 범위 안 랜덤)와 보너스분배(A, 10포인트 랜덤)가 새로 정해지는 값입니다. 그래서 같은 등급이라도(심지어 오프셋이 1종뿐인 8등급도) 실제로는 이 범위 안에서 표기 성장률이 달라질 수 있습니다.</p>
+      <p class="detail-count">S급 참고 성장률은 RANK 보정계수 평균값으로 계산한 이론치지만, 실제 표기 성장률은 레벨업마다 보정계수(B)가 그 RANK 범위 안에서 새로 랜덤하게 정해지는 값입니다(보너스분배는 초기치와 마찬가지로 2.5 고정, 등급오프셋도 건마다 이미 확정된 값). 그래서 같은 등급이라도(심지어 오프셋이 1종뿐인 8등급도) B값에 따라 이 범위 안에서 표기 성장률이 달라질 수 있습니다.</p>
     `;
   }
 
