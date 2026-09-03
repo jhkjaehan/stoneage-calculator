@@ -112,8 +112,13 @@ def main():
 
     # 항상 ohrsa.net 표시 순서(live_pets 순서) 그대로 정렬해서 저장한다 -
     # 신펫을 dict 뒤에 그냥 얹기만 하면 사이트 순서와 어긋나기 때문에,
-    # 매번 live_pets 순서를 기준으로 다시 나열한다.
+    # 매번 live_pets 순서를 기준으로 다시 나열한다. 사이트 목록엔 없지만
+    # 수동으로 등록한 펫(예: petinfo에 아직 안 올라온 진화체 등)은 지워지지
+    # 않도록 뒤에 그대로 이어붙인다.
+    live_ids = {p["id"] for p in live_pets}
     merged = [existing_by_id[p["id"]] for p in live_pets if p["id"] in existing_by_id]
+    manual_extra = [e for eid, e in existing_by_id.items() if eid not in live_ids]
+    merged += manual_extra
     order_changed = [p["id"] for p in existing] != [p["id"] for p in merged]
 
     if new_pets or attrs_refreshed or order_changed:
