@@ -89,12 +89,13 @@ def main():
             changed.append({"id": p["id"], "name": p["name"]})
 
     # 속성 게이지(attrs)는 계산 결과와 무관한 메타데이터라 감지 없이 항상 최신화
-    attrs_refreshed = False
+    attrs_refreshed_names = []
     for p in live_pets:
         old = existing_by_id.get(p["id"])
         if old is not None and old.get("attrs") != p["attrs"]:
             old["attrs"] = p["attrs"]
-            attrs_refreshed = True
+            attrs_refreshed_names.append(p["name"])
+    attrs_refreshed = bool(attrs_refreshed_names)
 
     needs_review = []
     added = []
@@ -148,6 +149,8 @@ def main():
         "needs_review": needs_review,
         "changed_existing": changed,
         "replaced_manual": replaced_manual,
+        "attrs_refreshed_names": attrs_refreshed_names,
+        "order_changed": order_changed,
     }
     with open(SUMMARY_PATH, "w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)

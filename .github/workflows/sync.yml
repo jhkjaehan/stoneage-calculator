@@ -39,11 +39,19 @@ jobs:
           git config user.name "stoneage-calc-bot"
           git config user.email "actions@users.noreply.github.com"
           git add data/pets.json index.html summary.json
-          git commit -m "chore: 신펫 ${{ steps.sync.outputs.added_count }}마리 자동 반영"
+          MSG=$(python3 - <<'PYEOF'
+          import json
+          s = json.load(open("summary.json", encoding="utf-8"))
+          names = ", ".join(p["name"] for p in s["added"])
+          title = f"chore: 신펫 {len(s['added'])}마리 자동 반영" if s["added"] else "chore: 펫 데이터 동기화"
+          print(title + (f" ({names})" if names else ""))
+          PYEOF
+          )
+          git commit -m "$MSG"
           git push
 
-      - name: 검수 필요 이슈 등록
-        if: steps.sync.outputs.needs_review == 'true'
+      - name: 동기화 결과 이슈 등록
+        if: steps.sync.outputs.has_new == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -51,23 +59,44 @@ jobs:
           python3 - <<'PYEOF' > "$BODY_FILE"
           import json
           s = json.load(open("summary.json", encoding="utf-8"))
-          lines = []
+          lines = [f"전체 확인 {s['checked_total']}마리 기준 동기화 결과입니다.", ""]
+
+          if s["added"]:
+              lines.append(f"### 신규 추가 {len(s['added'])}마리")
+              for p in s["added"]:
+                  status = "근사치" if p["approx"] else ("미지원" if not p["ok"] else "정밀")
+                  lines.append(f"- {p['name']} (id {p['id']}) — {status}")
+              lines.append("")
+
           if s["needs_review"]:
-              lines += ["새로 발견된 펫 중 원본계수 역산이 깔끔하지 않은 개체가 있습니다. 확인해주세요.", ""]
+              lines.append("### ⚠ 확인 필요 (원본계수 역산이 깔끔하지 않음)")
               for p in s["needs_review"]:
                   lines.append(f"- **{p['name']}** (id {p['id']}) — {p['status']} · 성장률 {p['growth_S']} · 초기치 {p['init_S']}")
-          if s["changed_existing"]:
               lines.append("")
-              lines.append("기존 펫인데 사이트 표기값이 바뀐 것으로 보이는 개체 (자동 반영 안 함, 수동 확인 필요):")
+
+          if s["changed_existing"]:
+              lines.append("### ⚠ 기존 펫 표기값 변경 감지 (자동 반영 안 함, 수동 확인 필요)")
               for p in s["changed_existing"]:
                   lines.append(f"- {p['name']} (id {p['id']})")
-          if s.get("replaced_manual"):
               lines.append("")
-              lines.append("수동 등록해뒀던 펫이 사이트에 정식으로 올라와서 자동 교체됨:")
+
+          if s.get("replaced_manual"):
+              lines.append("### 수동 등록 펫 정식 전환")
               for p in s["replaced_manual"]:
                   lines.append(f"- {p['name']} ({p['old_id']} -> {p['new_id']})")
+              lines.append("")
+
+          if s.get("attrs_refreshed_names"):
+              names = s["attrs_refreshed_names"]
+              lines.append(f"### 속성(지수화풍) 수치 갱신 {len(names)}마리")
+              lines.append(", ".join(names))
+              lines.append("")
+
+          if s.get("order_changed") and not (s["added"] or s.get("replaced_manual")):
+              lines.append("### 목록 순서만 사이트 기준으로 재정렬됨")
+
           print("\n".join(lines))
           PYEOF
           gh issue create \
-            --title "신펫 검수 필요 ($(date +%Y-%m-%d))" \
+            --title "펫 데이터 동기화 결과 ($(date +%Y-%m-%d))" \
             --body-file "$BODY_FILE"
