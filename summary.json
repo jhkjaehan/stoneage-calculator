@@ -1,6 +1,38 @@
 {
-  "checked_total": 131,
-  "added": [],
+  "checked_total": 136,
+  "added": [
+    {
+      "id": "154",
+      "name": "포이비스",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "153",
+      "name": "크랩",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "152",
+      "name": "포레스트크랩",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "151",
+      "name": "킹크랩",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "150",
+      "name": "지라크",
+      "ok": true,
+      "approx": false
+    }
+  ],
   "needs_review": [],
-  "changed_existing": []
+  "changed_existing": [],
+  "replaced_manual": []
 }

@@ -4,6 +4,8 @@
 1. ohrsa.net/petinfo 로그인 후 전체 펫 목록을 긁어온다 (scrape.py)
 2. data/overrides.json 의 수동 보정값을 덮어씌운다
 3. data/pets.json 에 없는 id(신펫)만 골라 원본계수를 역산한다 (common.calibrate_pet)
+   - 이때 이름이 같은 수동등록 펫(id "m"로 시작)이 있으면 그 항목은 지우고
+     사이트 정식 데이터로 교체한다
 4. 신펫 이미지를 96x96 WebP로 압축해 base64로 내장한다
 5. 속성 게이지(attrs)는 계산 결과와 무관하므로 기존 펫이라도 항상 최신값으로 갱신한다
 6. data/pets.json 을 갱신하고, index.html 을 재빌드한다
@@ -67,6 +69,17 @@ def main():
                     p[key] = ov[key]
 
     new_pets = [p for p in live_pets if p["id"] not in existing_by_id]
+
+    # 수동으로 등록해둔 펫(id가 "m"으로 시작, 예: 꼬미류)이 나중에 ohrsa.net에
+    # 정식으로 올라오면, 같은 이름의 수동 항목을 지우고 사이트 데이터로
+    # 교체한다(중복 등록 방지 + 정식 수치로 갱신).
+    manual_by_name = {e["name"]: eid for eid, e in existing_by_id.items() if eid.startswith("m")}
+    replaced_manual = []
+    for p in new_pets:
+        old_id = manual_by_name.get(p["name"])
+        if old_id:
+            del existing_by_id[old_id]
+            replaced_manual.append({"old_id": old_id, "new_id": p["id"], "name": p["name"]})
 
     # 기존 펫인데 사이트 수치가 바뀐 경우 감지(자동 반영은 안 하고 알림만)
     changed = []
@@ -134,6 +147,7 @@ def main():
         "added": added,
         "needs_review": needs_review,
         "changed_existing": changed,
+        "replaced_manual": replaced_manual,
     }
     with open(SUMMARY_PATH, "w", encoding="utf-8") as f:
         json.dump(summary, f, ensure_ascii=False, indent=2)
@@ -145,7 +159,7 @@ def main():
     if gh_out:
         with open(gh_out, "a", encoding="utf-8") as f:
             f.write(f"has_new={'true' if (new_pets or attrs_refreshed or order_changed) else 'false'}\n")
-            f.write(f"needs_review={'true' if needs_review else 'false'}\n")
+            f.write(f"needs_review={'true' if (needs_review or replaced_manual) else 'false'}\n")
             f.write(f"added_count={len(added)}\n")
 
 
