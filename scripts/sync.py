@@ -32,7 +32,7 @@ PETS_PATH = os.path.join(ROOT, "data", "pets.json")
 OVERRIDES_PATH = os.path.join(ROOT, "data", "overrides.json")
 SUMMARY_PATH = os.path.join(ROOT, "summary.json")
 
-UA = "Mozilla/5.0 (compatible; StoneAgeCalcSync/1.0; +https://github.com/)"
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 
 
 def load_json(path, default):

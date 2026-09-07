@@ -10,7 +10,7 @@ import sys
 import requests
 
 BASE = "https://ohrsa.net"
-UA = "Mozilla/5.0 (compatible; StoneAgeCalcSync/1.0; +https://github.com/)"
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 
 CARD_RE = re.compile(
     r'data-wr-id="(\d+)" data-name="([^"]+)" data-img="([^"]+)" '
