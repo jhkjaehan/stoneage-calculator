@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   sync:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted  # ohrsa.net이 GitHub 호스팅 러너 IP대역을 막아서 자체 러너(사용자 WSL)로 변경
     steps:
       - uses: actions/checkout@v4
 
