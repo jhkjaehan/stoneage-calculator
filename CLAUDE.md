@@ -55,12 +55,19 @@ data/pets.json         전체 펫 데이터(원본계수/k/초기치/성장률/�
 data/overrides.json    사이트 원본 오타 수동 보정(예: 만모 순발력 22→2)
 data/rank_compare.json build.py가 매번 재생성(직접 수정 금지)
 .github/workflows/sync.yml  매주 월요일 자동 실행 + Actions 탭에서 수동 실행 가능.
-                       **runs-on: self-hosted** (사용자 WSL 머신을 러너로 등록해서
-                       사용) — ohrsa.net이 GitHub 호스팅 러너(Azure 데이터센터 IP)를
-                       Cloudflare/WAF로 막아서 /petinfo가 403 났었음. 사용자 WSL이
-                       러너로 켜져있지 않으면 워크플로가 큐에 걸린 채 안 돎.
-                       이 머신엔 pip가 원래 없어서 `sudo apt install -y python3-pip`
-                       필요했음.
+                       **runs-on: self-hosted (확정)** — ohrsa.net이 GitHub 호스팅
+                       러너(Azure 데이터센터 IP)를 Cloudflare/WAF로 막아서 /petinfo가
+                       403 남. User-Agent를 일반 브라우저로 바꿔서 ubuntu-latest로
+                       재테스트까지 해봤지만 **여전히 403** — UA 문제가 아니라 IP
+                       평판/대역 차단으로 확정. 그래서 사용자 WSL 머신을
+                       self-hosted 러너로 등록해서 씀(`~/actions-runner`,
+                       `sudo ./svc.sh start`로 서비스 등록됨). **사용자 WSL이
+                       켜져 있고 러너 서비스가 돌고 있어야만** 워크플로가 실행됨
+                       (꺼져있으면 큐에 걸린 채 대기). 이 머신엔 pip가 원래 없어서
+                       `sudo apt install -y python3-pip` 필요했음. 앞으로 "로컬 없이
+                       자동화"를 다시 시도한다면 유료 프록시 서비스(주거용 IP로
+                       릴레이) 또는 Azure 아닌 다른 CI 제공자 시도가 후보이지만
+                       둘 다 검증 안 됨 — 사용자가 원할 때 다시 논의할 것.
 wrangler.toml          Cloudflare **Pages** 배포용 (한때 Workers로 잘못 잡혔던 걸 Pages로 재설정 완료)
 ```
 
