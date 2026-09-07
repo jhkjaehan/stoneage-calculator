@@ -54,7 +54,13 @@ scripts/build.py      rank_compare.build() 호출 후 template.html + data/pets.
 data/pets.json         전체 펫 데이터(원본계수/k/초기치/성장률/이미지 base64/attrs 등)
 data/overrides.json    사이트 원본 오타 수동 보정(예: 만모 순발력 22→2)
 data/rank_compare.json build.py가 매번 재생성(직접 수정 금지)
-.github/workflows/sync.yml  매주 월요일 자동 실행 + Actions 탭에서 수동 실행 가능
+.github/workflows/sync.yml  매주 월요일 자동 실행 + Actions 탭에서 수동 실행 가능.
+                       **runs-on: self-hosted** (사용자 WSL 머신을 러너로 등록해서
+                       사용) — ohrsa.net이 GitHub 호스팅 러너(Azure 데이터센터 IP)를
+                       Cloudflare/WAF로 막아서 /petinfo가 403 났었음. 사용자 WSL이
+                       러너로 켜져있지 않으면 워크플로가 큐에 걸린 채 안 돎.
+                       이 머신엔 pip가 원래 없어서 `sudo apt install -y python3-pip`
+                       필요했음.
 wrangler.toml          Cloudflare **Pages** 배포용 (한때 Workers로 잘못 잡혔던 걸 Pages로 재설정 완료)
 ```
 
