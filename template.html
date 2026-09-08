@@ -641,6 +641,7 @@ h1,h2,h3,.display{
         <button class="calc-btn" id="calcBtn" ${p.ok?'':'disabled'}>✨ 등급 감정하기</button>
         <span class="calc-note">S급 참고 초기치: <span class="mono">${p.initS[0]}/${p.initS[1]}/${p.initS[2]}/${p.initS[3]}</span> (내구/공격/방어/순발)${p.ok ? ` · 계산값 <span class="mono">${calcSGradeInitDecimal(p).map(v=>v.toFixed(2)).join('/')}</span>` : ''}</span>
       </div>
+      <p class="calc-note" style="margin-top:4px;">S급 참고 성장률: <span class="mono">${p.growthS[0]}/${p.growthS[1]}/${p.growthS[2]}/${p.growthS[3]}</span> (내구/공격/방어/순발)</p>
     `;
     const grid = document.getElementById('statGrid');
     grid.innerHTML = STAT_LABELS.map((lbl,i)=>`
