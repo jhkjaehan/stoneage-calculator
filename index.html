@@ -117,18 +117,28 @@ h1,h2,h3,.display{
 .pet-count{ padding:8px 14px; font-size:11.5px; color:var(--text-muted); border-bottom:1px solid var(--border); font-family:"JetBrains Mono",monospace;}
 
 .pet-grid{ max-height:clamp(360px, 62vh, 900px); overflow-y:auto; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); }
-.pet-card{
-  background:var(--surface); border:none; cursor:pointer; padding:10px 6px 8px;
+.pet-card{ position:relative; background:var(--surface); }
+.pet-card-main{
+  width:100%; background:none; border:none; cursor:pointer; padding:10px 6px 8px;
   display:flex; flex-direction:column; align-items:center; gap:4px; text-align:center;
   color:var(--text); font-family:inherit;
 }
-.pet-card:hover{ background:var(--surface-2); }
-.pet-card[aria-pressed="true"]{ background:var(--accent); color:var(--accent-ink); }
-.pet-card img{ width:44px; height:44px; image-rendering:auto; border-radius:8px; background:var(--surface-2); }
-.pet-card[aria-pressed="true"] img{ background:rgba(255,255,255,.25); }
-.pet-card .pname{ font-size:11px; line-height:1.2; }
-.pet-card .pflag{ font-size:9px; color:var(--danger); font-family:"JetBrains Mono",monospace; }
-.pet-card[aria-pressed="true"] .pflag{ color:var(--accent-ink); opacity:.85; }
+.pet-card-main:hover{ background:var(--surface-2); }
+.pet-card-main[aria-pressed="true"]{ background:var(--accent); color:var(--accent-ink); }
+.pet-card-main img{ width:44px; height:44px; image-rendering:auto; border-radius:8px; background:var(--surface-2); }
+.pet-card-main[aria-pressed="true"] img{ background:rgba(255,255,255,.25); }
+.pet-card-main .pname{ font-size:11px; line-height:1.2; }
+.pet-card-main .pflag{ font-size:9px; color:var(--danger); font-family:"JetBrains Mono",monospace; }
+.pet-card-main[aria-pressed="true"] .pflag{ color:var(--accent-ink); opacity:.85; }
+
+.fav-star{
+  position:absolute; top:2px; right:2px; width:20px; height:20px; border-radius:6px;
+  border:none; background:transparent; color:var(--text-muted); font-size:13px; line-height:1;
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+}
+.fav-star:hover{ background:var(--surface-3); }
+.fav-star.is-fav{ color:var(--accent); }
+.fav-star:focus-visible{ outline:2px solid var(--accent); outline-offset:1px; }
 
 /* main */
 .main{ display:flex; flex-direction:column; gap:18px; }
@@ -291,6 +301,9 @@ h1,h2,h3,.display{
       <div class="search-wrap">
         <input id="search" class="search-input" type="text" placeholder="펫 이름 검색 (초성 가능, 예: ㅍㅇㄹ)" autocomplete="off">
         <div class="chips" id="attrChips"></div>
+        <div class="chips">
+          <button type="button" class="chip fav-toggle" id="favToggle" aria-pressed="false">★ 즐겨찾기만</button>
+        </div>
       </div>
       <div class="pet-count" id="petCount"></div>
       <div class="pet-grid" id="petGrid"></div>
@@ -405,6 +418,19 @@ h1,h2,h3,.display{
   let statVals = [0,0,0,0]; // 체 공 방 순 (내구 공격 방어 순발)
   const STAT_LABELS = ['내구력','공격력','방어력','순발력'];
 
+  // ---- 즐겨찾기 (이 브라우저에만 저장, localStorage) ----
+  const FAV_KEY = 'stoneage-calc-favorites';
+  function loadFavorites(){
+    try{ return new Set(JSON.parse(localStorage.getItem(FAV_KEY) || '[]')); }
+    catch(e){ return new Set(); }
+  }
+  function saveFavorites(){
+    try{ localStorage.setItem(FAV_KEY, JSON.stringify([...favorites])); }
+    catch(e){ /* 저장 실패해도 이번 세션 안에서는 계속 동작 */ }
+  }
+  let favorites = loadFavorites();
+  let favOnly = false;
+
   const els = {
     search: document.getElementById('search'),
     chips: document.getElementById('attrChips'),
@@ -438,7 +464,14 @@ h1,h2,h3,.display{
     renderGrid();
   });
 
+  document.getElementById('favToggle').addEventListener('click', (e)=>{
+    favOnly = !favOnly;
+    e.currentTarget.setAttribute('aria-pressed', String(favOnly));
+    renderGrid();
+  });
+
   function matchesFilter(p, q){
+    if(favOnly && !favorites.has(p.id)) return false;
     for(const a of activeAttrs){ if(!p.attr.includes(a)) return false; } // 교집합: 선택한 속성 전부 있어야 함
     if(!q) return true;
     return p.name.includes(q) || p._cho.includes(expandClusters(q));
@@ -447,17 +480,34 @@ h1,h2,h3,.display{
   function renderGrid(){
     const q = els.search.value.trim();
     const list = PETS.filter(p=>matchesFilter(p,q));
-    els.count.textContent = `${list.length} / ${PETS.length}마리`;
-    els.grid.innerHTML = list.map(p=>`
-      <button class="pet-card" type="button" data-id="${p.id}" aria-pressed="${p.id===selectedId}">
-        <img src="data:image/webp;base64,${p.img}" alt="" loading="lazy">
-        <span class="pname">${p.name}</span>
-        ${p.approx ? '<span class="pflag">근사</span>' : (p.ok ? '' : '<span class="pflag">미지원</span>')}
-      </button>`).join('');
+    els.count.textContent = `${list.length} / ${PETS.length}마리${favOnly?' (즐겨찾기)':''}`;
+    els.grid.innerHTML = list.map(p=>{
+      const isFav = favorites.has(p.id);
+      return `
+      <div class="pet-card">
+        <button class="pet-card-main" type="button" data-id="${p.id}" aria-pressed="${p.id===selectedId}">
+          <img src="data:image/webp;base64,${p.img}" alt="" loading="lazy">
+          <span class="pname">${p.name}</span>
+          ${p.approx ? '<span class="pflag">근사</span>' : (p.ok ? '' : '<span class="pflag">미지원</span>')}
+        </button>
+        <button class="fav-star ${isFav?'is-fav':''}" type="button" data-fav-id="${p.id}" aria-pressed="${isFav}" aria-label="즐겨찾기">${isFav?'★':'☆'}</button>
+      </div>`;
+    }).join('');
+    if(list.length===0 && favOnly){
+      els.grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1; padding:24px 10px;">즐겨찾기한 펫이 없습니다. 펫 카드의 ☆를 눌러 추가해보세요.</div>`;
+    }
   }
 
   els.grid.addEventListener('click', (e)=>{
-    const btn = e.target.closest('.pet-card');
+    const star = e.target.closest('.fav-star');
+    if(star){
+      const id = star.dataset.favId;
+      if(favorites.has(id)) favorites.delete(id); else favorites.add(id);
+      saveFavorites();
+      renderGrid();
+      return;
+    }
+    const btn = e.target.closest('.pet-card-main');
     if(!btn) return;
     selectPet(btn.dataset.id);
   });
