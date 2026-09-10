@@ -94,19 +94,56 @@ wrangler.toml          Cloudflare **Pages** 배포용 (한때 Workers로 잘못 
 ohrsa.net petinfo에 아직 없는 펫을 사용자가 gif+수치로 직접 줄 때:
 1. id는 `m1`, `m2`... 형식으로 부여(사이트 wr-id 숫자와 안 겹치게).
 2. `common.calibrate_pet(growth_S, init_S)`로 origin/k/ok/approx 계산
-   (growth_S, init_S 둘 다 [체,공,방,순] 순서).
+   (growth_S, init_S 둘 다 [체,공,방,순] 순서). 이어서
+   `common.calibrate_pet(growth_S, init_S, ranks=common.RANKS_EXT)`로 세분화
+   가설 결과도 계산해서 `originAlt`/`kAlt`/`approxAlt`로 담고,
+   `common.confidence_score(...)`로 `confMain`/`confAlt`도 채운다(아래
+   "기존/세분화 계산방식 탭" 항목 참고 — `sync.py`는 이미 이 과정을 자동으로
+   함, 수동 등록 때만 사람이 직접 해줘야 함).
 3. gif는 PIL로 96×96 WebP(quality=85) 변환 후 base64 인코딩.
 4. `data/pets.json`에 append. `attr`/`attrs`/`obtain`은 정보 없으면 빈 값(`""`,
-   `[]`) + `"직접 등록"` 정도로 채움.
+   `[]`) + `"직접 등록"` 정도로 채운다.
 5. 정보가 불확실한 펫은 억지로 계산하지 말고 `growthS`/`initS`를 `[0,0,0,0]`,
    `ok:false`로 비워서 "계산 미지원"으로 표시한다(꼬비가 이 케이스).
 
-## 현재 데이터 상태 (2026-09-06 기준)
+## 현재 데이터 상태 (2026-09-10 기준)
 
-- 전체 141마리 (ohrsa.net 스크레이핑 136 + 수동등록 5: 꼬미/꼬비/꼬꼬비/꼬비오/만모로스)
-- 근사치(approx) 펫: 없음 (전부 정밀 매칭)
+- 전체 143마리 (ohrsa.net 스크레이핑 136 + 수동등록 7: 꼬미/꼬비/꼬꼬비/꼬비오/만모로스/보르비스/도라비스)
+- 근사치(approx) 펫: 없음 (전부 정밀 매칭 — "기존 방식" 기준. "세분화 방식"으론
+  일부 근사치 있음, 아래 항목 참고)
 - 미지원(ok=false): **꼬비** — 능력치 정보를 아직 확인 못해서 비워둔 상태.
   나중에 실제 초기치/성장률 받으면 `common.calibrate_pet`으로 채울 것.
+
+## 기존/세분화 계산방식 탭 + 신뢰도 % (2026-09-10 추가)
+
+우리는 ohrsa.net 서버 소스코드를 직접 확인할 방법이 없다. 지금 쓰는 RANK표
+(`common.RANKS`, 원본계수합≥100은 전부 RANK1으로 뭉뚱그림)는 143마리 데이터로
+뒷받침되긴 했지만 "정말 그 이상 세분화가 안 되어 있는지"는 증명된 적 없는
+가정이다. 다른(독립 튜닝된) 사설서버 milk-sa.pages.dev를 역공학했을 때, 그
+서버는 원본계수합 100 미만 구간은 우리와 완전히 동일하면서 100 이상만
+100~104/105~109/110+ 세 단계로 더 세분화되어 있었다(`common.RANKS_EXT`로
+그 구조를 그대로 이식해둠 — 실제 milk-sa 튜닝값이 아니라 "구조를 참고한
+가설"이라는 점 유의, 절대 milk-sa 전용 수치를 우리 서버 사실로 취급하지 말 것).
+
+- **`common.calibrate_pet(growth_S, init_S, ranks=...)`**: ranks 생략시 기존
+  RANKS, `RANKS_EXT` 넘기면 세분화 가설로 계산.
+- **`common.confidence_score(calib, method)`**: method는 `'main'`(가중치
+  0.85) 또는 `'ext'`(0.45) — 구조 신뢰도 × 개체 적합도(정밀매칭/근사치+잔차)로
+  0~100 정수 신뢰도를 낸다. **설계상 어떤 경우에도 100은 안 나옴** — 서버
+  소스 미확인이라는 근본적 한계를 반영.
+- `data/pets.json`의 각 펫에 `originAlt`/`kAlt`/`approxAlt`/`confMain`/`confAlt`
+  필드로 저장되어 있다(원본계수합<105인 펫은 두 방식이 사실상 같아서
+  `originAlt===origin`). `sync.py`가 신펫마다 자동 계산해서 채운다.
+- **UI**: `template.html`에서 두 방식 결과가 실제로 다른 펫(`hasAltMethod(p)`)
+  에 한해서만 등급 감정 결과 위에 "① 기존 방식 / ② 세분화 방식(타서버 참고)"
+  탭이 뜬다(`calcMethod` 상태, `bindMethodTabs()`). 탭 여부와 무관하게 모든
+  결과에 `신뢰도 XX% + "100% 확정 불가" caveat` 배지가 항상 붙는다(`.conf-badge`,
+  `renderResults`의 `confHtml`).
+- 현재(143마리 기준) 원본계수합≥105인 21마리만 두 방식이 갈리고, 그중 15마리는
+  세분화 방식에서 근사치로 전락 — "세분화 가설이 ohrsa.net엔 안 맞을 가능성이
+  높다"는 근거로 신뢰도 가중치 차이(0.85 vs 0.45)에 반영해뒀다. 신뢰도 숫자
+  자체는 순전히 휴리스틱이라 사용자가 원하면 언제든 가중치/공식을 조정할 것
+  — `common.py`의 `CONFIDENCE_STRUCT_WEIGHT`와 `confidence_score()` 참고.
 - **수동등록 펫(id "m1"~) 자동 승격**: `sync.py`가 매번, 사이트에 새로 뜬
   펫 이름이 기존 수동등록 펫과 같으면 수동 항목을 지우고 정식 사이트
   데이터로 자동 교체한다(요약의 `replaced_manual`에 기록되고 동기화 이슈에도
