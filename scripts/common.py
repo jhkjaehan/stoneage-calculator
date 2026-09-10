@@ -60,29 +60,40 @@ RANKS_EXT = {
     7: (None, 80, 550, 600, 575),
 }
 
-# 신뢰도(%) 계산용 가중치. 서버 소스코드를 직접 추출할 수 없으므로 어떤 방법도
-# 100%에 도달하지 않는다.
-#   - main: "내림" 처리는 서버에서 공식 확인된 사실이고, RANKS 자체도 143마리
-#     전량이 예외 없이 정밀 매칭되는 것으로 뒷받침되지만, 이 역시 소스코드
-#     대조가 아닌 데이터 정합성으로 검증한 것이라 100%는 아니다.
-#   - ext: 다른(독립 튜닝) 서버에서 가져온 구조를 이식한 가설이라 구조 자체의
-#     신뢰도를 낮게 잡는다.
-CONFIDENCE_STRUCT_WEIGHT = {"main": 0.85, "ext": 0.45}
+# 신뢰도(%) 계산: "이 origin/k로 성장률·초기치를 다시 계산했을 때, 실제
+# 인게임 표기값과 얼마나 차이나는가"를 그대로 신뢰도의 근거로 쓴다(2026-09-10,
+# 이전엔 main/ext에 임의의 구조 가중치 0.85/0.45를 곱하는 방식이었는데, 사용자가
+# "그 가중치가 근거 있는 수치냐"고 문제 제기해서 재설계함).
+#
+# 실제로 전체 펫에 대해 검증해보니:
+#   - RANKS(main)의 growth_resid는 142마리 전량 사실상 0에 수렴(중앙값 0.0,
+#     최댓값 0.000391) — 반면 RANKS_EXT(ext)는 두 표가 갈리는 21마리 전부
+#     예외 없이 growth_resid가 main보다 크다(0.0002~0.006). ext쪽이 후보
+#     구간을 3개나 갖고 있어(main은 1개) 더 유리해 보일 수 있는데도 여전히
+#     못 맞춘다 — "구간을 더 쪼개서 생긴 착시"가 아니라 실제로 우리 서버
+#     데이터가 main 구조를 더 지지한다는 뜻이다. 그래서 별도의 method별
+#     가중치 없이, growth_resid/fit_resid 크기 자체가 이 차이를 자연스럽게
+#     반영하게 둔다.
+#   - fit_resid(초기치 재현 오차)는 pet마다 자연스러운 분포를 가짐
+#     (전체 min 0.049, 중앙값 1.32, max 3.15) — 이걸 그대로 스케일 기준으로 씀.
+GROWTH_RESID_SCALE = 0.002  # RANKS_EXT가 갈리는 펫들의 전형적 growth_resid 크기
+FIT_RESID_SCALE = 1.32      # 전체 펫 fit_resid 중앙값
+APPROX_PENALTY = 0.7        # 내림 기준 정확히 맞는 정수 k가 아예 없었을 때(근사치) 추가 감점
+CONFIDENCE_HARD_CAP = 97    # 서버 소스코드를 직접 볼 수 없으므로 계산상 100이 나와도 여기서 막는다
 
 
-def confidence_score(calib, method):
-    """calib: calibrate_pet()의 반환값. method: 'main' 또는 'ext'.
-    구조 신뢰도(위 가중치)에 개체별 적합도(fit_resid, approx 여부)를 곱해
-    0~100 사이 정수 신뢰도(%)를 만든다. 어떤 경우에도 100은 나오지 않는다."""
+def confidence_score(calib):
+    """calib: calibrate_pet()의 반환값(어느 ranks 표로 계산했든 동일하게 적용).
+    growth_resid(성장률 재현 오차)와 fit_resid(초기치 재현 오차)를 각각
+    1/(1+resid/scale) 꼴로 0~1 사이 팩터로 바꾼 뒤 곱해서 신뢰도(%)를 만든다.
+    잔차가 클수록, 근사치일수록 신뢰도가 낮아지고, CONFIDENCE_HARD_CAP 때문에
+    아무리 잘 맞아도 100은 나오지 않는다."""
     if not calib.get("ok"):
         return 0
-    w = CONFIDENCE_STRUCT_WEIGHT[method]
-    fit_resid = calib.get("fit_resid") or 0
-    if calib.get("approx"):
-        fit_factor = max(0.15, 0.55 - fit_resid * 0.05)
-    else:
-        fit_factor = max(0.55, 1.0 - fit_resid * 0.05)
-    return round(w * fit_factor * 100)
+    growth_factor = 1 / (1 + calib.get("growth_resid", 0) / GROWTH_RESID_SCALE)
+    fit_factor = 1 / (1 + (calib.get("fit_resid") or 0) / FIT_RESID_SCALE)
+    raw = growth_factor * fit_factor * (APPROX_PENALTY if calib.get("approx") else 1.0)
+    return min(CONFIDENCE_HARD_CAP, round(100 * raw))
 
 # 10포인트를 체/공/방/순 4개 스탯에 분배하는 모든 조합 (286가지) - 개체별 실제 랜덤값용
 Ds = [d for d in product(range(11), repeat=4) if sum(d) == 10]
