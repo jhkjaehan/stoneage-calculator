@@ -157,6 +157,16 @@ ohrsa.net petinfo에 아직 없는 펫을 사용자가 gif+수치로 직접 줄 
   탭이 뜬다(`calcMethod` 상태, `bindMethodTabs()`). 탭 여부와 무관하게 모든
   결과에 `신뢰도 XX% + "100% 확정 불가" caveat` 배지가 항상 붙는다(`.conf-badge`,
   `renderResults`의 `confHtml`).
+- **원본계수 반올림 오차(origin_dev) 이상치 경고** (2026-09-10 추가):
+  `common.ORIGIN_DEV_OUTLIER_THRESHOLD=0.05`, `is_origin_dev_outlier()`.
+  142마리 중 141마리는 origin_dev≤0.011인데 베로포리만 0.399로 압도적 이상치
+  (과거 RANK 오판 사례였던 그 펫 — growth_resid 기반 신뢰도가 이 신호를
+  일부 반영은 하지만 다른 요인과 섞여 원인이 묻히길래 별도로 뺐다). 세분화
+  방식(alt)에서는 두 표가 갈리는 21마리 전부 devFlagAlt=true로 나옴 — 신뢰도
+  재설계 때 확인한 "ext가 main보다 못 맞는다" 결론을 한 번 더 뒷받침하는
+  독립적 신호. `data/pets.json`엔 `originDevMain`/`originDevAlt`/
+  `devFlagMain`/`devFlagAlt`로 저장, UI엔 신뢰도 배지 바로 아래
+  `.dev-outlier-note`로 표시(`renderResults`의 devFlag/devVal 참고).
 - 현재(143마리 기준) 원본계수합≥105인 21마리만 두 방식이 갈리고, 그중 15마리는
   세분화 방식에서 근사치로 전락. 신뢰도 숫자 자체(스케일 상수 0.002/1.32,
   근사치 감점 0.7, 하드캡 97)는 여전히 휴리스틱이라 사용자가 원하면 언제든
