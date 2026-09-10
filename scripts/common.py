@@ -41,6 +41,49 @@ RANKS = {
     6: (None, 80, 550, 600, 575),
 }
 
+# "세분화" RANK 테이블 (가설) — 우리는 ohrsa.net 서버 소스코드를 직접 확인할
+# 방법이 없어서, 원본계수합 100 이상 구간을 RANKS처럼 하나로 뭉뚱그려도 되는지
+# 아니면 더 잘게 나뉘어 있는지 알 수 없다. 다른(독립적으로 튜닝된) 사설서버인
+# milk-sa.pages.dev를 역공학해서 나온 RANK 표가 100 미만 구간은 RANKS와 완전히
+# 동일하면서 100 이상만 3단계로 더 세분화된 구조였기에, 그 패턴을 그대로 가져와
+# "만약 ohrsa.net도 이렇게 세분화되어 있다면"을 계산해보는 참고용 대안이다.
+# **검증된 사실이 아니라 가설** — RANKS(기존)보다 구조적 신뢰도를 낮게 잡는다
+# (CONFIDENCE_STRUCT_WEIGHT 참고).
+RANKS_EXT = {
+    0: (110, None, 410, 460, 435),
+    1: (105, 109, 430, 480, 455),
+    2: (100, 104, 450, 500, 475),
+    3: (95, 99, 470, 520, 495),
+    4: (90, 94, 490, 540, 515),
+    5: (85, 89, 510, 560, 535),
+    6: (80, 84, 530, 580, 555),
+    7: (None, 80, 550, 600, 575),
+}
+
+# 신뢰도(%) 계산용 가중치. 서버 소스코드를 직접 추출할 수 없으므로 어떤 방법도
+# 100%에 도달하지 않는다.
+#   - main: "내림" 처리는 서버에서 공식 확인된 사실이고, RANKS 자체도 143마리
+#     전량이 예외 없이 정밀 매칭되는 것으로 뒷받침되지만, 이 역시 소스코드
+#     대조가 아닌 데이터 정합성으로 검증한 것이라 100%는 아니다.
+#   - ext: 다른(독립 튜닝) 서버에서 가져온 구조를 이식한 가설이라 구조 자체의
+#     신뢰도를 낮게 잡는다.
+CONFIDENCE_STRUCT_WEIGHT = {"main": 0.85, "ext": 0.45}
+
+
+def confidence_score(calib, method):
+    """calib: calibrate_pet()의 반환값. method: 'main' 또는 'ext'.
+    구조 신뢰도(위 가중치)에 개체별 적합도(fit_resid, approx 여부)를 곱해
+    0~100 사이 정수 신뢰도(%)를 만든다. 어떤 경우에도 100은 나오지 않는다."""
+    if not calib.get("ok"):
+        return 0
+    w = CONFIDENCE_STRUCT_WEIGHT[method]
+    fit_resid = calib.get("fit_resid") or 0
+    if calib.get("approx"):
+        fit_factor = max(0.15, 0.55 - fit_resid * 0.05)
+    else:
+        fit_factor = max(0.55, 1.0 - fit_resid * 0.05)
+    return round(w * fit_factor * 100)
+
 # 10포인트를 체/공/방/순 4개 스탯에 분배하는 모든 조합 (286가지) - 개체별 실제 랜덤값용
 Ds = [d for d in product(range(11), repeat=4) if sum(d) == 10]
 
@@ -111,9 +154,12 @@ def best_approx_k_fixed_D(origin, init_S):
     return (resid, k, disp)
 
 
-def calibrate_pet(growth_S, init_S):
+def calibrate_pet(growth_S, init_S, ranks=None):
     """growth_S, init_S (둘 다 [체,공,방,순] 순서) 로부터
     {'rank','origin','k','ok','approx','fit_resid','growth_resid'} 를 계산한다.
+    ranks를 생략하면 RANKS(기존, 서버 데이터로 검증된 표)를 쓴다. RANKS_EXT를
+    넘기면 "세분화 가설" 표로 계산한다 — 결과 dict의 'rank' 키는 그 표의 키를
+    그대로 반영하므로, 어느 표를 썼는지에 따라 의미가 달라짐에 유의.
 
     1) 성장률 4개 방정식을 풀어 raw growth(before-bonus) r을 구한다.
     2) RANK 1~6 각각의 보정계수 중앙값으로 원본계수(정수)를 역산한다 (자기
@@ -128,10 +174,11 @@ def calibrate_pet(growth_S, init_S):
        정수 k를 찾는다. 정확히 맞는 게 없으면 최소자승 근사 k를 쓰고
        'approx'로 표시한다.
     """
+    ranks = RANKS if ranks is None else ranks
     r = solve4(M, growth_S)
 
     candidates = []
-    for rank, (lo, hi, Blo, Bhi, Bmid) in RANKS.items():
+    for rank, (lo, hi, Blo, Bhi, Bmid) in ranks.items():
         origin_real = [r[i] * 10000 / Bmid - 4.5 for i in range(4)]
         origin_int = [round(x) for x in origin_real]
         dev = max(abs(origin_real[i] - origin_int[i]) for i in range(4))

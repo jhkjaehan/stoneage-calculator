@@ -108,12 +108,20 @@ def main():
         except Exception as e:  # noqa: BLE001
             print(f"이미지 다운로드 실패: {p['name']} ({e})", file=sys.stderr)
 
+        # "세분화 RANK 가설"(다른 서버를 참고한 대안 계산, 확정 아님)도 같이
+        # 미리 계산해서 결과에 함께 담아둔다 (계산기 UI의 기존/세분화 탭용).
+        ext = common.calibrate_pet(p["growth_S"], p["init_S"], ranks=common.RANKS_EXT)
+
         entry = {
             "id": p["id"], "name": p["name"], "attr": p["attr"], "attrs": p["attrs"],
             "obtain": p["obtain"],
             "origin": calib.get("origin"), "k": calib.get("k"),
             "ok": calib["ok"], "approx": calib["approx"],
             "initS": p["init_S"], "growthS": p["growth_S"], "img": img_b64,
+            "confMain": common.confidence_score(calib, "main"),
+            "originAlt": ext.get("origin"), "kAlt": ext.get("k"),
+            "approxAlt": ext.get("approx", False),
+            "confAlt": common.confidence_score(ext, "ext") if ext.get("ok") else 0,
         }
         existing_by_id[p["id"]] = entry
         added.append({"id": p["id"], "name": p["name"], "ok": calib["ok"], "approx": calib["approx"]})

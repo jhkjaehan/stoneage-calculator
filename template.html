@@ -156,6 +156,32 @@ h1,h2,h3,.display{
   background:var(--danger-bg); color:var(--danger); border:1px solid var(--danger);
 }
 
+/* 기존/세분화 계산 방식 탭 (원산계수합이 높은 일부 펫에서만 노출) */
+.method-tabs{ display:flex; gap:4px; margin:2px 0 0; background:var(--surface-2); border-radius:10px; padding:3px; width:fit-content; }
+.method-tab-btn{
+  font-family:"Manrope",sans-serif; font-size:12.5px; font-weight:700; color:var(--text-muted);
+  background:none; border:none; border-radius:8px; padding:7px 12px; cursor:pointer;
+}
+.method-tab-btn:hover{ color:var(--text); }
+.method-tab-btn[aria-selected="true"]{ background:var(--surface); color:var(--accent); box-shadow:var(--shadow); }
+.method-tab-btn:focus-visible{ outline:2px solid var(--accent); outline-offset:1px; }
+.method-note{ font-size:12px; color:var(--text-muted); line-height:1.6; margin:8px 0 0; }
+
+/* 신뢰도 배지 — 어떤 방식이든 100%는 절대 안 나오게 설계되어 있음(위 method-note 참고) */
+.conf-badge{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin:12px 0 0;
+  padding:9px 12px; border-radius:10px; background:var(--surface-2); font-size:12.5px;
+  border:1px solid var(--border);
+}
+.conf-badge .conf-pct{ font-family:"JetBrains Mono",monospace; font-weight:700; font-size:14px; }
+.conf-badge.conf-high{ border-color:var(--accent2); }
+.conf-badge.conf-high .conf-pct{ color:var(--accent2); }
+.conf-badge.conf-mid{ border-color:var(--accent); }
+.conf-badge.conf-mid .conf-pct{ color:var(--accent); }
+.conf-badge.conf-low{ border-color:var(--danger); }
+.conf-badge.conf-low .conf-pct{ color:var(--danger); }
+.conf-badge .conf-caveat{ color:var(--text-muted); font-size:11px; }
+
 .attr-gauge-wrap{ display:flex; flex-direction:column; gap:6px; margin-top:14px; }
 .attr-row{ display:grid; grid-template-columns:22px 1fr 44px; align-items:center; gap:10px; }
 .attr-label{ font-family:"JetBrains Mono",monospace; font-size:13px; font-weight:700; text-align:center; }
@@ -418,6 +444,13 @@ h1,h2,h3,.display{
   let statVals = [0,0,0,0]; // 체 공 방 순 (내구 공격 방어 순발)
   const STAT_LABELS = ['내구력','공격력','방어력','순발력'];
 
+  // 'main'(기존, 서버 데이터로 검증된 RANK표) | 'alt'(세분화 가설 — 다른 서버의
+  // RANK 세분화 구조를 참고로 대입해본 것, 확정 아님). 펫이 바뀌면 항상 main으로 리셋.
+  let calcMethod = 'main';
+  function hasAltMethod(p){
+    return !!(p.originAlt && (p.origin.join(',') !== p.originAlt.join(',') || p.k !== p.kAlt));
+  }
+
   // ---- 즐겨찾기 (이 브라우저에만 저장, localStorage) ----
   const FAV_KEY = 'stoneage-calc-favorites';
   function loadFavorites(){
@@ -519,6 +552,7 @@ h1,h2,h3,.display{
     selectedId = id;
     const p = findPet(id);
     statVals = p.ok ? p.initS.slice() : [0,0,0,0];
+    calcMethod = 'main';
     renderGrid();
     renderDetail(p);
     if(p.ok){ runCalc(); } else { renderUnsupportedResult(p); }
@@ -701,21 +735,60 @@ h1,h2,h3,.display{
   function runCalc(){
     const p = findPet(selectedId);
     if(!p || !p.ok) return;
-    const {counts, matches, total} = computeGradeDist(p.origin, p.k, statVals);
+    const useAlt = calcMethod==='alt' && hasAltMethod(p);
+    const origin = useAlt ? p.originAlt : p.origin;
+    const k = useAlt ? p.kAlt : p.k;
+    const {counts, matches, total} = computeGradeDist(origin, k, statVals);
     lastMatches = matches;
     lastCounts = counts;
     openGrades = new Set();
     growthPanelOpen = false;
-    renderResults(p, counts, total);
+    renderResults(p, counts, total, useAlt);
   }
 
   function renderUnsupportedResult(p){
     els.results.innerHTML = `<div class="empty-state">‘${p.name}’은(는) 진화·환생 계열로 추정되어 원본계수 역산이 맞지 않았습니다. 등급 계산을 지원하지 않습니다.</div>`;
   }
 
-  function renderResults(p, counts, total){
+  function bindMethodTabs(){
+    els.results.querySelectorAll('.method-tab-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        if(btn.dataset.method === calcMethod) return;
+        calcMethod = btn.dataset.method;
+        runCalc();
+      });
+    });
+  }
+
+  function renderResults(p, counts, total, useAlt){
+    const hasAlt = hasAltMethod(p);
+    const isApprox = useAlt ? p.approxAlt : p.approx;
+    const conf = useAlt ? (p.confAlt||0) : (p.confMain||0);
+    const confCls = conf>=60 ? 'conf-high' : (conf>=30 ? 'conf-mid' : 'conf-low');
+    const originSum = p.origin.reduce((a,b)=>a+b,0);
+
+    const methodTabsHtml = hasAlt ? `
+      <div class="method-tabs" role="tablist">
+        <button type="button" class="method-tab-btn" data-method="main" role="tab" aria-selected="${String(!useAlt)}">① 기존 방식</button>
+        <button type="button" class="method-tab-btn" data-method="alt" role="tab" aria-selected="${String(!!useAlt)}">② 세분화 방식(타서버 참고)</button>
+      </div>
+      <p class="method-note">이 펫은 원본계수 합(${originSum})이 커서, 서버가 RANK 구간을 어디까지 잘게 나누는지에 따라 결과가 달라질 수 있습니다.
+        <b>① 기존 방식</b>은 지금까지 등록된 143마리 전량이 예외 없이 들어맞은, 우리 서버 데이터로 뒷받침된 구간표입니다.
+        <b>② 세분화 방식</b>은 서버 소스코드를 직접 확인할 수 없어서, 구조가 비슷한 다른(독립적으로 튜닝된) 서버의 세분화된 구간을 참고삼아 대입해본 가설입니다 — 검증된 결과가 아니라 참고용입니다.</p>
+    ` : '';
+
+    const confHtml = `
+      <div class="conf-badge ${confCls}">
+        <span>이 결과의 추정 신뢰도 <span class="conf-pct">${conf}%</span></span>
+        <span class="conf-caveat">※ 서버 소스코드를 직접 확인할 방법이 없어 어떤 방식도 100% 확정은 아닙니다. 신뢰도는 펫마다 자료 적합도에 따라 다릅니다.</span>
+      </div>`;
+
     if(total===0){
-      els.results.innerHTML = `<div class="empty-state">입력하신 초기치(${statVals.join('/')})와 일치하는 조합이 없습니다. 스탯을 다시 확인해주세요.</div>`;
+      els.results.innerHTML = `
+        ${methodTabsHtml}
+        ${confHtml}
+        <div class="empty-state">입력하신 초기치(${statVals.join('/')})와 일치하는 조합이 없습니다. 스탯을 다시 확인해주세요.</div>`;
+      if(hasAlt) bindMethodTabs();
       return;
     }
     const topGrade = GRADES.find(g=>counts[g]);
@@ -742,7 +815,9 @@ h1,h2,h3,.display{
         <p class="section-label" style="margin:0;">등급 감정 결과</p>
         <button type="button" class="icon-btn" id="growthRangeBtn" title="등급별 성장률 범위 보기" aria-expanded="false" hidden>📈 성장률 범위</button>
       </div>
-      ${p.approx ? `<p class="approx-note">⚠ 근사치 추정 개체 — 아래 확률은 참고용입니다.</p>` : ''}
+      ${methodTabsHtml}
+      ${confHtml}
+      ${isApprox ? `<p class="approx-note">⚠ 근사치 추정 개체 — 아래 확률은 참고용입니다.</p>` : ''}
       <div class="result-summary">
         <div class="rs-item"><div class="rv mono">${total.toLocaleString()}<span style="font-size:14px;color:var(--text-muted)"> / 178,750</span></div><div class="rl">일치 조합</div></div>
         <div class="rs-item"><div class="rv mono" style="color:var(--accent)">${topGrade}등급</div><div class="rl">최고 등급</div></div>
@@ -756,6 +831,7 @@ h1,h2,h3,.display{
       <div class="grade-list">${rows}</div>
     `;
     document.getElementById('growthRangeBtn').addEventListener('click', toggleGrowthPanel);
+    if(hasAlt) bindMethodTabs();
 
     els.results.querySelectorAll('.grade-row').forEach(btn=>{
       btn.addEventListener('click', ()=>{
