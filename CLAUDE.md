@@ -154,9 +154,15 @@ ohrsa.net petinfo에 아직 없는 펫을 사용자가 gif+수치로 직접 줄 
   `originAlt===origin`). `sync.py`가 신펫마다 자동 계산해서 채운다.
 - **UI**: `template.html`에서 두 방식 결과가 실제로 다른 펫(`hasAltMethod(p)`)
   에 한해서만 등급 감정 결과 위에 "① 기존 방식 / ② 세분화 방식(타서버 참고)"
-  탭이 뜬다(`calcMethod` 상태, `bindMethodTabs()`). 탭 여부와 무관하게 모든
-  결과에 `신뢰도 XX% + "100% 확정 불가" caveat` 배지가 항상 붙는다(`.conf-badge`,
-  `renderResults`의 `confHtml`).
+  탭이 뜬다(`calcMethod` 상태, `bindMethodTabs()`, 상시 노출 — 실제 조작
+  가능한 컨트롤이라 접지 않음). 신뢰도·방식설명·이상치경고는 전부
+  `<details class="info-details">`(`renderResults`의 `infoHtml`) 안에
+  통합되어 있어서, 평소엔 "신뢰도 XX% · ⚠ 근사치 · ⚠ 원본계수 이상치 ·
+  ⓘ 근거 보기" 한 줄 요약(`.info-summary`)만 보이고 클릭해야 전체 설명
+  문단(`.info-details-body`)이 펼쳐진다(2026-09-10, 예전엔 각각 별도
+  문단으로 항상 펼쳐져 있어서 화면을 많이 차지한다는 지적을 받고 네이티브
+  `<details>`로 통합함 — 새로 설명 문구를 추가할 땐 반드시 이 안에 넣을 것,
+  밖에 별도 상시노출 문단을 또 만들지 말 것).
 - **원본계수 반올림 오차(origin_dev) 이상치 경고** (2026-09-10 추가):
   `common.ORIGIN_DEV_OUTLIER_THRESHOLD=0.05`, `is_origin_dev_outlier()`.
   142마리 중 141마리는 origin_dev≤0.011인데 베로포리만 0.399로 압도적 이상치
