@@ -119,9 +119,13 @@ def main():
             "ok": calib["ok"], "approx": calib["approx"],
             "initS": p["init_S"], "growthS": p["growth_S"], "img": img_b64,
             "confMain": common.confidence_score(calib),
+            "originDevMain": calib.get("origin_dev"),
+            "devFlagMain": common.is_origin_dev_outlier(calib),
             "originAlt": ext.get("origin"), "kAlt": ext.get("k"),
             "approxAlt": ext.get("approx", False),
             "confAlt": common.confidence_score(ext),
+            "originDevAlt": ext.get("origin_dev") if ext.get("ok") else None,
+            "devFlagAlt": common.is_origin_dev_outlier(ext),
         }
         existing_by_id[p["id"]] = entry
         added.append({"id": p["id"], "name": p["name"], "ok": calib["ok"], "approx": calib["approx"]})

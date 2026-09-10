@@ -81,6 +81,21 @@ FIT_RESID_SCALE = 1.32      # 전체 펫 fit_resid 중앙값
 APPROX_PENALTY = 0.7        # 내림 기준 정확히 맞는 정수 k가 아예 없었을 때(근사치) 추가 감점
 CONFIDENCE_HARD_CAP = 97    # 서버 소스코드를 직접 볼 수 없으므로 계산상 100이 나와도 여기서 막는다
 
+# origin_dev(원본계수를 정수로 반올림하기 전 실수값이 정수에서 벗어난 정도,
+# 4개 성분 중 최댓값) 이상치 판정 기준. 142마리 중 141마리는 0.011 이하인데
+# 베로포리 하나만 0.399로 압도적으로 튀었다(과거 RANK 오판 사례였던 바로 그
+# 펫) — confidence_score의 growth_factor가 이 신호를 이미 반영은 하지만
+# (베로포리만 growth_factor<1), 신뢰도 %는 fit_resid 등 다른 요인과 섞여서
+# "이 펫은 원본계수 자체가 유독 불확실하다"는 원인이 묻힐 수 있어 별도로
+# 노출한다. 0.05는 관측된 정상 범위(≤0.011)의 5배 이상 여유를 둔 값.
+ORIGIN_DEV_OUTLIER_THRESHOLD = 0.05
+
+
+def is_origin_dev_outlier(calib):
+    """calib['origin_dev']가 정상 범위를 벗어난 이상치인지(=이 펫은 성장률만으로
+    원본계수를 정수로 특정하기 유독 애매했다는 뜻) 여부."""
+    return bool(calib.get("ok")) and calib.get("origin_dev", 0) > ORIGIN_DEV_OUTLIER_THRESHOLD
+
 
 def confidence_score(calib):
     """calib: calibrate_pet()의 반환값(어느 ranks 표로 계산했든 동일하게 적용).

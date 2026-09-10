@@ -182,6 +182,13 @@ h1,h2,h3,.display{
 .conf-badge.conf-low .conf-pct{ color:var(--danger); }
 .conf-badge .conf-caveat{ color:var(--text-muted); font-size:11px; }
 
+/* 원본계수 반올림 오차 이상치 경고 — 신뢰도 %와는 별개로, "이 펫은 성장률만으로
+   원본계수를 특정하기 유독 애매했다"는 원인을 직접 짚어주는 문구 (베로포리 사례) */
+.dev-outlier-note{
+  margin:10px 0 0; padding:9px 12px; border-radius:10px; font-size:12px; line-height:1.6;
+  background:var(--surface-2); color:var(--text); border-left:3px solid var(--accent);
+}
+
 .attr-gauge-wrap{ display:flex; flex-direction:column; gap:6px; margin-top:14px; }
 .attr-row{ display:grid; grid-template-columns:22px 1fr 44px; align-items:center; gap:10px; }
 .attr-label{ font-family:"JetBrains Mono",monospace; font-size:13px; font-weight:700; text-align:center; }
@@ -766,6 +773,8 @@ h1,h2,h3,.display{
     const conf = useAlt ? (p.confAlt||0) : (p.confMain||0);
     const confCls = conf>=60 ? 'conf-high' : (conf>=30 ? 'conf-mid' : 'conf-low');
     const originSum = p.origin.reduce((a,b)=>a+b,0);
+    const devFlag = useAlt ? p.devFlagAlt : p.devFlagMain;
+    const devVal = useAlt ? p.originDevAlt : p.originDevMain;
 
     const methodTabsHtml = hasAlt ? `
       <div class="method-tabs" role="tablist">
@@ -781,7 +790,8 @@ h1,h2,h3,.display{
       <div class="conf-badge ${confCls}">
         <span>이 결과의 추정 신뢰도 <span class="conf-pct">${conf}%</span></span>
         <span class="conf-caveat">※ 이 origin·k로 성장률·초기치를 다시 계산했을 때 실제 표기값과 벌어지는 오차를 근거로 산출됩니다. 서버 소스코드를 직접 확인할 방법이 없어 100% 확정은 없습니다.</span>
-      </div>`;
+      </div>
+      ${devFlag ? `<p class="dev-outlier-note">⚠ 이 펫은 표기 성장률만으로 원본계수를 정수로 특정하는 과정에서 반올림 오차(${devVal.toFixed(3)})가 다른 펫들(대부분 0.01 이하)보다 유독 큽니다 — 원본계수·등급 확률이 다른 조합으로 바뀔 가능성이 평소보다 높은 펫입니다.</p>` : ''}`;
 
     if(total===0){
       els.results.innerHTML = `
