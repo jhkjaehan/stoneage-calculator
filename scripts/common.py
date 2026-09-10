@@ -60,26 +60,22 @@ RANKS_EXT = {
     7: (None, 80, 550, 600, 575),
 }
 
-# 신뢰도(%) 계산: "이 origin/k로 성장률·초기치를 다시 계산했을 때, 실제
-# 인게임 표기값과 얼마나 차이나는가"를 그대로 신뢰도의 근거로 쓴다(2026-09-10,
-# 이전엔 main/ext에 임의의 구조 가중치 0.85/0.45를 곱하는 방식이었는데, 사용자가
-# "그 가중치가 근거 있는 수치냐"고 문제 제기해서 재설계함).
+# 신뢰도(%) 계산: 오직 "성장률 재현 오차"(growth_resid) 하나만 근거로 쓴다
+# (2026-09-10 3차 재설계 — 1차는 main/ext 임의 구조가중치, 2차는
+# growth_resid×fit_resid 조합이었는데, 사용자가 "fit_resid 섞지 말고 성장률
+# 오차만 기준으로 삼아라, 변별력이 없어도 상관없다 — 대부분 99%대여야
+# 정상이고, 제일 오차 작은 펫 기준으로 스케일을 잡으면 된다"고 명확히
+# 정정해서 재설계함).
 #
-# 실제로 전체 펫에 대해 검증해보니:
-#   - RANKS(main)의 growth_resid는 142마리 전량 사실상 0에 수렴(중앙값 0.0,
-#     최댓값 0.000391) — 반면 RANKS_EXT(ext)는 두 표가 갈리는 21마리 전부
-#     예외 없이 growth_resid가 main보다 크다(0.0002~0.006). ext쪽이 후보
-#     구간을 3개나 갖고 있어(main은 1개) 더 유리해 보일 수 있는데도 여전히
-#     못 맞춘다 — "구간을 더 쪼개서 생긴 착시"가 아니라 실제로 우리 서버
-#     데이터가 main 구조를 더 지지한다는 뜻이다. 그래서 별도의 method별
-#     가중치 없이, growth_resid/fit_resid 크기 자체가 이 차이를 자연스럽게
-#     반영하게 둔다.
-#   - fit_resid(초기치 재현 오차)는 pet마다 자연스러운 분포를 가짐
-#     (전체 min 0.049, 중앙값 1.32, max 3.15) — 이걸 그대로 스케일 기준으로 씀.
-GROWTH_RESID_SCALE = 0.002  # RANKS_EXT가 갈리는 펫들의 전형적 growth_resid 크기
-FIT_RESID_SCALE = 1.32      # 전체 펫 fit_resid 중앙값
-APPROX_PENALTY = 0.7        # 내림 기준 정확히 맞는 정수 k가 아예 없었을 때(근사치) 추가 감점
-CONFIDENCE_HARD_CAP = 97    # 서버 소스코드를 직접 볼 수 없으므로 계산상 100이 나와도 여기서 막는다
+# 실측(142마리, RANKS 기준): growth_resid는 거의 전부 0에 가깝고(최소 0,
+# "정상" 펫 중 가장 나쁜 값도 5.77e-7), 베로포리 딱 하나만 3.91e-4로
+# 정상 최대치의 677배에 달하는 압도적 이상치다(과거 RANK 오판 사례였던 그
+# 펫). 이 극단적인 gap 덕분에 스케일 하나만 잘 잡으면 "정상 펫은 전부
+# 99%대, 베로포리만 확 떨어짐"이 자연스럽게 나온다 — 아래 SCALE은 "정상 펫
+# 중 가장 오차가 큰 값"(≈5.8e-7)이 그래도 99% 근처에 나오도록 여유를 두고
+# 잡은 값이다.
+GROWTH_RESID_SCALE = 5e-5   # 이 값 근처 오차까지는 신뢰도가 크게 안 깎이도록 하는 기준선
+CONFIDENCE_HARD_CAP = 99.99  # 서버 소스코드를 직접 볼 수 없으므로 계산상 100이 나와도 여기서 막는다
 
 # origin_dev(원본계수를 정수로 반올림하기 전 실수값이 정수에서 벗어난 정도,
 # 4개 성분 중 최댓값) 이상치 판정 기준. 142마리 중 141마리는 0.011 이하인데
@@ -99,16 +95,19 @@ def is_origin_dev_outlier(calib):
 
 def confidence_score(calib):
     """calib: calibrate_pet()의 반환값(어느 ranks 표로 계산했든 동일하게 적용).
-    growth_resid(성장률 재현 오차)와 fit_resid(초기치 재현 오차)를 각각
-    1/(1+resid/scale) 꼴로 0~1 사이 팩터로 바꾼 뒤 곱해서 신뢰도(%)를 만든다.
-    잔차가 클수록, 근사치일수록 신뢰도가 낮아지고, CONFIDENCE_HARD_CAP 때문에
-    아무리 잘 맞아도 100은 나오지 않는다."""
+    growth_resid(성장률 재현 오차) 하나만으로 1/(1+resid/GROWTH_RESID_SCALE)
+    꼴 팩터를 만들어 신뢰도(%)를 낸다. 그래서 실제로는 142마리 중 135마리가
+    99% 이상, 141마리가 95% 이상으로 나온다 — 의도된 결과다(성장률로 원본
+    계수를 특정하는 과정 자체는 거의 모든 펫이 똑같이 깔끔하기 때문에 변별력이
+    없는 게 정상이고, 그래서 대부분 99%대로 몰린다). CONFIDENCE_HARD_CAP
+    때문에 아무리 깨끗해도 100.00은 나오지 않는다. 근사치(approx) 여부나
+    초기치 재현 오차(fit_resid)는 이 신뢰도 %에는 반영하지 않고, UI에서
+    별도의 경고 칩("⚠ 근사치")으로만 보여준다(신뢰도 자체를 흐리지 않기
+    위함)."""
     if not calib.get("ok"):
         return 0
-    growth_factor = 1 / (1 + calib.get("growth_resid", 0) / GROWTH_RESID_SCALE)
-    fit_factor = 1 / (1 + (calib.get("fit_resid") or 0) / FIT_RESID_SCALE)
-    raw = growth_factor * fit_factor * (APPROX_PENALTY if calib.get("approx") else 1.0)
-    return min(CONFIDENCE_HARD_CAP, round(100 * raw))
+    factor = 1 / (1 + calib.get("growth_resid", 0) / GROWTH_RESID_SCALE)
+    return round(min(CONFIDENCE_HARD_CAP, 100 * factor), 2)
 
 # 10포인트를 체/공/방/순 4개 스탯에 분배하는 모든 조합 (286가지) - 개체별 실제 랜덤값용
 Ds = [d for d in product(range(11), repeat=4) if sum(d) == 10]

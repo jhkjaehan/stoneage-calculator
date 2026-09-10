@@ -779,7 +779,7 @@ h1,h2,h3,.display{
     const hasAlt = hasAltMethod(p);
     const isApprox = useAlt ? p.approxAlt : p.approx;
     const conf = useAlt ? (p.confAlt||0) : (p.confMain||0);
-    const confCls = conf>=60 ? 'conf-high' : (conf>=30 ? 'conf-mid' : 'conf-low');
+    const confCls = conf>=90 ? 'conf-high' : (conf>=50 ? 'conf-mid' : 'conf-low');
     const originSum = p.origin.reduce((a,b)=>a+b,0);
     const devFlag = useAlt ? p.devFlagAlt : p.devFlagMain;
     const devVal = useAlt ? p.originDevAlt : p.originDevMain;
@@ -797,15 +797,15 @@ h1,h2,h3,.display{
     const infoHtml = `
       <details class="info-details">
         <summary class="info-summary">
-          <span class="conf-pill ${confCls}">신뢰도 ${conf}%</span>
+          <span class="conf-pill ${confCls}">신뢰도 ${conf.toFixed(2)}%</span>
           ${warnChips}
           <span class="info-summary-label">ⓘ 근거 보기</span>
         </summary>
         <div class="info-details-body">
           ${hasAlt ? `<p>이 펫은 원본계수 합(${originSum})이 커서, 서버가 RANK 구간을 어디까지 잘게 나누는지에 따라 결과가 달라질 수 있습니다.
             <b>① 기존 방식</b>은 지금까지 등록된 143마리 전량이 예외 없이 들어맞은, 우리 서버 데이터로 뒷받침된 구간표입니다.
-            <b>② 세분화 방식</b>은 서버 소스코드를 직접 확인할 수 없어서, 구조가 비슷한 다른(독립적으로 튜닝된) 서버의 세분화된 구간을 참고삼아 대입해본 가설입니다 — 실제로 이 펫의 표기 성장률·초기치를 그 가설로 다시 계산해보면 ①보다 오차가 더 크게 나오는 경우가 많아, 신뢰도에도 그대로 반영됩니다.</p>` : ''}
-          <p>※ 신뢰도는 이 origin·k로 성장률·초기치를 다시 계산했을 때 실제 표기값과 벌어지는 오차를 근거로 산출됩니다. 서버 소스코드를 직접 확인할 방법이 없어 100% 확정은 없습니다.</p>
+            <b>② 세분화 방식</b>은 서버 소스코드를 직접 확인할 수 없어서, 구조가 비슷한 다른(독립적으로 튜닝된) 서버의 세분화된 구간을 참고삼아 대입해본 가설입니다 — 실제로 이 펫의 표기 성장률을 그 가설로 다시 계산해보면 ①보다 오차가 항상 더 크게 나와서, 신뢰도에도 그대로 반영됩니다.</p>` : ''}
+          <p>※ 신뢰도는 이 origin으로 성장률을 다시 계산했을 때 실제 표기 성장률과 벌어지는 오차만을 근거로 산출됩니다(초기치 쪽 오차는 반영하지 않음 — 근사치 여부는 위 칩으로 별도 표시). 원본계수를 성장률만으로 특정하는 과정 자체는 대부분의 펫이 거의 완벽하게 들어맞기 때문에, 정상적인 펫이라면 대부분 99%대로 나오는 게 정상입니다. 서버 소스코드를 직접 확인할 방법이 없어 100% 확정은 없습니다.</p>
           ${devFlag ? `<p>⚠ 이 펫은 표기 성장률만으로 원본계수를 정수로 특정하는 과정에서 반올림 오차(${devVal.toFixed(3)})가 다른 펫들(대부분 0.01 이하)보다 유독 큽니다 — 원본계수·등급 확률이 다른 조합으로 바뀔 가능성이 평소보다 높은 펫입니다.</p>` : ''}
         </div>
       </details>`;
