@@ -1,61 +1,11 @@
 {
   "checked_total": 164,
-  "added": [
-    {
-      "id": "182",
-      "name": "꼬비오",
-      "ok": true,
-      "approx": false
-    },
-    {
-      "id": "181",
-      "name": "꼬비",
-      "ok": true,
-      "approx": false
-    },
-    {
-      "id": "180",
-      "name": "꼬꼬비",
-      "ok": true,
-      "approx": false
-    },
-    {
-      "id": "179",
-      "name": "꼬미",
-      "ok": true,
-      "approx": false
-    },
-    {
-      "id": "178",
-      "name": "카르곤",
-      "ok": true,
-      "approx": false
-    }
-  ],
+  "added": [],
   "needs_review": [],
   "changed_existing": [],
-  "replaced_manual": [
-    {
-      "old_id": "m4",
-      "new_id": "182",
-      "name": "꼬비오"
-    },
-    {
-      "old_id": "m2",
-      "new_id": "181",
-      "name": "꼬비"
-    },
-    {
-      "old_id": "m3",
-      "new_id": "180",
-      "name": "꼬꼬비"
-    },
-    {
-      "old_id": "m1",
-      "new_id": "179",
-      "name": "꼬미"
-    }
+  "replaced_manual": [],
+  "attrs_refreshed_names": [
+    "꼬미"
   ],
-  "attrs_refreshed_names": [],
-  "order_changed": true
+  "order_changed": false
 }
