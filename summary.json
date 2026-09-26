@@ -1,11 +1,130 @@
 {
-  "checked_total": 164,
-  "added": [],
-  "needs_review": [],
+  "checked_total": 181,
+  "added": [
+    {
+      "id": "199",
+      "name": "익시노돈",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "198",
+      "name": "하르가",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "197",
+      "name": "블루문",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "196",
+      "name": "노르곤",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "195",
+      "name": "한복밍코",
+      "ok": true,
+      "approx": true
+    },
+    {
+      "id": "194",
+      "name": "한복메이",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "193",
+      "name": "흑기린",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "192",
+      "name": "라이쿠스",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "191",
+      "name": "바라쿠스",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "190",
+      "name": "그램고르",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "189",
+      "name": "지고르",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "188",
+      "name": "어린 흑룡",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "187",
+      "name": "어린 백룡",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "186",
+      "name": "어린 골드 드래곤",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "185",
+      "name": "어린 어스 드래곤",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "184",
+      "name": "어린 아이스 드래곤",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "183",
+      "name": "어린 레드 드래곤",
+      "ok": true,
+      "approx": false
+    }
+  ],
+  "needs_review": [
+    {
+      "id": "195",
+      "name": "한복밍코",
+      "status": "근사치",
+      "growth_S": [
+        9.951,
+        2.046,
+        1.234,
+        1.781
+      ],
+      "init_S": [
+        56,
+        11,
+        7,
+        110
+      ]
+    }
+  ],
   "changed_existing": [],
   "replaced_manual": [],
-  "attrs_refreshed_names": [
-    "꼬미"
-  ],
-  "order_changed": false
+  "attrs_refreshed_names": [],
+  "order_changed": true
 }
