@@ -81,10 +81,12 @@ wrangler.toml          Cloudflare **Pages** 배포용 (한때 Workers로 잘못 
 3. 가능하면 최소한의 DOM 스텁(FakeEl/getElementById 정도)으로 `selectPet`,
    `runCalc` 등을 실제 호출해서 예외 없이 도는지 확인하고 커밋한다 (헤드리스
    브라우저 없음, 스크린샷 불가능한 환경).
-4. 커밋만 하고 **push는 하지 않는다** — 이 환경엔 GitHub 인증정보가 없어서
-   push는 항상 사용자가 직접 한다(사용자 쪽 `credential.helper store` 설정
-   되어 있어서 보통 바로 됨). 커밋 후 "git push 해주시면 반영됩니다"라고
-   안내할 것.
+4. 커밋 후 **바로 `git push`까지 자동으로 한다** (2026-09-26, 사용자 지시로
+   변경 — 예전엔 "이 환경엔 GitHub 인증정보가 없다"고 알고 커밋만 하고
+   push는 사용자가 직접 하게 했었는데, 실제로는 `credential.helper store`
+   설정 덕에 push가 바로 되는 걸 확인했고, 사용자가 매번 직접 push하는
+   번거로움을 없애 달라고 명시적으로 요청함). push가 실패하면(원격이
+   앞서있는 등) 억지로 force하지 말고 사용자에게 상황을 알릴 것.
 5. Claude 아티팩트(claude.ai/code/artifact/...)는 **더 이상 쓰지 않음** —
    Cloudflare Pages가 유일한 실배포처. 아티팩트 관련 작업 요청받지 않는 한
    건드리지 말 것.
