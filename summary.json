@@ -1,125 +1,292 @@
 {
-  "checked_total": 181,
+  "checked_total": 223,
   "added": [
     {
-      "id": "199",
-      "name": "익시노돈",
+      "id": "241",
+      "name": "토라",
       "ok": true,
       "approx": false
     },
     {
-      "id": "198",
-      "name": "하르가",
+      "id": "240",
+      "name": "불카노스",
       "ok": true,
       "approx": false
     },
     {
-      "id": "197",
-      "name": "블루문",
+      "id": "239",
+      "name": "스텐토스",
       "ok": true,
       "approx": false
     },
     {
-      "id": "196",
-      "name": "노르곤",
+      "id": "238",
+      "name": "샤우트",
       "ok": true,
       "approx": false
     },
     {
-      "id": "195",
-      "name": "한복밍코",
+      "id": "237",
+      "name": "부루마루",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "236",
+      "name": "마크론",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "235",
+      "name": "토우트",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "234",
+      "name": "토룡",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "233",
+      "name": "노스토로스",
       "ok": true,
       "approx": true
     },
     {
-      "id": "194",
-      "name": "한복메이",
+      "id": "232",
+      "name": "테라곤",
       "ok": true,
       "approx": false
     },
     {
-      "id": "193",
-      "name": "흑기린",
+      "id": "231",
+      "name": "링코",
       "ok": true,
       "approx": false
     },
     {
-      "id": "192",
-      "name": "라이쿠스",
+      "id": "230",
+      "name": "기린",
       "ok": true,
       "approx": false
     },
     {
-      "id": "191",
-      "name": "바라쿠스",
+      "id": "229",
+      "name": "스피노",
       "ok": true,
       "approx": false
     },
     {
-      "id": "190",
-      "name": "그램고르",
+      "id": "228",
+      "name": "차이혼",
       "ok": true,
       "approx": false
     },
     {
-      "id": "189",
-      "name": "지고르",
+      "id": "227",
+      "name": "핑코",
       "ok": true,
       "approx": false
     },
     {
-      "id": "188",
-      "name": "어린 흑룡",
+      "id": "226",
+      "name": "램가스",
       "ok": true,
       "approx": false
     },
     {
-      "id": "187",
-      "name": "어린 백룡",
+      "id": "225",
+      "name": "칼로스",
       "ok": true,
       "approx": false
     },
     {
-      "id": "186",
-      "name": "어린 골드 드래곤",
+      "id": "224",
+      "name": "봉봉",
       "ok": true,
       "approx": false
     },
     {
-      "id": "185",
-      "name": "어린 어스 드래곤",
+      "id": "223",
+      "name": "만모드",
       "ok": true,
       "approx": false
     },
     {
-      "id": "184",
-      "name": "어린 아이스 드래곤",
+      "id": "222",
+      "name": "푸모나스",
       "ok": true,
       "approx": false
     },
     {
-      "id": "183",
-      "name": "어린 레드 드래곤",
+      "id": "221",
+      "name": "실버로스",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "220",
+      "name": "메모스",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "219",
+      "name": "노라키토스",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "218",
+      "name": "브라키오스",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "217",
+      "name": "푸비토스",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "216",
+      "name": "기트로스",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "215",
+      "name": "라가로스",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "214",
+      "name": "지가로스",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "213",
+      "name": "타루쟈",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "212",
+      "name": "푸보",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "211",
+      "name": "노라돈",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "210",
+      "name": "고라돈",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "209",
+      "name": "실버고르돈",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "208",
+      "name": "철기돈",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "207",
+      "name": "카이비",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "206",
+      "name": "키라비",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "205",
+      "name": "연두큐이",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "204",
+      "name": "블루카비트",
+      "ok": true,
+      "approx": true
+    },
+    {
+      "id": "203",
+      "name": "범링",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "202",
+      "name": "토끼",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "201",
+      "name": "라스키",
+      "ok": true,
+      "approx": false
+    },
+    {
+      "id": "200",
+      "name": "노스키",
       "ok": true,
       "approx": false
     }
   ],
   "needs_review": [
     {
-      "id": "195",
-      "name": "한복밍코",
+      "id": "233",
+      "name": "노스토로스",
       "status": "근사치",
       "growth_S": [
-        9.951,
-        2.046,
-        1.234,
-        1.781
+        10.138,
+        1.925,
+        1.684,
+        1.364
       ],
       "init_S": [
-        56,
-        11,
+        5,
+        43,
+        8,
+        7
+      ]
+    },
+    {
+      "id": "204",
+      "name": "블루카비트",
+      "status": "근사치",
+      "growth_S": [
+        10.321,
+        1.84,
+        1.606,
+        1.658
+      ],
+      "init_S": [
+        39,
         7,
-        110
+        5,
+        6
       ]
     }
   ],
